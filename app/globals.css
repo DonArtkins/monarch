@@ -407,6 +407,7 @@ body {
 .indicator-line.active {
   animation: indicator-line 0.5s ease infinite;
   animation-delay: calc(var(--animation-order) * 0.1s);
+  box-shadow: 0 0 8px var(--monarch-purple);
 }
 
 @keyframes indicator-line {
