@@ -142,7 +142,7 @@ const NavBar = () => {
     </div>
 
     {/* Mobile Menu Overlay - Moved outside transformed container */}
-    <div className="mobile-menu fixed inset-0 z-[60] flex flex-col bg-monarch-void/95 backdrop-blur-xl md:hidden translate-x-full opacity-0">
+    <div className="mobile-menu fixed inset-0 z-60 flex flex-col bg-monarch-void/95 backdrop-blur-xl md:hidden translate-x-full opacity-0">
       <div className="flex flex-col items-center justify-center h-full gap-8">
         {navItems.map((item) => (
           <a

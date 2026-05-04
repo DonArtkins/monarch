@@ -7,12 +7,21 @@ interface ButtonProps {
   rightIcon?: ReactNode;
   leftIcon?: ReactNode;
   containerClass?: string;
+  onClick?: () => void;
 }
 
-const Button = ({ title, id, rightIcon, leftIcon, containerClass }: ButtonProps) => {
+const Button = ({
+  title,
+  id,
+  rightIcon,
+  leftIcon,
+  containerClass,
+  onClick,
+}: ButtonProps) => {
   return (
     <button
       id={id}
+      onClick={onClick}
       className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-accent px-7 py-3 text-black ${containerClass}`}
     >
       {leftIcon}
