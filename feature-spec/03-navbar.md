@@ -4,7 +4,7 @@
 Floating nav with scroll-aware visibility, Solo Leveling themed navigation items, audio controls for BGM, and Monarch logo integration.
 
 ## Tasks
-1. **Nav Items**: Replace Zentry items with Solo Leveling themed: "Dungeons", "Shadows", "Chronicle", "About", "Awaken"
+1. **Nav Items**: Replace Zentry items with Solo Leveling themed: "Dungeons", "Shadows", "Chronicle", "About", "Arise"
 2. **Logo**: Integrate Monarch SVG logo replacing Zentry's `logo.png`
 3. **Audio**: Wire up `bgm.mp3` via the existing audio toggle mechanism
 4. **CTA Button**: Replace "Products" with "Arise" button

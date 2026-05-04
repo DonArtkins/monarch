@@ -66,8 +66,8 @@ const NavBar = () => {
             <Image src="/images/logo.svg" alt="Monarch" width={120} height={30} className="w-28" />
 
             <Button
-              id="arise-button"
-              title="Arise"
+              id="awaken-button"
+              title="Awaken"
               rightIcon={<TiLocationArrow />}
               containerClass="bg-monarch-purple text-monarch-text md:flex hidden items-center justify-center gap-1"
             />

@@ -145,7 +145,7 @@ const Hero = () => {
         </div>
 
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-monarch-purple">
-          A<b>w</b>aken
+          <b>A</b>rise
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
