@@ -1,0 +1,17 @@
+import type {Metadata} from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'MONARCH',
+  description: 'Project Monarch migrated from Zentry',
+};
+
+export default function RootLayout({children}: {children: React.ReactNode}) {
+  return (
+    <html lang="en">
+      <body suppressHydrationWarning>
+        {children}
+      </body>
+    </html>
+  );
+}
