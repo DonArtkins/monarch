@@ -1,19 +1,19 @@
 "use client";
-import { FaDiscord, FaTwitter, FaYoutube, FaMedium } from "react-icons/fa";
+import { FaDiscord, FaXTwitter, FaYoutube, FaMedium } from "react-icons/fa6";
 
 const links = [
   { href: "https://discord.com", icon: <FaDiscord /> },
-  { href: "https://twitter.com", icon: <FaTwitter /> },
+  { href: "https://x.com", icon: <FaXTwitter /> },
   { href: "https://youtube.com", icon: <FaYoutube /> },
   { href: "https://medium.com", icon: <FaMedium /> },
 ];
 
 const Footer = () => {
   return (
-    <footer className="w-screen bg-accent py-4 text-black">
+    <footer className="w-screen bg-monarch-purple py-4 text-monarch-text">
       <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
         <p className="text-center text-sm md:text-left">
-          &copy; Zentry 2025. All rights reserved
+          &copy; Monarch 2026. All rights reserved
         </p>
 
         <div className="flex justify-center gap-4 md:justify-start">
@@ -23,7 +23,7 @@ const Footer = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black transition-colors duration-500 ease-in-out hover:text-white"
+              className="text-monarch-text transition-colors duration-500 ease-in-out hover:text-monarch-blue"
             >
               {link.icon}
             </a>

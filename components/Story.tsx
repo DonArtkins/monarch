@@ -45,15 +45,15 @@ const Story = () => {
   };
 
   return (
-    <section id="story" className="min-h-dvh w-screen bg-black text-primary-50">
+    <section id="story" className="min-h-dvh w-screen bg-monarch-void text-monarch-text">
       <div className="flex size-full flex-col items-center py-10 pb-24">
-        <p className="font-general text-sm uppercase md:text-[10px]">
-          the multiversal ip world
+        <p className="font-general text-sm uppercase text-monarch-text-dim md:text-[10px]">
+          The Sovereign&apos;s Chronicle
         </p>
 
         <div className="relative size-full">
           <AnimatedTitle
-            title="The st<b>o</b>ry of <br /> a hidden real<b>m</b>"
+            title="The st<b>o</b>ry of <br /> a Shadow M<b>o</b>narch"
             containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10"
           />
 
@@ -66,8 +66,8 @@ const Story = () => {
                   onMouseUp={handleMouseLeave}
                   onMouseEnter={handleMouseLeave}
                   onMouseMove={handleMouseMove}
-                  src="/img/entrance.webp"
-                  alt="entrance"
+                  src="/images/kamish.jpeg"
+                  alt="The Monarch's Domain"
                   className="object-contain"
                 />
               </div>
@@ -79,16 +79,16 @@ const Story = () => {
 
         <div className="-mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end">
           <div className="flex h-full w-fit flex-col items-center md:items-start">
-            <p className="mt-3 max-w-sm text-center font-circular text-violet-50 md:text-start">
-              Where realms converge, lies Zentry and the boundless pillar.
-              Discover its secrets and shape your fate amidst infinite
-              opportunities.
+            <p className="mt-3 max-w-sm text-center font-circular text-monarch-text-dim md:text-start">
+              From the weakest E-rank hunter to the sovereign of shadows.
+              Discover the path of the Shadow Monarch and shape your fate
+              amidst infinite dungeons.
             </p>
 
             <Button
-              id="realm-btn"
-              title="discover prologue"
-              containerClass="mt-5 bg-primary-50"
+              id="dungeon-btn"
+              title="Enter the Dungeon"
+              containerClass="mt-5 bg-monarch-text text-monarch-void"
             />
           </div>
         </div>
