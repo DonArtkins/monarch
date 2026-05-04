@@ -112,7 +112,6 @@ const Hero = () => {
               className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
             >
               <video
-                ref={nextVideoRef}
                 src={getVideoSrc(upcomingVideoIndex)}
                 loop
                 muted
@@ -133,9 +132,7 @@ const Hero = () => {
           />
 
           <video
-            src={getVideoSrc(
-              currentIndex === totalVideos - 1 ? 1 : currentIndex
-            )}
+            src={getVideoSrc(currentIndex)}
             autoPlay
             loop
             muted
@@ -145,7 +142,7 @@ const Hero = () => {
         </div>
 
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-monarch-purple">
-          <b>A</b>rise
+          A<b>w</b>aken
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
