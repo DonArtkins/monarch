@@ -1,7 +1,47 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Define custom fonts */
+/* ============================================================
+   MONARCH DESIGN SYSTEM — Solo Leveling Dark Theme
+   All theme tokens are CSS custom properties for global control.
+   ============================================================ */
+
+:root {
+  /* Core Palette */
+  --monarch-void: #030014;
+  --monarch-abyss: #0a0a1a;
+  --monarch-surface: #111128;
+  --monarch-surface-light: #1a1a3e;
+
+  /* Accent Colors */
+  --monarch-purple: #7B2FF7;
+  --monarch-purple-dim: #5a1fd4;
+  --monarch-blue: #00D4FF;
+  --monarch-blue-dim: #0099bb;
+  --monarch-red: #FF1744;
+  --monarch-gold: #FFD700;
+
+  /* Text */
+  --monarch-text: #E8E8E8;
+  --monarch-text-dim: #9090B0;
+  --monarch-text-muted: #606080;
+
+  /* Borders & Overlays */
+  --monarch-border: rgb(255 255 255 / 0.08);
+  --monarch-border-hover: rgb(255 255 255 / 0.15);
+  --monarch-glass: rgb(10 10 26 / 0.6);
+
+  /* Animation */
+  --monarch-ease: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --monarch-duration-fast: 0.2s;
+  --monarch-duration-base: 0.3s;
+  --monarch-duration-slow: 0.6s;
+
+  /* Spacing */
+  --monarch-nav-height: 4rem;
+}
+
+/* Font Faces */
 @font-face {
   font-family: "zentry";
   src: url("/fonts/zentry-regular.woff2") format("woff2");
@@ -42,38 +82,52 @@
   font-display: swap;
 }
 
+/* Tailwind v4 Theme Extension */
 @theme {
-  /* Custom Fonts */
   --font-zentry: "zentry", ui-sans-serif, system-ui, sans-serif;
   --font-general: "general", ui-sans-serif, system-ui, sans-serif;
   --font-circular: "circular-web", ui-sans-serif, system-ui, sans-serif;
   --font-robert-medium: "robert-medium", ui-sans-serif, system-ui, sans-serif;
   --font-robert-regular: "robert-regular", ui-sans-serif, system-ui, sans-serif;
 
-  /* Custom Colors */
-  --color-primary-50: #dfdff0;
-  --color-primary-75: #dfdff2;
-  --color-primary-100: #f0f2fa;
-  --color-primary-200: #010101;
-  --color-primary-300: #4fb7dd;
+  --color-monarch-void: #030014;
+  --color-monarch-abyss: #0a0a1a;
+  --color-monarch-surface: #111128;
+  --color-monarch-purple: #7B2FF7;
+  --color-monarch-blue: #00D4FF;
+  --color-monarch-red: #FF1744;
+  --color-monarch-gold: #FFD700;
+  --color-monarch-text: #E8E8E8;
+  --color-monarch-text-dim: #9090B0;
 
-  --color-accent: #5724ff;
+  /* Legacy Tailwind color mappings (keeps existing class usage working) */
+  --color-primary-50: #E8E8E8;
+  --color-primary-75: #0a0a1a;
+  --color-primary-100: #E8E8E8;
+  --color-primary-200: #030014;
+  --color-primary-300: #00D4FF;
 
-  --color-secondary-100: #8e983f;
-  --color-secondary-300: #edff66;
+  --color-accent: #7B2FF7;
+
+  --color-secondary-100: #5a1fd4;
+  --color-secondary-300: #00D4FF;
 }
 
-/* Global body styles */
+/* Global Body */
 body {
   font-family: "general", sans-serif;
   width: 100dvw;
-  background-color: #dfdff0;
+  background-color: var(--monarch-void);
+  color: var(--monarch-text);
   overflow-x: hidden;
 }
 
-/* Custom Utilities - Using @utility directive for v4 */
+/* =========================
+   UTILITY CLASSES
+   ========================= */
+
 @utility border-hsla {
-  border: 1px solid rgb(255 255 255 / 0.2);
+  border: 1px solid var(--monarch-border);
 }
 
 @utility nav-hover-btn {
@@ -83,7 +137,7 @@ body {
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
-  color: #dfdff0;
+  color: var(--monarch-text);
   cursor: pointer;
 
   &::after {
@@ -93,28 +147,23 @@ body {
     left: 0;
     height: 2px;
     width: 100%;
-    background-color: rgb(38 38 38);
+    background-color: var(--monarch-purple);
     transform-origin: bottom right;
     transform: scaleX(0);
-    transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition: transform var(--monarch-duration-base) var(--monarch-ease);
   }
 
   &:hover::after {
     transform-origin: bottom left;
     transform: scaleX(1);
   }
-
-  @media (prefers-color-scheme: dark) {
-    &::after {
-      background-color: white;
-    }
-  }
 }
 
 @utility floating-nav {
-  background-color: black;
+  background-color: var(--monarch-abyss);
   border-radius: 0.5rem;
-  border: 1px solid;
+  border: 1px solid var(--monarch-border);
+  backdrop-filter: blur(12px);
 }
 
 @utility absolute-center {
@@ -196,7 +245,7 @@ body {
   font-size: 4.5rem;
   line-height: 1;
   text-transform: uppercase;
-  color: white;
+  color: var(--monarch-text);
 
   @media (min-width: 640px) {
     padding-left: 8rem;
@@ -223,8 +272,8 @@ body {
   grid-column: span 2;
   overflow: hidden;
   border-radius: 0.375rem;
-  border: 1px solid rgb(255 255 255 / 0.2);
-  transition: transform 0.3s ease-out;
+  border: 1px solid var(--monarch-border);
+  transition: transform var(--monarch-duration-base) ease-out;
 }
 
 @utility bento-tilt_2 {
@@ -233,7 +282,7 @@ body {
   grid-row: span 1;
   overflow: hidden;
   border-radius: 0.375rem;
-  transition: transform 0.3s ease-out;
+  transition: transform var(--monarch-duration-base) ease-out;
 }
 
 @utility bento-title {
@@ -302,7 +351,7 @@ body {
   width: 16rem;
   height: 16rem;
   overflow: hidden;
-  background-color: #5724ff;
+  background-color: var(--monarch-purple);
 }
 
 @utility gallery-img {
@@ -337,7 +386,10 @@ body {
   clip-path: polygon(29% 15%, 85% 30%, 50% 100%, 10% 64%);
 }
 
-/* Special Font Styling */
+/* =========================
+   COMPONENT STYLES
+   ========================= */
+
 .special-font b {
   font-family: "zentry", sans-serif;
   font-feature-settings: "ss01" on;
@@ -348,8 +400,8 @@ body {
   height: 0.25rem;
   width: 1px;
   border-radius: 9999px;
-  background-color: white;
-  transition: all 0.2s ease-in-out;
+  background-color: var(--monarch-purple);
+  transition: all var(--monarch-duration-fast) ease-in-out;
 }
 
 .indicator-line.active {
@@ -372,11 +424,11 @@ body {
   }
 }
 
-/* Three Body Loader Animation */
+/* Three Body Loader — themed for Monarch */
 .three-body {
   --uib-size: 35px;
   --uib-speed: 0.8s;
-  --uib-color: #5d3fd3;
+  --uib-color: var(--monarch-purple);
   position: relative;
   display: inline-block;
   height: var(--uib-size);

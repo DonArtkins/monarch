@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -14,18 +14,13 @@ const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState(0);
 
-  const totalVideos = 4;
+  const totalVideos = 2;
   const nextVideoRef = useRef<HTMLVideoElement>(null);
 
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
   };
 
-  // 0 % 4 = 0 + 1 => 1
-  // 1 % 4 = 1 + 1 => 2
-  // 2 % 4 = 2 + 1 => 3
-  // 3 % 4 = 3 + 1 => 4
-  // 4 % 4 = 0 + 1 => 1
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
 
   const handleMiniVideoClick = () => {
@@ -34,14 +29,12 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    if(loadedVideos === totalVideos - 1) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (loadedVideos >= totalVideos - 1) {
       setIsLoading(false);
     }
-  }, [loadedVideos])
+  }, [loadedVideos]);
 
   useEffect(() => {
-    // Fallback to remove loader after 2.5 seconds just in case
     const timeout = setTimeout(() => {
       setIsLoading(false);
     }, 2500);
@@ -99,7 +92,7 @@ const Hero = () => {
     <div className="relative h-dvh w-screen overflow-x-hidden">
 
       {isLoading && (
-        <div className="flex-center absolute z-100 h-dvh w-screen overflow-hidden bg-primary-50">
+        <div className="flex-center absolute z-100 h-dvh w-screen overflow-hidden bg-monarch-void">
           <div className="three-body">
             <div className="three-body__dot" />
             <div className="three-body__dot" />
@@ -110,7 +103,7 @@ const Hero = () => {
 
       <div
         id="video-frame"
-        className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-primary-75"
+        className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-monarch-abyss"
       >
         <div>
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
@@ -151,32 +144,32 @@ const Hero = () => {
           />
         </div>
 
-        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-primary-75">
-          G<b>a</b>ming
+        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-monarch-purple">
+          A<b>w</b>aken
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
-            <h1 className="special-font hero-heading text-primary-100">
-              redefi<b>n</b>e
+            <h1 className="special-font hero-heading text-monarch-text">
+              Mon<b>a</b>rch
             </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-primary-100">
-              Enter the Metagame Layer <br /> Unleash the Play Economy
+            <p className="mb-5 max-w-64 font-robert-regular text-monarch-text-dim">
+              Arise from the shadows <br /> Claim your sovereignty
             </p>
 
             <Button
-              id="watch-trailer"
-              title="Watch Trailer"
+              id="enter-system"
+              title="Enter System"
               leftIcon={<TiLocationArrow />}
-              containerClass="bg-secondary-300 flex-center gap-1"
+              containerClass="bg-monarch-blue text-monarch-void flex-center gap-1"
             />
           </div>
         </div>
       </div>
 
-      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-        G<b>a</b>ming
+      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-monarch-text">
+        A<b>w</b>aken
       </h1>
     </div>
   );

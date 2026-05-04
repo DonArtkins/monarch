@@ -6,7 +6,7 @@ import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 import Image from "next/image";
 
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+const navItems = ["Dungeons", "Shadows", "Chronicle", "About", "Awaken"];
 
 const NavBar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -15,14 +15,12 @@ const NavBar = () => {
   const [isNavVisible, setIsNavVisible] = useState(true);
 
   const navContainerRef = useRef<HTMLDivElement>(null);
-
   const audioElementRef = useRef<HTMLAudioElement>(null);
 
   const { y: currentScrollY } = useWindowScroll();
 
   useEffect(() => {
     if (currentScrollY === 0) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsNavVisible(true);
       navContainerRef.current?.classList.remove("floating-nav");
     } else if (currentScrollY > lastScrollY) {
@@ -65,13 +63,13 @@ const NavBar = () => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
           <div className="flex items-center gap-7">
-            <Image src="/img/logo.png" alt="logo" width={40} height={40} className="w-10" />
+            <Image src="/images/logo.svg" alt="Monarch" width={120} height={30} className="w-28" />
 
             <Button
-              id="product-button"
-              title="Products"
+              id="arise-button"
+              title="Arise"
               rightIcon={<TiLocationArrow />}
-              containerClass="bg-primary-50 md:flex hidden items-center justify-center gap-1"
+              containerClass="bg-monarch-purple text-monarch-text md:flex hidden items-center justify-center gap-1"
             />
           </div>
 
@@ -94,7 +92,7 @@ const NavBar = () => {
             >
               <audio
                 ref={audioElementRef}
-                src="/audio/loop.mp3"
+                src="/audio/bgm.mp3"
                 className="hidden"
                 loop
               />
