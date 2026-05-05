@@ -273,7 +273,6 @@ body {
   overflow: hidden;
   border-radius: 0.375rem;
   border: 1px solid var(--monarch-border);
-  transition: transform var(--monarch-duration-base) ease-out;
 }
 
 @utility bento-tilt_2 {
@@ -282,7 +281,6 @@ body {
   grid-row: span 1;
   overflow: hidden;
   border-radius: 0.375rem;
-  transition: transform var(--monarch-duration-base) ease-out;
 }
 
 @utility bento-title {
