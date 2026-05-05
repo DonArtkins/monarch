@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -49,11 +50,12 @@ const About = () => {
         </div>
       </div>
       <div className="h-dvh w-screen" id="clip">
-        <div className="mask-clip-path about-image" style={{ willChange: "width, height, border-radius" }}>
-          <img
+        <div className="mask-clip-path about-image relative overflow-hidden" style={{ willChange: "width, height, border-radius" }}>
+          <Image
             src="/images/about-bg.jpeg"
             alt="The Double Dungeon"
-            className="absolute left-0 top-0 size-full object-cover"
+            fill
+            className="object-cover"
           />
         </div>
       </div>

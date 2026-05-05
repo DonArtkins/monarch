@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import Image from "next/image";
 import AnimatedTitle from "./AnimatedTitle";
 import gsap from "gsap";
 import RoundedCorners from "./RoundedCorners";
@@ -60,7 +61,7 @@ const Story = () => {
           <div className="story-img-container">
             <div className="story-img-mask">
               <div className="story-img-content">
-                <img
+                <Image
                   ref={frameRef}
                   onMouseLeave={handleMouseLeave}
                   onMouseUp={handleMouseLeave}
@@ -68,6 +69,7 @@ const Story = () => {
                   onMouseMove={handleMouseMove}
                   src="/images/kamish.jpeg"
                   alt="The Monarch's Domain"
+                  fill
                   className="object-contain"
                 />
               </div>

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { FaDiscord, FaXTwitter, FaYoutube, FaMedium } from "react-icons/fa6";
 
 const links = [
@@ -18,7 +19,7 @@ const Footer = () => {
 
         <div className="flex justify-center gap-4 md:justify-start">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               target="_blank"
@@ -26,16 +27,16 @@ const Footer = () => {
               className="text-monarch-text transition-colors duration-500 ease-in-out hover:text-monarch-blue"
             >
               {link.icon}
-            </a>
+            </Link>
           ))}
         </div>
 
-        <a
+        <Link
           href="#privacy-policy"
           className="text-center text-sm hover:underline md:text-right"
         >
           Privacy Policy
-        </a>
+        </Link>
       </div>
     </footer>
   );
