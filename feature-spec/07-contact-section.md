@@ -1,4 +1,4 @@
-# Feature 08: Contact Section — Join the Shadow Army
+# Feature 07: Contact Section — Join the Shadow Army
 
 ## Overview
 CTA section with clip-path image overlays and Solo Leveling recruitment theme.

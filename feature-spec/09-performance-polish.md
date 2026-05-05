@@ -1,4 +1,4 @@
-# Feature 10: Performance & Polish
+# Feature 09: Performance & Polish
 
 ## Overview
 Final optimization pass for Awwwards-level quality, covering lazy loading, preloading, animation cleanup, and cross-device verification.

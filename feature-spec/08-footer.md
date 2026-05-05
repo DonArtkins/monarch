@@ -1,4 +1,4 @@
-# Feature 09: Footer — The Sovereign's Mark
+# Feature 08: Footer — The Sovereign's Mark
 
 ## Overview
 Minimal footer with Solo Leveling branding and social links.
