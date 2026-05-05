@@ -51,10 +51,10 @@ const Story = () => {
           The Sovereign&apos;s Chronicle
         </p>
 
-        <div className="relative size-full">
+        <div className="relative size-full isolate">
           <AnimatedTitle
             title="The st<b>o</b>ry of <br /> a Shadow M<b>o</b>narch"
-            containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10"
+            containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10 text-white"
           />
 
           <div className="story-img-container">
