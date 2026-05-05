@@ -42,6 +42,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Social Link"
                   className="text-monarch-text-dim text-2xl transition-all duration-500 ease-in-out hover:text-monarch-blue hover:-translate-y-2"
                 >
                   {link.icon}

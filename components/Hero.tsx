@@ -143,13 +143,13 @@ const Hero = () => {
           />
         </div>
 
-        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-monarch-purple">
+        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-monarch-purple" style={{ willChange: "transform, opacity" }}>
           A<b>w</b>aken
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
-            <h1 className="special-font hero-heading text-monarch-text">
+            <h1 className="special-font hero-heading text-monarch-text" style={{ willChange: "transform, opacity" }}>
               Mon<b>a</b>rch
             </h1>
 

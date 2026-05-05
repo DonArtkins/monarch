@@ -3,14 +3,19 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import AnimatedTitle from "./AnimatedTitle";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import RoundedCorners from "./RoundedCorners";
 import Button from "./Button";
 
 const Story = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLImageElement>(null);
 
-  const handleMouseLeave = () => {
+  const { contextSafe } = useGSAP({ scope: containerRef });
+
+  const handleMouseLeave = contextSafe(() => {
     const element = frameRef.current;
+    if (!element) return;
 
     gsap.to(element, {
       duration: 0.3,
@@ -18,9 +23,9 @@ const Story = () => {
       rotateY: 0,
       ease: "power1.inOut",
     });
-  };
+  });
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
+  const handleMouseMove = contextSafe((e: React.MouseEvent<HTMLImageElement>) => {
     const { clientX, clientY } = e;
     const element = frameRef.current;
 
@@ -43,10 +48,10 @@ const Story = () => {
       transformPerspective: 500,
       ease: "power1.inOut",
     });
-  };
+  });
 
   return (
-    <section id="story" className="min-h-dvh w-screen bg-monarch-void text-monarch-text">
+    <section id="story" ref={containerRef} className="min-h-dvh w-screen bg-monarch-void text-monarch-text">
       <div className="flex size-full flex-col items-center py-10 pb-24">
         <p className="font-general text-sm uppercase text-monarch-text-dim md:text-[10px]">
           The Sovereign&apos;s Chronicle

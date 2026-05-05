@@ -8,6 +8,7 @@ interface ButtonProps {
   leftIcon?: ReactNode;
   containerClass?: string;
   onClick?: () => void;
+  ariaLabel?: string;
 }
 
 const Button = ({
@@ -17,11 +18,13 @@ const Button = ({
   leftIcon,
   containerClass,
   onClick,
+  ariaLabel,
 }: ButtonProps) => {
   return (
     <button
       id={id}
       onClick={onClick}
+      aria-label={ariaLabel || title}
       className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-accent px-7 py-3 text-black ${containerClass}`}
     >
       {leftIcon}
