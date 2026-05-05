@@ -76,6 +76,8 @@ const BentoTilt = ({ children, className = "" }: BentoTiltProps) => {
   );
 };
 
+import VideoPlayer from "./VideoPlayer";
+
 interface BentoCardProps {
   src: string;
   title: ReactNode;
@@ -85,11 +87,8 @@ interface BentoCardProps {
 const BentoCard = ({ src, title, description }: BentoCardProps) => {
   return (
     <div className="relative size-full">
-      <video
+      <VideoPlayer
         src={src}
-        loop
-        muted
-        autoPlay
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
 
@@ -189,11 +188,8 @@ const Features = () => {
           </BentoTilt>
 
           <BentoTilt className="bento-tilt_2">
-            <video
+            <VideoPlayer
               src="/videos/legion.mp4"
-              loop
-              muted
-              autoPlay
               className="size-full object-cover object-center"
             />
           </BentoTilt>

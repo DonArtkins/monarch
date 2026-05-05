@@ -6,6 +6,10 @@
    All theme tokens are CSS custom properties for global control.
    ============================================================ */
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Core Palette */
   --monarch-void: #030014;

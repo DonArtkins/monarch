@@ -5,6 +5,7 @@ import { TiLocationArrow } from "react-icons/ti";
 import { Menu, X } from "lucide-react";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -37,15 +38,15 @@ const NavBar = () => {
     setLastScrollY(currentScrollY);
   }, [currentScrollY, lastScrollY]);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.to(navContainerRef.current, {
       y: isNavVisible ? 0 : -100,
       opacity: isNavVisible ? 1 : 0,
       duration: 0.2,
     });
-  }, [isNavVisible]);
+  }, { dependencies: [isNavVisible] });
 
-  useEffect(() => {
+  useGSAP(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
       gsap.to(".mobile-menu", {
@@ -63,7 +64,7 @@ const NavBar = () => {
         ease: "power4.in",
       });
     }
-  }, [isMenuOpen]);
+  }, { dependencies: [isMenuOpen] });
 
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
