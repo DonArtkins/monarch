@@ -19,11 +19,11 @@ const Contact = () => {
         <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-10 lg:w-96">
           <ImageClipBox
             src="/images/beru.jpeg"
-            clipClass="contact-clip-path-1 aspect-[2/3] w-full"
+            clipClass="contact-clip-path-1 w-full h-52 lg:h-64"
           />
           <ImageClipBox
             src="/images/system-ui.jpeg"
-            clipClass="contact-clip-path-2 aspect-[4/3] w-full lg:scale-125 lg:translate-x-32 lg:translate-y-12"
+            clipClass="contact-clip-path-2 w-full h-64 lg:h-80 lg:scale-125 lg:translate-x-20 lg:-translate-y-6"
           />
         </div>
 
