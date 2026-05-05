@@ -48,6 +48,7 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
             <span
               key={i}
               className="animated-word"
+              style={{ willChange: "transform, opacity" }}
               dangerouslySetInnerHTML={{ __html: word }}
             />
           ))}

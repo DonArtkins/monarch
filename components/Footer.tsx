@@ -3,10 +3,10 @@ import Link from "next/link";
 import { FaDiscord, FaXTwitter, FaYoutube, FaMedium } from "react-icons/fa6";
 
 const links = [
-  { href: "https://discord.com", icon: <FaDiscord /> },
-  { href: "https://x.com", icon: <FaXTwitter /> },
-  { href: "https://youtube.com", icon: <FaYoutube /> },
-  { href: "https://medium.com", icon: <FaMedium /> },
+  { href: "https://discord.com", icon: <FaDiscord />, label: "Join our Discord" },
+  { href: "https://x.com", icon: <FaXTwitter />, label: "Follow us on X (Twitter)" },
+  { href: "https://youtube.com", icon: <FaYoutube />, label: "Watch on YouTube" },
+  { href: "https://medium.com", icon: <FaMedium />, label: "Read on Medium" },
 ];
 
 const Footer = () => {
@@ -42,7 +42,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Social Link"
+                  aria-label={link.label}
                   className="text-monarch-text-dim text-2xl transition-all duration-500 ease-in-out hover:text-monarch-blue hover:-translate-y-2"
                 >
                   {link.icon}

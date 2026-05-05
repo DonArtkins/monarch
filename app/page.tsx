@@ -11,7 +11,7 @@ const Footer = dynamic(() => import('../components/Footer'), { ssr: false });
 
 export default function Page() {
   return (
-    <main className="relative min-h-screen w-screen overflow-x-hidden">
+    <main id="main-content" className="relative min-h-screen w-screen overflow-x-hidden">
       <NavBar />
       <Hero />
       <About />

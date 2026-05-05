@@ -84,6 +84,7 @@ const NavBar = () => {
       <div
         ref={navContainerRef}
         className="fixed inset-x-0 top-4 z-50 h-16 border-none sm:inset-x-6"
+        style={{ willChange: "transform, opacity" }}
       >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
@@ -114,6 +115,8 @@ const NavBar = () => {
             <button
               className="ml-10 flex items-center space-x-0.5"
               onClick={toggleAudioIndicator}
+              aria-label={isAudioPlaying ? "Pause background music" : "Play background music"}
+              aria-pressed={isAudioPlaying}
             >
               <audio
                 ref={audioElementRef}
@@ -135,6 +138,8 @@ const NavBar = () => {
             <button
               className="ml-6 block md:hidden text-monarch-text"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
