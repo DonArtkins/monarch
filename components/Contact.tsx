@@ -8,7 +8,7 @@ interface ImageClipBoxProps {
 
 const ImageClipBox = ({ src, clipClass }: ImageClipBoxProps) => (
   <div className={clipClass}>
-    <img src={src} />
+    <img src={src} className="w-full h-full object-cover" alt="Contact overlay" />
   </div>
 );
 
@@ -19,22 +19,18 @@ const Contact = () => {
         <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-10 lg:w-96">
           <ImageClipBox
             src="/images/beru.jpeg"
-            clipClass="contact-clip-path-1"
+            clipClass="contact-clip-path-1 aspect-[2/3] w-full"
           />
           <ImageClipBox
             src="/images/system-ui.jpeg"
-            clipClass="contact-clip-path-2 translate-y-60 lg:translate-y-40"
+            clipClass="contact-clip-path-2 aspect-[4/3] w-full lg:scale-125 lg:translate-x-32 lg:translate-y-12"
           />
         </div>
 
         <div className="absolute -top-40 left-20 w-60 sm:top-1/2 md:left-auto md:right-10 lg:top-20 lg:w-80">
           <ImageClipBox
             src="/images/footer-bg.jpeg"
-            clipClass="absolute md:scale-125"
-          />
-          <ImageClipBox
-            src="/images/footer-bg.jpeg"
-            clipClass="sword-man-clip-path md:scale-125"
+            clipClass="sword-man-clip-path md:scale-125 aspect-[2/3] w-full"
           />
         </div>
 
@@ -44,7 +40,7 @@ const Contact = () => {
             Let&apos;s b<b>u</b>ild the <br /> new era of <br /> sh<b>a</b>dow w<b>a</b>rfare
           </p>
 
-          <Button title="Awaken Now" containerClass="mt-10 cursor-pointer bg-primary-50" />
+          <Button title="Awaken Now" containerClass="mt-10 cursor-pointer bg-primary-50 text-black" />
         </div>
       </div>
     </div>
