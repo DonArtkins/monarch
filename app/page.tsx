@@ -1,14 +1,15 @@
+"use client";
 import dynamic from 'next/dynamic';
 
-import Hero from "../components/Hero";
-import About from "../components/About";
-import NavBar from "../components/NavBar";
-import Features from "../components/Features";
+const Hero = dynamic(() => import("../components/Hero"), { ssr: false });
+const About = dynamic(() => import("../components/About"), { ssr: false });
+const NavBar = dynamic(() => import("../components/NavBar"), { ssr: false });
+const Features = dynamic(() => import("../components/Features"), { ssr: false });
 
 // Lazily load below-the-fold components
-const Story = dynamic(() => import('../components/Story'), { ssr: true });
-const Contact = dynamic(() => import('../components/Contact'), { ssr: true });
-const Footer = dynamic(() => import('../components/Footer'), { ssr: true });
+const Story = dynamic(() => import('../components/Story'), { ssr: false });
+const Contact = dynamic(() => import('../components/Contact'), { ssr: false });
+const Footer = dynamic(() => import('../components/Footer'), { ssr: false });
 
 export default function Page() {
   return (

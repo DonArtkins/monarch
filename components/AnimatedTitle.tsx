@@ -1,9 +1,12 @@
 "use client";
-import gsap from "gsap/all";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface AnimatedTitleProps {
   title: string;
@@ -13,8 +16,8 @@ interface AnimatedTitleProps {
 const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
       const titleAnimation = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -30,14 +33,13 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
         ease: "power2.inOut",
         stagger: 0.02,
       });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    },
+    { scope: containerRef }
+  );
 
   return (
     <div ref={containerRef} className={`animated-title ${containerClass || ""}`}>
-      {title.split("<br />").map((line, index) => (
+      {title.split(/<br\s*\/?>/i).map((line, index) => (
         <div
           key={index}
           className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
