@@ -22,6 +22,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <link rel="preload" href="/videos/hero-1.mp4" as="video" type="video/mp4" />
       </head>
       <body suppressHydrationWarning className="bg-monarch-void text-monarch-text antialiased">
+        <a href="#main-content" className="skip-to-content">Skip to content</a>
         {children}
       </body>
     </html>

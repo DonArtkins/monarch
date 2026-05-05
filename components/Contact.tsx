@@ -5,15 +5,16 @@ import Button from "./Button";
 interface ImageClipBoxProps {
   src: string;
   clipClass: string;
+  alt: string;
 }
 
-const ImageClipBox = ({ src, clipClass }: ImageClipBoxProps) => (
+const ImageClipBox = ({ src, clipClass, alt }: ImageClipBoxProps) => (
   <div className={`${clipClass} relative`}>
     <Image
       src={src}
       fill
       className="object-cover"
-      alt="Contact overlay"
+      alt={alt}
     />
   </div>
 );
@@ -26,10 +27,12 @@ const Contact = () => {
           <ImageClipBox
             src="/images/beru.jpeg"
             clipClass="contact-clip-path-1 w-full h-56 lg:h-64"
+            alt="Beru, shadow soldier of the Shadow Monarch"
           />
           <ImageClipBox
             src="/images/system-ui.jpeg"
             clipClass="contact-clip-path-2 w-full h-56 lg:h-64 lg:translate-y-1 translate-y-2 lg:translate-x-20 translate-x-10"
+            alt="The Hunter System interface"
           />
         </div>
 
@@ -39,7 +42,7 @@ const Contact = () => {
               src="/images/footer-bg.jpeg"
               fill
               className="object-cover"
-              alt="Contact overlay"
+              alt="Shadow Monarch in battle"
               style={{
                 maskImage: "radial-gradient(circle, black 30%, transparent 80%)",
                 WebkitMaskImage: "radial-gradient(circle, black 30%, transparent 80%)",
