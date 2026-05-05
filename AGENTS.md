@@ -22,3 +22,6 @@ These directives are **mandatory** for all AI agents operating within the Monarc
 ## 5. Design Aesthetics
 - **Solo Leveling Theme**: Maintain the dark void aesthetic (Void Black `#030014`, Shadow Purple `#7B2FF7`, Neon Blue `#00D4FF`).
 - **High Performance**: Ensure GSAP animations use proper `context()` cleanup and `will-change` hints. The goal is an Awwwards-level interactive experience.
+## 6. Dev Server & Testing
+- **User-Managed Dev Server**: Agents must **never** start their own dev server. Always use the dev server running on `localhost:3000`, which will be started by the user via `npm run dev`.
+- **Verification**: Use the browser agent to verify changes against the running server.
