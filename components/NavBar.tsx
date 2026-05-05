@@ -5,6 +5,7 @@ import { TiLocationArrow } from "react-icons/ti";
 import { Menu, X } from "lucide-react";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
+import Link from "next/link";
 import Image from "next/image";
 
 const navItems = ["Dungeons", "Shadows", "Chronicle", "About", "Arise"];
@@ -99,13 +100,13 @@ const NavBar = () => {
           <div className="flex h-full items-center">
             <div className="hidden md:block">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   className="nav-hover-btn"
                 >
                   {item}
-                </a>
+                </Link>
               ))}
             </div>
 
