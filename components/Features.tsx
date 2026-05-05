@@ -1,6 +1,10 @@
 "use client";
+
 import { useRef, useState, ReactNode, MouseEvent } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import AnimatedTitle from "./AnimatedTitle";
 
 interface BentoTiltProps {
   children: ReactNode;
@@ -8,37 +12,64 @@ interface BentoTiltProps {
 }
 
 const BentoTilt = ({ children, className = "" }: BentoTiltProps) => {
-  const [transformStyle, setTransformStyle] = useState("");
   const itemRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+  useGSAP(() => {
     if (!itemRef.current) return;
 
-    const { left, top, width, height } =
-      itemRef.current.getBoundingClientRect();
+    gsap.set(itemRef.current, {
+      transformPerspective: 1200,
+      transformStyle: "preserve-3d",
+    });
 
-    const relativeX = (e.clientX - left) / width;
-    const relativeY = (e.clientY - top) / height;
+    const xTo = gsap.quickTo(itemRef.current, "rotationY", {
+      duration: 0.7,
+      ease: "power2.out",
+    });
+    const yTo = gsap.quickTo(itemRef.current, "rotationX", {
+      duration: 0.7,
+      ease: "power2.out",
+    });
 
-    const tiltX = (relativeY - 0.5) * 5;
-    const tiltY = (relativeX - 0.5) * -5;
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!itemRef.current) return;
 
-    const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(0.98, 0.98, 0.98)`;
+      const { left, top, width, height } =
+        itemRef.current.getBoundingClientRect();
 
-    setTransformStyle(newTransform);
-  };
+      const relativeX = (e.clientX - left) / width;
+      const relativeY = (e.clientY - top) / height;
 
-  const handleMouseLeave = () => {
-    setTransformStyle("");
-  };
+      const tiltX = (relativeY - 0.5) * 20;
+      const tiltY = (relativeX - 0.5) * -20;
+
+      yTo(tiltX);
+      xTo(tiltY);
+    };
+
+    const handleMouseLeave = () => {
+      yTo(0);
+      xTo(0);
+    };
+
+    const element = itemRef.current;
+    if (element) {
+      element.addEventListener("mousemove", handleMouseMove as any);
+      element.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (element) {
+        element.removeEventListener("mousemove", handleMouseMove as any);
+        element.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, { scope: itemRef });
 
   return (
     <div
       ref={itemRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={className}
-      style={{ transform: transformStyle }}
+      className={`${className} will-change-transform`}
     >
       {children}
     </div>
@@ -66,7 +97,9 @@ const BentoCard = ({ src, title, description }: BentoCardProps) => {
         <div>
           <h1 className="bento-title special-font">{title}</h1>
           {description && (
-            <p className="mt-3 max-w-64 text-xs text-monarch-text-dim md:text-base">{description}</p>
+            <p className="mt-3 max-w-64 text-xs text-monarch-text-dim md:text-base">
+              {description}
+            </p>
           )}
         </div>
       </div>
@@ -82,7 +115,11 @@ const Features = () => {
           <p className="font-circular text-lg text-monarch-text">
             Into the Shadow Realm
           </p>
-          <p className="max-w-md font-circular text-lg text-monarch-text-dim opacity-50">
+          <AnimatedTitle
+            title="The Sh<b>a</b>dow <br /> Army Leg<b>i</b>on"
+            containerClass="mt-5 !text-monarch-text text-left"
+          />
+          <p className="max-w-md font-circular text-lg text-monarch-text-dim opacity-50 mt-5">
             Immerse yourself in the world of Solo Leveling where dungeons tear
             through reality and shadow soldiers rise at your command. Every
             battle forges a new soldier for your army.
@@ -139,12 +176,15 @@ const Features = () => {
           </BentoTilt>
 
           <BentoTilt className="bento-tilt_2">
-            <div className="flex size-full flex-col justify-between bg-monarch-purple p-5">
-              <h1 className="bento-title special-font max-w-64 text-monarch-text">
+            <div className="flex size-full flex-col justify-between bg-monarch-purple p-5 group cursor-pointer relative overflow-hidden">
+              {/* Premium Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-monarch-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <h1 className="bento-title special-font max-w-64 text-monarch-text relative z-10">
                 M<b>o</b>re co<b>m</b>ing s<b>o</b>on!
               </h1>
 
-              <TiLocationArrow className="m-5 scale-[5] self-end text-monarch-text" />
+              <TiLocationArrow className="m-5 scale-[5] self-end text-monarch-text relative z-10 group-hover:rotate-45 transition-transform duration-500" />
             </div>
           </BentoTilt>
 
