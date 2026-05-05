@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useState, ReactNode, MouseEvent } from "react";
+import { useRef, ReactNode, MouseEvent } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import AnimatedTitle from "./AnimatedTitle";
+import VideoPlayer from "./VideoPlayer";
 
 interface BentoTiltProps {
   children: ReactNode;
@@ -76,15 +77,15 @@ const BentoTilt = ({ children, className = "" }: BentoTiltProps) => {
   );
 };
 
-import VideoPlayer from "./VideoPlayer";
-
 interface BentoCardProps {
   src: string;
+  label: string;
   title: ReactNode;
   description?: string;
+  labelColor?: string;
 }
 
-const BentoCard = ({ src, title, description }: BentoCardProps) => {
+const BentoCard = ({ src, label, title, description, labelColor = "text-monarch-blue" }: BentoCardProps) => {
   return (
     <div className="relative size-full">
       <VideoPlayer
@@ -92,11 +93,19 @@ const BentoCard = ({ src, title, description }: BentoCardProps) => {
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
 
-      <div className="relative z-10 flex size-full flex-col justify-between p-5 text-monarch-text">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+      <div className="relative z-10 flex size-full flex-col justify-between p-4 sm:p-5 text-monarch-text">
+        <p
+          className={`font-mono text-[10px] uppercase tracking-[0.2em] ${labelColor}`}
+          style={{ fontFamily: "monospace" }}
+        >
+          {label}
+        </p>
         <div>
           <h1 className="bento-title special-font">{title}</h1>
           {description && (
-            <p className="mt-3 max-w-64 text-xs text-monarch-text-dim md:text-base">
+            <p className="mt-2 max-w-64 text-xs text-monarch-text-dim md:text-sm leading-relaxed">
               {description}
             </p>
           )}
@@ -108,90 +117,118 @@ const BentoCard = ({ src, title, description }: BentoCardProps) => {
 
 const Features = () => {
   return (
-    <section className="bg-monarch-void pb-52">
+    <section className="bg-monarch-void pb-24 sm:pb-52">
       <div className="container mx-auto px-3 md:px-10">
-        <div className="px-5 py-32">
-          <p className="font-circular text-lg text-monarch-text">
-            Into the Shadow Realm
+        <div className="px-5 py-20 sm:py-32">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-monarch-blue" style={{ fontFamily: "monospace" }}>
+            SHADOW REALM · DUNGEON CLASSIFICATION
           </p>
           <AnimatedTitle
-            title="The Sh<b>a</b>dow <br /> Army Leg<b>i</b>on"
+            title="Into the Sh<b>a</b>dow <br /> Re<b>a</b>lm"
             containerClass="mt-5 !text-monarch-text text-left"
           />
-          <p className="max-w-md font-circular text-lg text-monarch-text-dim opacity-50 mt-5">
-            Immerse yourself in the world of Solo Leveling where dungeons tear
-            through reality and shadow soldiers rise at your command. Every
-            battle forges a new soldier for your army.
+          <p className="max-w-md font-circular text-base text-monarch-text-dim opacity-50 mt-5">
+            From the weakest hunter to the sovereign of shadows. Every gate,
+            every battle, every shadow extracted — the system chose only one.
           </p>
         </div>
 
-        <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
+        {/* SPEC 11 — THE SYSTEM — Hero full-width card */}
+        <BentoTilt className="border-hsla relative mb-7 h-64 w-full overflow-hidden rounded-md sm:h-80 md:h-[65vh]">
           <BentoCard
-            src="/videos/legion.mp4"
+            src="/videos/father.mp4"
+            label="THE SYSTEM · SPEC 11"
             title={
               <>
-                Sh<b>a</b>dow Army
+                The Sy<b>s</b>tem
               </>
             }
-            description="Command an army of shadow soldiers extracted from the fallen. Each warrior retains the power they held in life."
+            description="Daily quests. Stat allocation. Skill extraction. The system that broke the rules of this world."
+            labelColor="text-monarch-blue"
           />
         </BentoTilt>
 
-        <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
-          <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+        {/* Bento 2x2 grid — SPEC 12, 13, 14, and CTA */}
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-2 md:grid-rows-3" style={{ minHeight: "auto" }}>
+
+          {/* SPEC 13 — IGRIS — tall narrow card (row-span-2 on desktop) */}
+          <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:row-span-2 md:h-auto">
             <BentoCard
               src="/videos/shadow-army.mp4"
+              label="IGRIS · SHADOW KNIGHT GENERAL"
               title={
                 <>
-                  D<b>u</b>ngeons
+                  Igr<b>i</b>s
                 </>
               }
-              description="Enter gates of varying difficulty, from E-rank to S-rank. Only the strongest survive."
+              description="First extracted. Most loyal. Most deadly."
+              labelColor="text-monarch-text-dim"
             />
           </BentoTilt>
 
-          <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
-            <BentoCard
-              src="/videos/father.mp4"
-              title={
-                <>
-                  Sy<b>s</b>tem
-                </>
-              }
-              description="Level up through the mysterious System that chose you as its player."
-            />
-          </BentoTilt>
-
-          <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          {/* SPEC 12 — ARISE — Shadow Monarch card */}
+          <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:h-auto">
             <BentoCard
               src="/videos/story-arise.mp4"
+              label="SHADOW MONARCH"
               title={
                 <>
                   Ar<b>i</b>se
                 </>
               }
-              description="Extract the shadows of defeated enemies to join your ever-growing legion."
+              description="The title no living hunter had ever held. Sovereign of all shadow."
+              labelColor="text-monarch-blue"
             />
           </BentoTilt>
 
-          <BentoTilt className="bento-tilt_2">
-            <div className="flex size-full flex-col justify-between bg-monarch-purple p-5 group cursor-pointer relative overflow-hidden">
-              {/* Premium Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-monarch-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <h1 className="bento-title special-font max-w-64 text-monarch-text relative z-10">
-                M<b>o</b>re co<b>m</b>ing s<b>o</b>on!
-              </h1>
+          {/* SPEC 14 — DUNGEONS — wide card */}
+          <BentoTilt className="bento-tilt_1 h-48 sm:h-64 md:h-auto">
+            <BentoCard
+              src="/videos/legion.mp4"
+              label="S-RANK DUNGEON"
+              title={
+                <>
+                  Dun<b>g</b>eons
+                </>
+              }
+              description="Every gate hides a world. Every world wants you dead."
+              labelColor="text-red-400"
+            />
+          </BentoTilt>
 
-              <TiLocationArrow className="m-5 scale-[5] self-end text-monarch-text relative z-10 group-hover:rotate-45 transition-transform duration-500" />
+          {/* CTA — More coming soon */}
+          <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-auto">
+            <div className="flex size-full flex-col justify-between bg-monarch-purple p-5 group cursor-pointer relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-monarch-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-monarch-text/60 relative z-10" style={{ fontFamily: "monospace" }}>
+                THE JOURNEY CONTINUES
+              </p>
+
+              <div className="relative z-10">
+                <h1 className="bento-title special-font max-w-64 text-monarch-text">
+                  M<b>o</b>re co<b>m</b>ing s<b>o</b>on
+                </h1>
+                <TiLocationArrow className="mt-4 scale-[3] text-monarch-text group-hover:rotate-45 transition-transform duration-500" />
+              </div>
             </div>
           </BentoTilt>
 
-          <BentoTilt className="bento-tilt_2">
-            <VideoPlayer
-              src="/videos/legion.mp4"
-              className="size-full object-cover object-center"
-            />
+          {/* Shadow Army video — decorative */}
+          <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-auto">
+            <div className="relative size-full">
+              <VideoPlayer
+                src="/videos/legion.mp4"
+                className="size-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 z-10">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-monarch-blue" style={{ fontFamily: "monospace" }}>
+                  SHADOW ARMY · LEGION
+                </p>
+                <p className="mt-1 text-xs text-monarch-text-dim">Thousands strong. All obedient.</p>
+              </div>
+            </div>
           </BentoTilt>
         </div>
       </div>
