@@ -4,10 +4,12 @@
 **Component:** `components/Preloader.tsx` (NEW)
 
 ## What
-Replace the current three-body spinner loader in `Hero.tsx` with a cinematic gate-crack opening sequence. This is the first impression — a cracking dungeon stone gate that bleeds purple light, slams the word ARISE, then shatters to reveal the site. No video file required — pure SVG path animation + GSAP.
+Introduce a cinematic gate-crack opening sequence as the **universal site-wide preloader**. This is the first impression for the entire Monarch site — not just the Hero section — a cracking dungeon stone gate that bleeds purple light, slams the word ARISE, then shatters to reveal the site. No video file required — pure SVG path animation + GSAP.
+
+The preloader is mounted at the root layout (`app/layout.tsx`) so it covers the entire application on initial load, regardless of which route the user lands on. It runs once per session and gates visibility of all site content (Hero, About, Features, Story, Contact, Footer — every route) until its timeline completes.
 
 ## Current State
-`Hero.tsx` has a `.three-body` CSS spinner shown while `isLoading` is true. The spinner disappears after `loadedVideos >= totalVideos - 1` or after a 2500ms timeout.
+`Hero.tsx` has a `.three-body` CSS spinner shown while `isLoading` is true (local to Hero, disappears after `loadedVideos >= totalVideos - 1` or after a 2500ms timeout). That spinner is scoped only to the Hero component and does not gate the rest of the site. The new `Preloader` replaces this as the **global** entry experience, mounted above all routes in `app/layout.tsx`. Hero's internal loading state may remain untouched as a secondary fallback for video readiness, but it is no longer the primary entry gate.
 
 ## Dependencies
 - SPEC 11 (Nav Refinement) — can run in parallel, no dependency
@@ -17,7 +19,9 @@ Replace the current three-body spinner loader in `Hero.tsx` with a cinematic gat
 
 ### Component: `components/Preloader.tsx`
 
-A full-viewport fixed overlay that runs its GSAP timeline on mount, then calls an `onComplete` callback to remove itself. The parent (`app/page.tsx` or `layout.tsx`) controls visibility via state.
+A full-viewport fixed overlay that runs its GSAP timeline on mount, then calls an `onComplete` callback to remove itself. It is mounted in the **root layout** (`app/layout.tsx`) so it sits above every route in the app and gates the entire site's content, not a single page or section.
+
+Because `app/layout.tsx` is a server component by default, the preloader is wrapped in a small client-side controller (`components/PreloaderGate.tsx`) that owns the `preloaderDone` state, renders `<Preloader>` while pending, and renders `{children}` (all site content) once complete.
 
 ### Sequence Timeline (total ~2.4s)
 
@@ -296,18 +300,23 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
 export default Preloader;
 ```
 
-### Integration in `app/page.tsx`
+### Client Gate: `components/PreloaderGate.tsx` (NEW)
+
+A small client-side wrapper that owns the `preloaderDone` state. It is required because `app/layout.tsx` is a server component and cannot hold state or event handlers directly.
 
 ```typescript
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 
-const Preloader = dynamic(() => import("../components/Preloader"), { ssr: false });
-// ... other imports
+const Preloader = dynamic(() => import("./Preloader"), { ssr: false });
 
-export default function Page() {
+interface PreloaderGateProps {
+  children: ReactNode;
+}
+
+const PreloaderGate = ({ children }: PreloaderGateProps) => {
   const [preloaderDone, setPreloaderDone] = useState(false);
 
   return (
@@ -315,23 +324,49 @@ export default function Page() {
       {!preloaderDone && (
         <Preloader onComplete={() => setPreloaderDone(true)} />
       )}
-      <main
-        id="main-content"
-        className="relative min-h-screen w-screen overflow-x-hidden"
-        style={{ visibility: preloaderDone ? "visible" : "hidden" }}
-      >
-        {/* ... sections */}
-      </main>
+      <div style={{ visibility: preloaderDone ? "visible" : "hidden" }}>
+        {children}
+      </div>
     </>
+  );
+};
+
+export default PreloaderGate;
+```
+
+### Integration in `app/layout.tsx` (site-wide)
+
+The preloader is mounted in the **root layout** so it gates every route of the site — not just the home page.
+
+```typescript
+import PreloaderGate from "../components/PreloaderGate";
+// ... existing imports (fonts, metadata, globals.css)
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <PreloaderGate>{children}</PreloaderGate>
+      </body>
+    </html>
   );
 }
 ```
 
+This ensures that regardless of which route the user lands on (`/`, or any future sub-route), the gate-crack preloader plays once before the site becomes visible.
+
 ### Remove Old Loader from Hero.tsx
 
-The `.three-body` spinner in `Hero.tsx` (`isLoading` state) can remain as a fallback or be removed since `Preloader` now owns the entry experience. To avoid conflict: keep Hero's loader but set `display: none` when `preloaderDone` is true by passing a prop `hideLoader={preloaderDone}` to Hero.
+The `.three-body` spinner in `Hero.tsx` (`isLoading` state) is **no longer the site's entry experience**; the global `Preloader` in the root layout now owns that responsibility. Two acceptable options:
 
-Alternatively — simplest approach — keep Hero's existing loading state completely untouched. Preloader runs first, then main content becomes visible, then Hero's internal loading check runs as normal.
+1. **Preferred — leave Hero untouched.** The global Preloader runs first above all content, then the layout becomes visible, and only then does Hero's internal video-readiness check run as a silent secondary check. No prop changes needed.
+2. **Alternative — remove Hero's spinner entirely** now that a stronger global preloader exists. Only do this if verified not to break video fade-in behavior.
+
+Do **not** couple Hero to `preloaderDone` — the global gate already hides the entire app until it's done, so no prop drilling is needed.
 
 ## Assets Required
 - `PRELOADER_CRACK.svg` — Optional: more complex branching crack geometry. The implementation above uses inline SVG path elements which is sufficient.
@@ -349,7 +384,9 @@ Alternatively — simplest approach — keep Hero's existing loading state compl
 - SPEC 38: Can add a brief audio sting synced to the crack moment
 
 ## Acceptance Criteria
-- [ ] Preloader covers full viewport on page load (`position: fixed`, `z-index: 100000`)
+- [ ] Preloader is mounted in `app/layout.tsx` via `PreloaderGate` and gates **every route** of the site, not just the Hero or home page
+- [ ] Preloader covers full viewport on initial site load (`position: fixed`, `z-index: 100000`)
+- [ ] All site content (Hero, NavBar, About, Features, Story, Contact, Footer, and any future routes) is hidden until `onComplete` fires
 - [ ] Crack line animation plays as described (0.3s → crack → ARISE → dissolve)
 - [ ] `ARISE` text appears at correct point in sequence
 - [ ] Skip button appears after 1.2 seconds and skips to end on click
@@ -357,5 +394,6 @@ Alternatively — simplest approach — keep Hero's existing loading state compl
 - [ ] Pure black background — no site content visible during preloader
 - [ ] No layout shift when preloader removes — site content renders beneath it during sequence
 - [ ] `aria-hidden="true"` on preloader container
+- [ ] Hero's existing `.three-body` spinner is not coupled to the global preloader state (no prop drilling)
 - [ ] `npm run build` passes with zero TypeScript errors
 - [ ] Works at all viewport sizes (mobile + desktop)
