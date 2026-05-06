@@ -1,6 +1,6 @@
-# SPEC 15 — Typography System Upgrade
+# SPEC 16 — Typography System Upgrade
 
-**Branch:** `feat/15-typography-upgrade`  
+**Branch:** `feat/16-typography-upgrade`  
 **Component:** `app/layout.tsx`, `app/globals.css` (MODIFY)
 
 ## What
@@ -16,8 +16,8 @@ Upgrade Monarch's typography system to a cinematic, punchy display style. Add Sp
 - No Korean watermark utility exists
 
 ## Dependencies
-- SPEC 14 (Film Grain) must be merged first — no direct dependency but staging order preferred
-- SPEC 16 (Color System) — Korean watermark uses `--white` and `--monarch-text` tokens already in globals.css
+- SPEC 15 (Film Grain) must be merged first — no direct dependency but staging order preferred
+- SPEC 17 (Color System) — Korean watermark uses `--white` and `--monarch-text` tokens already in globals.css
 
 ## Implementation
 
@@ -183,7 +183,7 @@ In `app/globals.css`, update `@utility animated-title`:
 
 ## Korean Watermark Usage Pattern
 
-Any new component (SPEC 28+) that needs a Korean watermark background should use this exact JSX pattern:
+Any new component (SPEC 29+) that needs a Korean watermark background should use this exact JSX pattern:
 
 ```tsx
 {/* Korean watermark — decorative only */}

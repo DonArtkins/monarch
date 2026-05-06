@@ -1,17 +1,17 @@
-# SPEC 18 — Hero Hexagonal Particle System (Ice-Eye Blue Upgrade)
+# SPEC 19 — Hero Hexagonal Particle System (Ice-Eye Blue Upgrade)
 
-**Branch:** `feat/18-hero-particles`  
+**Branch:** `feat/19-hero-particles`  
 **Component:** `components/Hero.tsx` (MODIFY — minor, CSS only)
 
 ## What
-The Hero section has floating hexagonal elements as part of its visual language (referenced in project overview). This spec upgrades their color from the current teal/cyan to the new `--ice-eye` blue (`#60A5FA`) from SPEC 16, and adds a second subtle layer of smaller shadow-purple hexagons floating in the opposite direction. If no hex animation currently exists in the codebase, this spec creates a lightweight CSS-only hex particle overlay.
+The Hero section has floating hexagonal elements as part of its visual language (referenced in project overview). This spec upgrades their color from the current teal/cyan to the new `--ice-eye` blue (`#60A5FA`) from SPEC 17, and adds a second subtle layer of smaller shadow-purple hexagons floating in the opposite direction. If no hex animation currently exists in the codebase, this spec creates a lightweight CSS-only hex particle overlay.
 
 ## Current State
 Looking at `Hero.tsx`, there is no explicit hex canvas or SVG animation in the current code. The hexagonal aesthetic is implied through the clip-path containers. This spec creates the hex overlay as a new decorative layer inside the `#video-frame` container — pure CSS animation, no JS, no extra dependencies.
 
 ## Dependencies
-- SPEC 16 (Color System) — uses `--ice-eye` and `--shadow-purple` tokens
-- SPEC 17 (Hero 5-Clip) — should be applied after clip structure is in place
+- SPEC 17 (Color System) — uses `--ice-eye` and `--shadow-purple` tokens
+- SPEC 18 (Hero 5-Clip) — should be applied after clip structure is in place
 
 ## Implementation
 

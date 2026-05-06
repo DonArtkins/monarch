@@ -1,6 +1,6 @@
-# SPEC 35 — "Beyond Season 2" Story Teaser
+# SPEC 36 — "Beyond Season 2" Story Teaser
 
-**Branch:** `feat/35-beyond`  
+**Branch:** `feat/36-beyond`  
 **Component:** `components/Beyond.tsx` (NEW)
 
 ## What
@@ -10,10 +10,10 @@ A new full-viewport dark section placed AFTER `AriseScene` and BEFORE `ShadowArm
 No Beyond section exists. The layout pattern — stacked full-width panels with image + copy side-by-side — is new to this project. The `Story.tsx` frame-tilt interaction is the closest reference for image behavior, but this section uses a simpler parallax approach without the blob clip-path.
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label`, `clamp()` sizing
-- SPEC 16 (Color System) — `--royal`, `--monarch-gold`, `--ice-eye`, `--abyss`, `--silver`, `--white` tokens
-- SPEC 37 (AriseScene) — `Beyond` is placed after `AriseScene`
-- SPEC 34 (ShadowArmyCTA) — `Beyond` is placed before `ShadowArmyCTA`
+- SPEC 16 (Typography) — `system-label`, `clamp()` sizing
+- SPEC 17 (Color System) — `--royal`, `--monarch-gold`, `--ice-eye`, `--abyss`, `--silver`, `--white` tokens
+- SPEC 38 (AriseScene) — `Beyond` is placed after `AriseScene`
+- SPEC 35 (ShadowArmyCTA) — `Beyond` is placed before `ShadowArmyCTA`
 
 ## ⚠️ Preservation Rules
 - Do NOT modify `Story.tsx` or any existing section

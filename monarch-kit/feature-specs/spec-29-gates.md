@@ -1,6 +1,6 @@
-# SPEC 28 — Red Gate Frame-by-Frame Hover Section
+# SPEC 29 — Red Gate Frame-by-Frame Hover Section
 
-**Branch:** `feat/28-gates`  
+**Branch:** `feat/29-gates`  
 **Component:** `components/Gates.tsx` (NEW)
 
 ## What
@@ -10,9 +10,9 @@ A new full-viewport section placed AFTER `Features` and BEFORE the realm transit
 No Gates section exists. The Story component's mouse-tilt interaction (`contextSafe`, `gsap.to` on `rotateX`/`rotateY`) is the closest architectural reference. The frame-by-frame technique is new to the project. Gate frames at `/public/images/gate-frames/gate_frame_001.jpg` → `gate_frame_040.jpg` may not yet exist.
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label` utility, Space Mono font
-- SPEC 16 (Color System) — `--gate-red`, `--gate-cyan`, `--gate-yellow`, `--rank-b`, `--rank-c`, `--rank-d`, `--abyss`, `--silver` tokens
-- SPEC 29 (Realm Transition) — placed immediately after Gates in `page.tsx`
+- SPEC 16 (Typography) — `system-label` utility, Space Mono font
+- SPEC 17 (Color System) — `--gate-red`, `--gate-cyan`, `--gate-yellow`, `--rank-b`, `--rank-c`, `--rank-d`, `--abyss`, `--silver` tokens
+- SPEC 30 (Realm Transition) — placed immediately after Gates in `page.tsx`
 
 ## Implementation
 
@@ -489,7 +489,7 @@ const Gates = dynamic(() => import("../components/Gates"), { ssr: false });
 |---|---|---|
 | Gate frames 1–40 | `/public/images/gate-frames/gate_frame_001.jpg` → `gate_frame_040.jpg` | `/public/images/about-bg.jpeg` with crimson tint overlay |
 
-Extract 40 frames from `GATE_FRAME_VID_01.mp4` using any video editor. Export as JPG at native resolution.
+Extract 40 frames from `GATE_FRAME_VID_01.mp4` using any video editor, THIS I WILL DO PERSONALLY, SO USE A PLACEHOLDER IN THE MEANTIME!!!.
 
 ## Acceptance Criteria
 - [ ] `Gates` section renders between `Features` and `Ranks` sections in page story order

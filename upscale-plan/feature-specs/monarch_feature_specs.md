@@ -16,7 +16,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## NAV & GLOBAL
 
-### SPEC 11 — Story-Based Navigation Refinement
+### SPEC 12 — Story-Based Navigation Refinement
 **What:** Replace current nav items with Solo Leveling story-driven labels.  
 **Current:** Generic nav  
 **New Nav Items:**
@@ -33,7 +33,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 12 — Custom Shadow Energy Cursor
+### SPEC 13 — Custom Shadow Energy Cursor
 **What:** Replace default cursor with custom animated ring cursor.  
 **Behavior:**
 - Default state: Thin glowing ring (~20px), color `#60A5FA`, with a trailing dot center
@@ -46,7 +46,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 13 — Gate Crack Preloader (Entry Experience)
+### SPEC 14 — Gate Crack Preloader (Entry Experience)
 **What:** Replace generic loader with a cinematic gate-crack opening sequence.  
 **Sequence (total: 2.4s, skippable after 1.2s):**
 1. `0.0s` — Pure black screen. Silence.
@@ -62,14 +62,14 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 14 — Film Grain + Noise Texture Global Overlay
+### SPEC 15 — Film Grain + Noise Texture Global Overlay
 **What:** Add subtle film grain overlay across the entire site.  
 **Implementation:** Fixed `div` element, `z-index: 9999`, `pointer-events: none`, `mix-blend-mode: overlay`. Background uses SVG `feTurbulence` noise. Animated subtly at 8fps for organic feel. Opacity: `0.035` on light sections, `0.06` on dark sections.  
 **Why:** This is the single most-noticed Awwwards detail on dark sites. Adds cinematic depth.
 
 ---
 
-### SPEC 15 — Typography System Upgrade
+### SPEC 16 — Typography System Upgrade
 **What:** Replace Zentry rounded font on Monarch with a sharp, cinematic typeface pair.  
 **Fonts:**
 - **Display/Hero:** `Bebas Neue` or `PP Mondwest` — tall, compressed, all-caps. Used for section titles, hero headline `MONARCH`
@@ -84,7 +84,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 16 — Color System + Depth Layers
+### SPEC 17 — Color System + Depth Layers
 **What:** Replace flat purple swap with a full depth-layered dark world color system.
 
 | Token | Value | Usage |
@@ -108,7 +108,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## HERO SECTION
 
-### SPEC 17 — Hero Videos (5 Clips, Light Background Like Zentry)
+### SPEC 18 — Hero Videos (5 Clips, Light Background Like Zentry)
 **What:** Hero section uses the same Zentry clip-container structure — multiple looping videos in absolutely positioned containers with clip-path reveal on scroll.  
 **Background:** Light/off-white initially (like Zentry) so the clip containers and hexagonal overlay are visible against it.  
 **Videos (5 clips, all looping, muted, autoplay):**
@@ -129,7 +129,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 18 — Hero Hexagonal Particle System
+### SPEC 19 — Hero Hexagonal Particle System
 **What:** Preserve Zentry's hexagonal floating animation over hero section.  
 **Upgrade:** Change hex color from teal to `--ice-eye` (`#60A5FA`). Increase opacity slightly. Add a faint `--shadow-purple` second layer of hexagons at 0.3x scale floating in opposite direction.  
 **Implementation:** Existing Zentry hex canvas/SVG animation. CSS color variable update only.
@@ -138,7 +138,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## ORIGIN SECTION (About)
 
-### SPEC 19 — Portal Scroll Expansion (Double Dungeon Image)
+### SPEC 20 — Portal Scroll Expansion (Double Dungeon Image)
 **What:** Preserves Zentry's centerpiece — the small image that expands via GSAP `clip-path` to fill the viewport on scroll. This is the transition from light hero to dark world.  
 **Image:** `PORTAL_IMG_01` — The Double Dungeon stone corridor. Torchlit. Ancient Korean temple architecture carved into a dungeon. Massive stone statues flanking the corridor. Gate of light at the end.  
 **Behavior:**
@@ -151,7 +151,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 20 — Origin Copy Block ("Before The System")
+### SPEC 21 — Origin Copy Block ("Before The System")
 **What:** The two floating copy panels in Zentry's about section become Jin-Woo's origin story.  
 **Panel 1 (left float):**
 - Label: `E-RANK · HUNTER ID #4715`
@@ -169,7 +169,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## THE SYSTEM SECTION (Bento Grid)
 
-### SPEC 21 — Bento Card 01: "THE SYSTEM" — Rotating Status Windows Video
+### SPEC 22 — Bento Card 01: "THE SYSTEM" — Rotating Status Windows Video
 **What:** First large bento card. Takes up ~2 columns. Video background.  
 **Video:** `BENTO_VID_01` — Multiple Solo Leveling system UI windows (status screens, quest logs, skill trees) floating and rotating in 3D space in a dark void. Like a card carousel but the cards ARE the system windows. Glowing blue borders. Very unique, very Zentry.  
 **Copy:** Label: `THE SYSTEM` / Sub: `Daily quests. Stat allocation. Skill extraction. The system that broke the rules of this world.`  
@@ -177,7 +177,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 22 — Bento Card 02: "ARISE" — Jin-Woo Monarch Transformation Video
+### SPEC 23 — Bento Card 02: "ARISE" — Jin-Woo Monarch Transformation Video
 **What:** Second bento card. Animated single-image video (like Zentry's second card — one great image made cinematic).  
 **Video:** `BENTO_VID_02` — Jin-Woo at the exact moment he achieves Shadow Monarch title. Left eye glowing cold blue, shadows swirling around him like a living cloak, coat flowing. Camera very slowly pushes in. Wind effect, particles.  
 **Copy:** Label: `SHADOW MONARCH` / Sub: `The title no living hunter had ever held. Sovereign of all shadow.`  
@@ -185,7 +185,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 23 — Bento Card 03: "SHADOW ARMY" — Igris Battle Video
+### SPEC 24 — Bento Card 03: "SHADOW ARMY" — Igris Battle Video
 **What:** Tall narrow card (1 column, ~2 rows).  
 **Video:** `BENTO_VID_03` — Igris the Shadow Knight General, black armor, red eyes, raising his massive sword. Shadows and dark energy swirl. Black background like the character exists in a void. Looks 3D, like a movie prop shot.  
 **Copy:** Label: `IGRIS · SHADOW KNIGHT GENERAL` / Sub: `First extracted. Most loyal. Most deadly.`  
@@ -193,7 +193,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 24 — Bento Card 04: "DUNGEONS" — S-Rank Interior Video
+### SPEC 25 — Bento Card 04: "DUNGEONS" — S-Rank Interior Video
 **What:** Wide card (~2 columns, 1 row).  
 **Video:** `BENTO_VID_04` — Interior of an S-rank dungeon. Massive stone columns, glowing blue/purple crystals embedded in walls, fog rolling across the floor, distant growling creatures. Cinematic establishing shot. Dark, dangerous.  
 **Copy:** Label: `S-RANK DUNGEON` / Sub: `Every gate hides a world. Every world wants you dead.`  
@@ -201,14 +201,14 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 25 — Bento Card 05: "ARISE" — CTA Card
+### SPEC 26 — Bento Card 05: "ARISE" — CTA Card
 **What:** Colored CTA card. Currently purple `MORE COMING SOON!` — upgrade this.  
 **New Design:** Background: `--shadow-purple` → `--monarch-blue` diagonal gradient. Large display type: `JOIN THE LEGION`. Sub: `Enter the shadow realm. Arise.`. Button: `[ARISE NOW]` with border glow. A single blue eye glyph watermark behind the text at `opacity: 0.08`.  
 **Interaction:** On hover — the gradient shifts direction (GSAP), slight scale up `1.02`.
 
 ---
 
-### SPEC 26 — Bento Card 06: "THE GATES" — Gate Opening Video
+### SPEC 27 — Bento Card 06: "THE GATES" — Gate Opening Video
 **What:** Last bento card. Large.  
 **Video:** `BENTO_VID_06` — A massive dungeon gate (blue/black, E-rank to contrast) cracking open, white light bleeding through the fractures, then swinging wide. Camera slow push toward it. The moment before entering.  
 **Copy:** Label: `THE GATES · E THROUGH S` / Sub: `Cyan. Yellow. Red. Black. Each gate a new abyss.`  
@@ -216,7 +216,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 27 — Bento Card Glass Shimmer + Tilt Effect
+### SPEC 28 — Bento Card Glass Shimmer + Tilt Effect
 **What:** All 6 bento cards have the Zentry glass shimmer outline tilt effect. Preserve and enhance.  
 **Upgrade:** 
 - Shimmer border: Change from teal to `rgba(96, 165, 250, 0.4)` — the ice-eye blue
@@ -228,7 +228,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## THE GATES SECTION (Story/Portal Section)
 
-### SPEC 28 — Red Gate Frame-by-Frame Hover Section
+### SPEC 29 — Red Gate Frame-by-Frame Hover Section
 **What:** The immersive story image in Zentry becomes an S-rank Red Gate portal. On mouse hover, it feels like you are walking INTO the gate using frame-extracted video frames played by mouse position.  
 **Implementation:**
 1. Generate `GATE_FRAME_VID_01` — a slow camera push through a red S-rank gate into a dungeon
@@ -245,14 +245,14 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## THE RANKS SECTION (New Section — Between Gates and Monarchs)
 
-### SPEC 29 — Dark ↔ Light Realm Shift Transition
+### SPEC 30 — Dark ↔ Light Realm Shift Transition
 **What:** Zentry transitions between dark and light sections with a smooth GSAP wipe. Preserve this for Monarch.  
 **Monarch version:** The transition visual is a dungeon gate opening — as you scroll past the dark Gates section, a horizontal light wipe from left to right reveals the next (slightly lighter, `#0D0F2A` not pure black) section. Feels like stepping from a dungeon exterior into a lit throne room.  
 **Implementation:** GSAP `ScrollTrigger` + `clip-path: inset(0 100% 0 0)` → `inset(0 0% 0 0)` horizontal wipe on a full-width overlay div.
 
 ---
 
-### SPEC 30 — The Ranks: E Through S Visual Progression
+### SPEC 31 — The Ranks: E Through S Visual Progression
 **What:** New section (between Gates section and Monarchs section). Shows the hunter rank system from E to S.  
 **Layout:** Horizontal scroll-driven strip OR vertical stacked reveal. 6 rank cards:
 
@@ -272,7 +272,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## SHADOW EXTRACTION SECTION (New Section)
 
-### SPEC 31 — Shadow Extraction Story Cards
+### SPEC 32 — Shadow Extraction Story Cards
 **What:** New dark section. 4 horizontal story cards, each showing a key shadow extraction moment. These are the most cinematic assets on the site.  
 **Card layout:** Full-height cards in a horizontal scroll or a 2x2 grid.
 
@@ -290,7 +290,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## THE MONARCHS SECTION
 
-### SPEC 32 — The Monarchs: The Architect + Temple Statues
+### SPEC 33 — The Monarchs: The Architect + Temple Statues
 **What:** New dark section. Introduces the higher powers — the beings Jin-Woo must overcome beyond Season 2.
 
 **Layout:** 3 panels side by side:
@@ -311,7 +311,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## WEAPONS + SKILLS SECTION (New Section)
 
-### SPEC 33 — Weapons of the Shadow Monarch
+### SPEC 34 — Weapons of the Shadow Monarch
 **What:** Showcase Jin-Woo's key weapons and skills. Zentry-style hexagonal shape frames (like the light section with the ninja).
 
 **3 Weapon Cards:**
@@ -332,7 +332,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## SHADOW ARMY CTA SECTION
 
-### SPEC 34 — Shadow Army CTA (Replaces Current "LET'S BUILD" Section)
+### SPEC 35 — Shadow Army CTA (Replaces Current "LET'S BUILD" Section)
 **What:** The big full-screen CTA before the footer. Currently "LET'S BUILD THE NEW ERA OF SHADOW WARFARE."  
 **Keep:** The big display type treatment.  
 **Upgrade:**
@@ -353,7 +353,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## BEYOND SEASON 2 SECTION (New Teaser Section)
 
-### SPEC 35 — "Beyond Season 2" Story Teaser
+### SPEC 36 — "Beyond Season 2" Story Teaser
 **What:** New section teasing the unreleased narrative — Jin-Woo meets his father, battles Temple Statues, takes control of the System itself. This is the "future" of the gamified Monarch universe.
 
 **Layout:** Full-screen dark section. Three beat panels scrolling in:
@@ -371,7 +371,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## FOOTER
 
-### SPEC 36 — Footer Refinement ("THE SHADOW ARMY ARISE")
+### SPEC 37 — Footer Refinement ("THE SHADOW ARMY ARISE")
 **What:** Keep current footer structure. Upgrade content.  
 **Left:** Wordmark `MONARCH` + tagline: `The Shadow Monarch. The System. The Arise.` + social links (update icons to match current Monarch socials)  
 **Center:** Footer image — `FOOTER_IMG_01` — wide cinematic of entire shadow army assembled, Jin-Woo tiny in the center foreground  
@@ -383,7 +383,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## ARISE SCENE SECTION (New Section — After Extraction, Before Monarchs)
 
-### SPEC 37 — The Failed Arise / Reimagined Success Scene
+### SPEC 38 — The Failed Arise / Reimagined Success Scene
 **What:** A dedicated storytelling moment — the Baran (Ice Elf King) scene where in canon the extraction failed. In MONARCH's universe, we reimagine it: it succeeded.
 
 **Layout:** Split screen:
@@ -402,7 +402,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ## AUDIO + PERFORMANCE
 
-### SPEC 38 — Ambient Audio Toggle
+### SPEC 39 — Ambient Audio Toggle
 **What:** Preserve Zentry's audio toggle. Update the audio concept for Monarch.  
 **Audio:** A loop of:
 - Deep dungeon ambience — distant growls, stone dripping, low hum of gate energy
@@ -412,7 +412,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 39 — Scroll Copy Voice — Second Person Narrative
+### SPEC 40 — Scroll Copy Voice — Second Person Narrative
 **What:** Throughout the site, all section body copy is written in second person — *you* are Jin-Woo. This is what makes Monarch feel like a story, not a website.
 
 **Rewrite all body copy with this voice:**
@@ -425,7 +425,7 @@ HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
 
 ---
 
-### SPEC 40 — Performance, Lazy Loading + Mobile
+### SPEC 41 — Performance, Lazy Loading + Mobile
 **What:** Ensure Awwwards judges score full marks on usability (30% weight).  
 **Implementations:**
 - All `<video>` elements: `loading="lazy"`, `preload="none"`, load on IntersectionObserver entry

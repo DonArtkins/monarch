@@ -6,14 +6,13 @@ These directives are **mandatory** for all AI agents operating within the Monarc
 
 1. `AGENTS.md` — this file (you are here)
 2. `ARTKINS_STYLE_GUIDE_MONARCH.md` — engineering, animation, performance, and no-AI-slope policy
-3. `research/PROJECT_RESEARCH.md` — research index, current site analysis, and upscale goals
-4. `context/project-overview.md` — product definition, Solo Leveling theme, scope
-5. `context/architecture-context.md` — stack, GSAP patterns, Next.js constraints, invariants
-6. `context/ui-context.md` — Monarch design tokens, typography, dark void aesthetic, animation language
-7. `context/code-standards.md` — TypeScript, GSAP cleanup, performance budgets, Tailwind v4
-8. `context/ai-workflow-rules.md` — how to work, plan gates, branch workflow, Context7 rules
-9. `context/progress-tracker.md` — current state, next steps, open questions, session notes
-10. Current feature spec from `feature-specs/`
+3. `monarch-kit/context/project-overview.md` — product definition, Solo Leveling theme, scope
+4. `monarch-kit/context/architecture-context.md` — stack, GSAP patterns, Next.js constraints, invariants
+5. `monarch-kit/context/ui-context.md` — Monarch design tokens, typography, dark void aesthetic, animation language
+6. `monarch-kit/context/code-standards.md` — TypeScript, GSAP cleanup, performance budgets, Tailwind v4
+7. `monarch-kit/context/ai-workflow-rules.md` — how to work, plan gates, branch workflow, Context7 rules
+8. `monarch-kit/context/progress-tracker.md` — current state, next steps, open questions, session notes
+9.  Current feature spec from `monarch-kit/feature-specs/`
 
 ## Project Context
 
@@ -85,12 +84,12 @@ These directives are **mandatory** for all AI agents operating within the Monarc
 Implement feature specs in strict numeric order (SPEC 11 through SPEC 40). Do not skip ahead. Do not bundle multiple specs. Mark each spec done only after `npm run build` passes and the feature is verified.
 
 **Current Priority Queue:**
-1. SPEC 11 — Nav refinement (Story-based nav labels)
-2. SPEC 12 — Custom shadow cursor
-3. SPEC 13 — Gate-crack preloader
-4. SPEC 14 — Film grain overlay
-5. SPEC 15 — Typography system upgrade
-… continue through SPEC 40
+1. SPEC 12 — Nav refinement (Story-based nav labels)
+2. SPEC 13 — Custom shadow cursor
+3. SPEC 14 — Gate-crack preloader
+4. SPEC 15 — Film grain overlay
+5. SPEC 16 — Typography system upgrade
+… continue through SPEC 41
 
 ## 9. Story Flow
 

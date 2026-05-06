@@ -1,6 +1,6 @@
-# SPEC 38 — Ambient Audio Toggle Refinement
+# SPEC 39 — Ambient Audio Toggle Refinement
 
-**Branch:** `feat/38-audio-refinement`  
+**Branch:** `feat/39-audio-refinement`  
 **Component:** `components/NavBar.tsx` (MODIFY — minor additions only)
 
 ## What
@@ -17,9 +17,9 @@ Refine the existing audio toggle in `NavBar.tsx`. The current implementation has
 - Indicator bars use `--monarch-purple` color
 
 ## Dependencies
-- SPEC 11 (Nav Refinement) — builds on the updated NavBar structure
-- SPEC 15 (Typography) — Space Mono for the audio label tooltip
-- SPEC 16 (Color System) — `--ice-eye`, `--shadow-purple` tokens
+- SPEC 12 (Nav Refinement) — builds on the updated NavBar structure
+- SPEC 16 (Typography) — Space Mono for the audio label tooltip
+- SPEC 17 (Color System) — `--ice-eye`, `--shadow-purple` tokens
 
 ## ⚠️ Preservation Rules
 - DO NOT remove `isAudioPlaying`, `isIndicatorActive`, or `audioElementRef` refs

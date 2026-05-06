@@ -1,6 +1,6 @@
-# SPEC 20 — Origin Copy Block ("Before The System" Panels)
+# SPEC 21 — Origin Copy Block ("Before The System" Panels)
 
-**Branch:** `feat/20-origin-copy`  
+**Branch:** `feat/21-origin-copy`  
 **Component:** `components/About.tsx` (MODIFY — additive)
 
 ## What
@@ -13,9 +13,9 @@ Add two floating copy panels below the portal clip container in the About/ORIGIN
 - No floating story panels below the portal — the section ends after the clip container
 
 ## Dependencies
-- SPEC 19 (Portal Scroll) must be complete — panels live below the portal in DOM order
-- SPEC 15 (Typography) — `system-label` utility for panel labels
-- SPEC 16 (Color System) — `--silver`, `--shadow-dark`, `--border` tokens
+- SPEC 20 (Portal Scroll) must be complete — panels live below the portal in DOM order
+- SPEC 16 (Typography) — `system-label` utility for panel labels
+- SPEC 17 (Color System) — `--silver`, `--shadow-dark`, `--border` tokens
 
 ## Implementation
 

@@ -1,6 +1,6 @@
-# SPEC 29 — Dark ↔ Light Realm Shift Transition
+# SPEC 30 — Dark ↔ Light Realm Shift Transition
 
-**Branch:** `feat/29-realm-transition`  
+**Branch:** `feat/30-realm-transition`  
 **Component:** `components/RealmTransition.tsx` (NEW)
 
 ## What
@@ -12,9 +12,9 @@ This is a standalone, self-contained component with no content — its sole purp
 No transition effect exists between sections. The About section uses a `clip-path` scroll expansion (vertical). This spec creates the first horizontal wipe, a technique not yet in the project.
 
 ## Dependencies
-- SPEC 16 (Color System) — uses `--abyss`, `--shadow-dark`, `--ice-eye` tokens
-- SPEC 28 (Gates) — placed directly after Gates in DOM order
-- SPEC 30 (Ranks) — placed directly before Ranks in DOM order
+- SPEC 17 (Color System) — uses `--abyss`, `--shadow-dark`, `--ice-eye` tokens
+- SPEC 29 (Gates) — placed directly after Gates in DOM order
+- SPEC 31 (Ranks) — placed directly before Ranks in DOM order
 
 ## Implementation
 

@@ -1,6 +1,6 @@
-# SPEC 32 — The Monarchs: The Architect, Temple Statues, Father
+# SPEC 33 — The Monarchs: The Architect, Temple Statues, Father
 
-**Branch:** `feat/32-monarchs`  
+**Branch:** `feat/33-monarchs`  
 **Component:** `components/Monarchs.tsx` (NEW)
 
 ## What
@@ -10,10 +10,10 @@ A new dark full-viewport section placed AFTER `ShadowExtraction` and BEFORE `Wea
 No Monarchs section exists. The `BentoTilt` component in `Features.tsx` is the closest reference for the 3D tilt hover behavior. This section uses portrait-ratio panels with image backgrounds instead of video.
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label` utility, `korean-watermark` utility
-- SPEC 16 (Color System) — `--royal`, `--ice-eye`, `--abyss`, `--shadow-dark`, `--silver`, `--white` tokens
-- SPEC 27 (Bento Tilt Upgrade) — enhanced `contextSafe` tilt pattern
-- SPEC 31 (Shadow Extraction) — placed directly after
+- SPEC 16 (Typography) — `system-label` utility, `korean-watermark` utility
+- SPEC 17 (Color System) — `--royal`, `--ice-eye`, `--abyss`, `--shadow-dark`, `--silver`, `--white` tokens
+- SPEC 28 (Bento Tilt Upgrade) — enhanced `contextSafe` tilt pattern
+- SPEC 32 (Shadow Extraction) — placed directly after
 
 ## ⚠️ Preservation Rules
 - Do NOT modify `AnimatedTitle` component

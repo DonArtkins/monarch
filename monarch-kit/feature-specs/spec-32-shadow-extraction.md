@@ -1,6 +1,6 @@
-# SPEC 31 — Shadow Extraction Story Cards
+# SPEC 32 — Shadow Extraction Story Cards
 
-**Branch:** `feat/31-shadow-extraction`  
+**Branch:** `feat/32-shadow-extraction`  
 **Component:** `components/ShadowExtraction.tsx` (NEW)
 
 ## What
@@ -10,10 +10,10 @@ A new full-viewport dark section placed AFTER `Ranks` and BEFORE `Monarchs` in t
 No ShadowExtraction section exists. The `BentoCard` component in `Features.tsx` is the closest architectural reference — video background, label, title, description. This section uses a different layout: full-height cards in a 2×2 grid on desktop, vertical stack on mobile. Mouse hover energy effect is new to the project.
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label` utility, Space Mono font
-- SPEC 16 (Color System) — `--gate-red`, `--shadow-purple`, `--ice-eye`, `--abyss`, `--silver`, `--deep` tokens
-- SPEC 30 (Ranks) — placed directly after Ranks in DOM order
-- SPEC 32 (Monarchs) — placed directly before Monarchs in DOM order
+- SPEC 16 (Typography) — `system-label` utility, Space Mono font
+- SPEC 17 (Color System) — `--gate-red`, `--shadow-purple`, `--ice-eye`, `--abyss`, `--silver`, `--deep` tokens
+- SPEC 31 (Ranks) — placed directly after Ranks in DOM order
+- SPEC 33 (Monarchs) — placed directly before Monarchs in DOM order
 
 ## ⚠️ Preservation Rules
 - Do NOT modify `VideoPlayer` component API

@@ -1,6 +1,6 @@
-# SPEC 12 — Custom Shadow Energy Cursor
+# SPEC 13 — Custom Shadow Energy Cursor
 
-**Branch:** `feat/12-custom-cursor`  
+**Branch:** `feat/13-custom-cursor`  
 **Component:** `components/CustomCursor.tsx` (NEW)
 
 ## What
@@ -10,7 +10,7 @@ Replace the default browser cursor with a custom animated shadow-energy ring cur
 Default browser cursor. No cursor customization exists.
 
 ## Dependencies
-- SPEC 11 (Nav Refinement) must be complete so nav links have correct `data-cursor` attributes applied.
+- SPEC 12 (Nav Refinement) must be complete so nav links have correct `data-cursor` attributes applied.
 - `globals.css` must have the updated color tokens from the existing design system.
 
 ## Implementation
@@ -204,7 +204,7 @@ Add to elements in existing components via their `className` or `data-cursor` pr
 - Cursor state changes for specific section entries
 
 ## Future Modifications
-- SPEC 28 can add a `data-cursor="gate"` attribute to the gate frame hover area for a crosshair state
+- SPEC 29 can add a `data-cursor="gate"` attribute to the gate frame hover area for a crosshair state
 
 ## Acceptance Criteria
 - [ ] Custom ring cursor visible on desktop (pointer: fine devices)

@@ -1,6 +1,6 @@
-# SPEC 13 — Gate Crack Preloader (Entry Experience)
+# SPEC 14 — Gate Crack Preloader (Entry Experience)
 
-**Branch:** `feat/13-preloader`  
+**Branch:** `feat/14-preloader`  
 **Component:** `components/Preloader.tsx` (NEW)
 
 ## What
@@ -12,8 +12,8 @@ The preloader is mounted at the root layout (`app/layout.tsx`) so it covers the 
 `Hero.tsx` has a `.three-body` CSS spinner shown while `isLoading` is true (local to Hero, disappears after `loadedVideos >= totalVideos - 1` or after a 2500ms timeout). That spinner is scoped only to the Hero component and does not gate the rest of the site. The new `Preloader` replaces this as the **global** entry experience, mounted above all routes in `app/layout.tsx`. Hero's internal loading state may remain untouched as a secondary fallback for video readiness, but it is no longer the primary entry gate.
 
 ## Dependencies
-- SPEC 11 (Nav Refinement) — can run in parallel, no dependency
-- SPEC 15 (Typography) should be complete so Bebas Neue / compressed font is available for the ARISE text impact. If not complete, use `font-zentry` as fallback.
+- SPEC 12 (Nav Refinement) — can run in parallel, no dependency
+- SPEC 16 (Typography) should be complete so Bebas Neue / compressed font is available for the ARISE text impact. If not complete, use `font-zentry` as fallback.
 
 ## Implementation
 
@@ -376,12 +376,12 @@ Do **not** couple Hero to `preloaderDone` — the global gate already hides the 
 - N/A — this is code-only, no external assets
 
 ## Out of Scope
-- Audio integration with preloader (SPEC 38 handles audio)
+- Audio integration with preloader (SPEC 39 handles audio)
 - Session-persistent preloader skip (shows once per session via `sessionStorage`) — future enhancement
 - Progress bar showing asset loading percentage
 
 ## Future Modifications
-- SPEC 38: Can add a brief audio sting synced to the crack moment
+- SPEC 39: Can add a brief audio sting synced to the crack moment
 
 ## Acceptance Criteria
 - [ ] Preloader is mounted in `app/layout.tsx` via `PreloaderGate` and gates **every route** of the site, not just the Hero or home page

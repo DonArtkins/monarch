@@ -1,6 +1,6 @@
-# SPEC 39 — Second-Person Narrative Copy Rewrite
+# SPEC 40 — Second-Person Narrative Copy Rewrite
 
-**Branch:** `feat/39-second-person-copy`  
+**Branch:** `feat/40-second-person-copy`  
 **Component:** ALL existing section components (MODIFY — copy only)
 
 ## What
@@ -10,10 +10,10 @@ Rewrite all body copy across the entire site to use a consistent second-person v
 Most section copy refers to Jin-Woo in third-person ("the weakest hunter", "command the shadows") or uses generic placeholder text. Some sections already have partial second-person copy. This spec standardises all copy across every component to a cohesive second-person narrative arc.
 
 ## Dependencies
-- SPEC 11 (Nav Refinement) — nav labels are already story-driven
-- SPEC 15 (Typography) — Space Mono labels already in place
-- SPEC 16 (Color System) — color tokens used in copy label styling
-- All new sections (SPEC 28–37) — their copy is already written in second-person; this spec focuses on EXISTING components
+- SPEC 12 (Nav Refinement) — nav labels are already story-driven
+- SPEC 16 (Typography) — Space Mono labels already in place
+- SPEC 17 (Color System) — color tokens used in copy label styling
+- All components that are already in second-person should not be changed
 
 ## ⚠️ Preservation Rules
 - DO NOT change any JSX structure, class names, or animation targets

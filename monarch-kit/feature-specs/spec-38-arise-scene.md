@@ -1,6 +1,6 @@
-# SPEC 37 — The Failed Arise / Reimagined Success Scene
+# SPEC 38 — The Failed Arise / Reimagined Success Scene
 
-**Branch:** `feat/37-arise-scene`  
+**Branch:** `feat/38-arise-scene`  
 **Component:** `components/AriseScene.tsx` (NEW)
 
 ## What
@@ -10,10 +10,10 @@ A dedicated full-viewport storytelling section placed AFTER `Weapons` and BEFORE
 No AriseScene section exists. The split-screen reveal with GSAP clip-path wipe is new to the project. The `Story.tsx` frame-tilt interaction and `About.tsx` clip-path expansion are the closest architectural references. This section introduces a center-line wipe driven by `ScrollTrigger` scrub — the first horizontal narrative split in the project.
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label`, Space Mono font, `clamp()` heading sizes
-- SPEC 16 (Color System) — `--void`, `--abyss`, `--ice-eye`, `--gate-red`, `--silver`, `--white` tokens
-- SPEC 33 (Weapons) — placed directly before AriseScene
-- SPEC 35 (Beyond) — placed directly after AriseScene
+- SPEC 16 (Typography) — `system-label`, Space Mono font, `clamp()` heading sizes
+- SPEC 17 (Color System) — `--void`, `--abyss`, `--ice-eye`, `--gate-red`, `--silver`, `--white` tokens
+- SPEC 34 (Weapons) — placed directly before AriseScene
+- SPEC 36 (Beyond) — placed directly after AriseScene
 
 ## ⚠️ Preservation Rules
 - Do NOT modify `Story.tsx` — AriseScene is a separate new component

@@ -1,6 +1,6 @@
-# SPEC 17 — Hero 5-Clip Video Structure (Hexagonal Containers)
+# SPEC 18 — Hero 5-Clip Video Structure (Hexagonal Containers)
 
-**Branch:** `feat/17-hero-5-clip`  
+**Branch:** `feat/18-hero-5-clip`  
 **Component:** `components/Hero.tsx` (MODIFY — CRITICAL, HIGH RISK)
 
 ## What
@@ -17,13 +17,13 @@ Expand the Hero section from its current 2-video click-to-swap system to a 5-cli
 - `Enter System` CTA button
 
 ## Dependencies
-- SPEC 15 (Typography) — hero heading clamp sizing
-- SPEC 16 (Color System) — new background tokens for clip containers
-- SPEC 11 (Nav) — must already be complete (nav sits above hero)
+- SPEC 16 (Typography) — hero heading clamp sizing
+- SPEC 17 (Color System) — new background tokens for clip containers
+- SPEC 12 (Nav) — must already be complete (nav sits above hero)
 
 ## ⚠️ CRITICAL — Preservation Rules
 - DO NOT remove or modify the `#video-frame` div or its `clip-path` GSAP scroll logic
-- DO NOT change the `isLoading` / three-body spinner — keep as fallback
+- DO NOT change the `isLoading` / three-body spinner — keep as fallback but make sure its its own component and covers the whole webiste like our current loader, not just the hero section as it was earlier
 - DO NOT change the `handleMiniVideoClick` swap mechanic on the center clip
 - DO NOT add autoplay to new clips outside the existing pattern — use VideoPlayer component
 - The 4 new clip containers are purely DECORATIVE — no click handlers
@@ -178,7 +178,7 @@ Inside the main hero `div` (the root container), **after** `#video-frame` div an
 All 4 decorative clips use existing `hero-1.mp4` or `hero-2.mp4` as placeholders until final assets are generated via Google Flow. Comment each with `{/* TODO: Replace with /videos/HERO_VID_XX.mp4 */}`.
 
 ## Out of Scope
-- True hexagonal CSS clip-path containers (SPEC 18 handles hex particle color update)
+- True hexagonal CSS clip-path containers (SPEC 19 handles hex particle color update)
 - Preloader interaction with decorative clips (preloader hides entire site content)
 
 ## Acceptance Criteria
