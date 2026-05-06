@@ -168,6 +168,19 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Korean watermark — decorative only */}
+      <div
+        className="korean-watermark"
+        aria-hidden="true"
+        style={{
+          bottom: "-5%",
+          left: "50%",
+          transform: "translateX(-50%) rotate(-20deg)",
+        }}
+      >
+        일어나라
+      </div>
+
       <h1 className="special-font hero-heading absolute bottom-5 right-5 text-monarch-text">
         A<b>w</b>aken
       </h1>
