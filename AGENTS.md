@@ -1,27 +1,102 @@
-# AGENTS.md — Monarch Project Directives
+# AGENTS.md — Monarch Upscale Project Directives
 
-These directives are **mandatory** for all AI agents operating within the Monarch project.
+These directives are **mandatory** for all AI agents operating within the Monarch upscale project.
+
+## Mandatory Reading Order
+
+1. `AGENTS.md` — this file (you are here)
+2. `ARTKINS_STYLE_GUIDE_MONARCH.md` — engineering, animation, performance, and no-AI-slope policy
+3. `research/PROJECT_RESEARCH.md` — research index, current site analysis, and upscale goals
+4. `context/project-overview.md` — product definition, Solo Leveling theme, scope
+5. `context/architecture-context.md` — stack, GSAP patterns, Next.js constraints, invariants
+6. `context/ui-context.md` — Monarch design tokens, typography, dark void aesthetic, animation language
+7. `context/code-standards.md` — TypeScript, GSAP cleanup, performance budgets, Tailwind v4
+8. `context/ai-workflow-rules.md` — how to work, plan gates, branch workflow, Context7 rules
+9. `context/progress-tracker.md` — current state, next steps, open questions, session notes
+10. Current feature spec from `feature-specs/`
+
+## Project Context
+
+**Monarch** is a Solo Leveling–themed Awwwards-level interactive experience built with Next.js, GSAP, and Tailwind v4. It showcases the Shadow Monarch's universe through cinematic video backgrounds, ScrollTrigger animations, 3D bento tilt effects, and a deep dark void aesthetic.
+
+**Upscale Goal**: Transform the current solid foundation into an Awwwards-level interactive experience featuring custom cursor, gate-crack preloader, cinematic frame-by-frame hover sections, horizontal rank scroll, extraction story cards, monarch panels, weapon sections, and a full story-driven narrative arc told in second-person.
+
+**Current State**: The project has a working Hero, NavBar, About (portal scroll), Features (bento grid), Story, Contact, and Footer. The upscale plan adds 30 refined features (SPEC 11–40) layered on top without breaking existing functionality.
 
 ## 1. Branching & Feature Workflow
-- **One Feature, One Branch**: All work must be done on isolated `feat/XX-feature-name` branches. Never commit directly to `master`.
-- **Feature Specs**: Always refer to the corresponding `feature-spec/XX-name.md` file before starting work to understand the full scope and acceptance criteria.
-- **Incremental Steps**: Implement features incrementally. Run local build checks (`npm run build`) and verify via browser agent before committing.
+
+- **One Feature, One Branch**: All work must be done on isolated `feat/XX-feature-name` branches. Never commit directly to `master`/`main`.
+- **Feature Specs**: Always refer to the corresponding `feature-specs/spec-XX-name.md` file before starting work.
+- **Incremental Steps**: Implement features incrementally. Run `npm run build` and verify before committing.
+- **Preserve Existing Structure**: Do NOT break existing component layout or animation architecture. Layer on top.
 
 ## 2. Code Review & Quality Gates
-- **CodeRabbit Review Mandatory**: No branch can be merged to `master` without passing a CodeRabbit review first.
-- **Agent Roles**: When asked to review code, assume the role of an elite senior engineer. Focus on performance, GSAP optimization, strict TypeScript typing, and adherence to the Artkins Style Guide.
 
-## 3. Skills Architecture & Usage
-- **Skill Locations**: The `skills` CLI automatically downloads skill source code to `/skills/` and creates universal agent symlinks in `/.agents/skills/`. Agents must read from `/.agents/skills/` to utilize active skills.
-- **Applying Skills**: When implementing functionality that relates to installed skills (e.g., CodeRabbit, GitHub workflows, Auth), you must read the skill's `SKILL.md` to ensure the correct patterns and standards are applied.
+- No branch can be merged without passing build and lint checks.
+- When reviewing code, act as an elite senior engineer. Focus on GSAP performance, TypeScript strictness, Tailwind v4 patterns, and adherence to the Monarch design system.
+- Run `npm run build` — zero TypeScript errors, zero ESLint errors required.
 
-## 4. Documentation & Research
-- **Always Read Official Docs**: Before configuring or using installed packages (e.g., Next.js App Router, GSAP, Tailwind 4), always use web search or framework-specific tools (like `npx ctx7`) to read the latest official documentation.
-- **No Hallucinations**: Do not assume API surfaces or configuration schemas. Verify versions and usage syntax directly from the source.
+## 3. Animation Standards (CRITICAL)
 
-## 5. Design Aesthetics
-- **Solo Leveling Theme**: Maintain the dark void aesthetic (Void Black `#030014`, Shadow Purple `#7B2FF7`, Neon Blue `#00D4FF`).
-- **High Performance**: Ensure GSAP animations use proper `context()` cleanup and `will-change` hints. The goal is an Awwwards-level interactive experience.
+- **Always use `gsap.context()` with `return () => ctx.revert()`** — memory leaks are unacceptable.
+- **Always use `useGSAP()` hook** from `@gsap/react` — never raw `useEffect` for GSAP.
+- **Register plugins at module level** outside components: `gsap.registerPlugin(ScrollTrigger, SplitText)`.
+- **Only animate GPU-composited properties**: `transform`, `opacity`. Never `width`, `height`, `margin`.
+- **`will-change`** only on elements actively animating, removed after animation completes.
+- **`force3D: true`** on performance-critical animations.
+- **No decorative animations** without UX purpose.
+
+## 4. Design System
+
+- **Void Black** `#030014` — page background.
+- **Shadow Purple** `#7B2FF7` — primary energy, buttons.
+- **Neon Blue** `#00D4FF` — Jin-Woo's eye, CTAs, system UI.
+- **Monarch Gold** `#FFD700` — A-rank, special highlights.
+- **Gate Red** `#FF1744` — S-rank danger, extraction.
+- Never use raw hex values in components — use CSS custom properties from `globals.css`.
+
+## 5. Assets
+
+- Videos live in `/public/videos/` — use `VideoPlayer` component with IntersectionObserver.
+- Images live in `/public/images/` — use Next.js `<Image>` with proper `sizes` prop.
+- Fonts are preloaded in `app/layout.tsx`: zentry, general, circularweb, robert-medium, robert-regular.
+- Logo is in `/public/images/logo.svg`.
+- Background music: `/public/audio/bgm.mp3`.
+
 ## 6. Dev Server & Testing
-- **User-Managed Dev Server**: Agents must **never** start their own dev server. Always use the dev server running on `localhost:3000`, which will be started by the user via `npm run dev`.
-- **Verification**: Use the browser agent to verify changes against the running server.
+
+- **Never start a dev server** — use the user's running `npm run dev` on `localhost:3000`.
+- Use browser verification after implementing each feature.
+- `npm run build` must pass before marking any feature done.
+
+## 7. Hard Rules
+
+- Preserve ALL existing component APIs and props.
+- Do not break `VideoPlayer`, `AnimatedTitle`, `BentoTilt`, `Button`, `RoundedCorners`.
+- New sections go between existing sections in `app/page.tsx` in story order.
+- All new components go in `components/` with `.tsx` extension.
+- All animations have `useGSAP` scope and cleanup.
+- No `any` TypeScript without documented justification.
+- Space Mono is used for all system/HUD labels — add via `@font-face` or Google Fonts.
+- Second-person narrative voice throughout all copy.
+
+## 8. Feature Implementation Order
+
+Implement feature specs in strict numeric order (SPEC 11 through SPEC 40). Do not skip ahead. Do not bundle multiple specs. Mark each spec done only after `npm run build` passes and the feature is verified.
+
+**Current Priority Queue:**
+1. SPEC 11 — Nav refinement (Story-based nav labels)
+2. SPEC 12 — Custom shadow cursor
+3. SPEC 13 — Gate-crack preloader
+4. SPEC 14 — Film grain overlay
+5. SPEC 15 — Typography system upgrade
+… continue through SPEC 40
+
+## 9. Story Flow
+
+The entire site tells one story in this order:
+```
+HERO → ORIGIN → THE DOUBLE DUNGEON → THE SYSTEM → SHADOW EXTRACTION
+→ THE GATES → THE RANKS → THE MONARCHS → THE SHADOW ARMY → BEYOND → ARISE
+```
+Every new section follows this arc. Copy is written in second-person: *"You are Sung Jin-Woo."*
