@@ -1,6 +1,6 @@
-# SPEC 19 — Portal Scroll Expansion (Double Dungeon Image)
+# SPEC 20 — Portal Scroll Expansion (Double Dungeon Image)
 
-**Branch:** `feat/19-portal-scroll`  
+**Branch:** `feat/20-portal-scroll`  
 **Component:** `components/About.tsx` (MODIFY)
 
 ## What
@@ -16,9 +16,9 @@ The About section's centerpiece clip-path expansion animation is already working
 - Animation: clip-path expands `width: 100vw, height: 100vh, borderRadius: 0` on scroll
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label` utility for section label
-- SPEC 16 (Color System) — `--deep`, `--ice-eye` tokens for overlay
-- SPEC 11 (Nav) — About section uses `id="about"` which matches nav `#about` href
+- SPEC 16 (Typography) — `system-label` utility for section label
+- SPEC 17 (Color System) — `--deep`, `--ice-eye` tokens for overlay
+- SPEC 12 (Nav) — About section uses `id="about"` which matches nav `#about` href
 
 ## ⚠️ Preservation Rules
 - DO NOT change the GSAP `clipAnimation` timeline logic — it works perfectly

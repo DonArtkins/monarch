@@ -1,6 +1,6 @@
-# SPEC 34 — Shadow Army CTA Upgrade
+# SPEC 35 — Shadow Army CTA Upgrade
 
-**Branch:** `feat/34-shadow-army-cta`  
+**Branch:** `feat/35-shadow-army-cta`  
 **Component:** `components/ShadowArmyCTA.tsx` (NEW) + `components/Contact.tsx` (PRESERVE as-is)
 
 ## What
@@ -16,9 +16,9 @@ Replace the current `Contact` section's role as the pre-footer CTA with a dedica
 The current Contact is good but is doing double-duty as both a story CTA and a contact section. This spec adds a dedicated army CTA before it so Contact can remain purely as-is.
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label`, Space Mono font, `clamp()` display sizing
-- SPEC 16 (Color System) — `--shadow-purple`, `--monarch-energy`, `--ice-eye`, `--abyss`, `--silver` tokens
-- SPEC 37 (AriseScene) — `ShadowArmyCTA` is placed after `AriseScene` and before `Contact`
+- SPEC 16 (Typography) — `system-label`, Space Mono font, `clamp()` display sizing
+- SPEC 17 (Color System) — `--shadow-purple`, `--monarch-energy`, `--ice-eye`, `--abyss`, `--silver` tokens
+- SPEC 38 (AriseScene) — `ShadowArmyCTA` is placed after `AriseScene` and before `Contact`
 
 ## ⚠️ Preservation Rules
 - `Contact.tsx` is NOT modified — its existing clip-path images and layout remain 100% intact

@@ -1,6 +1,6 @@
-# SPEC 14 — Film Grain + Noise Texture Global Overlay
+# SPEC 15 — Film Grain + Noise Texture Global Overlay
 
-**Branch:** `feat/14-film-grain`  
+**Branch:** `feat/15-film-grain`  
 **Component:** `components/FilmGrain.tsx` (NEW)
 
 ## What
@@ -11,7 +11,7 @@ No film grain or noise texture on the site. Backgrounds are flat dark colors.
 
 ## Dependencies
 - None. Can be implemented in isolation.
-- SPEC 16 (Color tokens) should be applied first so CSS variable `--abyss` is available, but the component works with existing tokens.
+- SPEC 17 (Color tokens) should be applied first so CSS variable `--abyss` is available, but the component works with existing tokens.
 
 ## Implementation
 

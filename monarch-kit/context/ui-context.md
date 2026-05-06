@@ -90,7 +90,7 @@ font-family: "Space Mono", monospace; /* all rank labels, system UI */
 Space Mono is used exclusively for:
 - Nav items
 - Rank labels (`E-RANK · HUNTER ID #4715`)
-- Bento card labels (`THE SYSTEM · SPEC 11`)
+- Bento card labels (`THE SYSTEM`)
 - HUD overlays
 - Footer strip (`일어나라 · ARISE · MONARCH · 2026`)
 

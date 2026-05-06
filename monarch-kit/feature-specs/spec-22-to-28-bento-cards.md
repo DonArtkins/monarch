@@ -1,6 +1,6 @@
-# SPEC 21 — Bento Card 01: THE SYSTEM (Rotating Status Windows)
+# SPEC 22 — Bento Card 01: THE SYSTEM (Rotating Status Windows)
 
-**Branch:** `feat/21-bento-card-01`  
+**Branch:** `feat/22-bento-card-01`  
 **Component:** `components/Features.tsx` (MODIFY — BentoCard content only)
 
 ## What
@@ -20,15 +20,15 @@ Update the first large bento card (full-width hero card) from the current placeh
 ```
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label` class
-- SPEC 16 (Color System) — `--ice-eye`, `--deep` tokens
+- SPEC 16 (Typography) — `system-label` class
+- SPEC 17 (Color System) — `--ice-eye`, `--deep` tokens
 
 ## Implementation
 
 ### Update BentoCard 01 props
 
 ```tsx
-{/* SPEC 21 — THE SYSTEM — Full-width hero card */}
+{/* SPEC 22 — THE SYSTEM — Full-width hero card */}
 <BentoTilt className="border-hsla relative mb-7 h-64 w-full overflow-hidden rounded-md sm:h-80 md:h-[65vh]">
   <BentoCard
     src="/videos/father.mp4"  // TODO: Replace with /videos/BENTO_VID_01.mp4 when generated
@@ -57,9 +57,9 @@ The `BentoCard` interface already accepts `labelColor?: string` — no change ne
 
 ---
 
-# SPEC 22 — Bento Card 02: ARISE (Shadow Monarch Transformation)
+# SPEC 23 — Bento Card 02: ARISE (Shadow Monarch Transformation)
 
-**Branch:** `feat/22-bento-card-02`  
+**Branch:** `feat/23-bento-card-02`  
 **Component:** `components/Features.tsx` (MODIFY — BentoCard content only)
 
 ## What
@@ -68,7 +68,7 @@ Update the ARISE bento card (Shadow Monarch) with final copy and updated video p
 ## Implementation
 
 ```tsx
-{/* SPEC 12 — ARISE — Shadow Monarch card */}
+{/* SPEC 23 — ARISE — Shadow Monarch card */}
 <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:h-auto">
   <BentoCard
     src="/videos/story-arise.mp4"  // TODO: Replace with /videos/BENTO_VID_02.mp4
@@ -88,9 +88,9 @@ Update the ARISE bento card (Shadow Monarch) with final copy and updated video p
 
 ---
 
-# SPEC 23 — Bento Card 03: IGRIS (Shadow Knight General)
+# SPEC 24 — Bento Card 03: IGRIS (Shadow Knight General)
 
-**Branch:** `feat/23-bento-card-03`  
+**Branch:** `feat/24-bento-card-03`  
 **Component:** `components/Features.tsx` (MODIFY — BentoCard content only)
 
 ## What
@@ -99,7 +99,7 @@ Update the tall Igris bento card with final copy.
 ## Implementation
 
 ```tsx
-{/* SPEC 13 — IGRIS — tall narrow card */}
+{/* SPEC 24 — IGRIS — tall narrow card */}
 <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:row-span-2 md:h-auto">
   <BentoCard
     src="/videos/shadow-army.mp4"  // TODO: Replace with /videos/BENTO_VID_03.mp4
@@ -118,9 +118,9 @@ Update the tall Igris bento card with final copy.
 
 ---
 
-# SPEC 24 — Bento Card 04: DUNGEONS (S-Rank Interior)
+# SPEC 25 — Bento Card 04: DUNGEONS (S-Rank Interior)
 
-**Branch:** `feat/24-bento-card-04`  
+**Branch:** `feat/25-bento-card-04`  
 **Component:** `components/Features.tsx` (MODIFY — BentoCard content only)
 
 ## What
@@ -129,7 +129,7 @@ Update the Dungeons bento card with final copy and gate-red label.
 ## Implementation
 
 ```tsx
-{/* SPEC 14 — DUNGEONS — wide card */}
+{/* SPEC 25 — DUNGEONS — wide card */}
 <BentoTilt className="bento-tilt_1 h-48 sm:h-64 md:h-auto">
   <BentoCard
     src="/videos/legion.mp4"  // TODO: Replace with /videos/BENTO_VID_04.mp4
@@ -148,9 +148,9 @@ Update the Dungeons bento card with final copy and gate-red label.
 
 ---
 
-# SPEC 25 — Bento Card 05: ARISE CTA Card Upgrade
+# SPEC 26 — Bento Card 05: ARISE CTA Card Upgrade
 
-**Branch:** `feat/25-bento-card-05`  
+**Branch:** `feat/26-bento-card-05`  
 **Component:** `components/Features.tsx` (MODIFY — CTA card div)
 
 ## What
@@ -172,7 +172,7 @@ Replace the current "More coming soon" purple CTA bento card with a fully upgrad
 ## Implementation
 
 ```tsx
-{/* SPEC 25 — CTA card — JOIN THE LEGION */}
+{/* SPEC 26 — CTA card — JOIN THE LEGION */}
 <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-auto">
   <div
     className="flex size-full flex-col justify-between p-5 group cursor-pointer relative overflow-hidden"
@@ -270,9 +270,9 @@ Replace the current "More coming soon" purple CTA bento card with a fully upgrad
 
 ---
 
-# SPEC 26 — Bento Card 06: THE GATES (Gate Opening Video)
+# SPEC 27 — Bento Card 06: THE GATES (Gate Opening Video)
 
-**Branch:** `feat/26-bento-card-06`  
+**Branch:** `feat/27-bento-card-06`  
 **Component:** `components/Features.tsx` (MODIFY — last bento slot)
 
 ## What
@@ -294,7 +294,7 @@ The last slot is a decorative card:
 Replace the decorative card with a `BentoCard`:
 
 ```tsx
-{/* SPEC 26 — THE GATES — teaser card */}
+{/* SPEC 27 — THE GATES — teaser card */}
 <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-auto">
   <BentoCard
     src="/videos/legion.mp4"   // TODO: Replace with /videos/BENTO_VID_06.mp4
@@ -314,9 +314,9 @@ Replace the decorative card with a `BentoCard`:
 
 ---
 
-# SPEC 27 — Bento Glass Shimmer + Tilt Effect Upgrade
+# SPEC 28 — Bento Glass Shimmer + Tilt Effect Upgrade
 
-**Branch:** `feat/27-bento-tilt-upgrade`  
+**Branch:** `feat/28-bento-tilt-upgrade`  
 **Component:** `components/Features.tsx` (MODIFY — BentoTilt component)
 
 ## What

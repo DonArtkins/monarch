@@ -1,6 +1,6 @@
-# SPEC 16 — Color System Expansion + Depth Layer Tokens
+# SPEC 17 — Color System Expansion + Depth Layer Tokens
 
-**Branch:** `feat/16-color-system`  
+**Branch:** `feat/17-color-system`  
 **Component:** `app/globals.css` (MODIFY ONLY)
 
 ## What
@@ -40,7 +40,7 @@ Existing Tailwind color tokens in `@theme`:
 ```
 
 ## Dependencies
-- SPEC 15 (Typography) recommended before this spec — no hard dependency
+- SPEC 16 (Typography) recommended before this spec — no hard dependency
 - No other components need modification — all changes are in `globals.css` only
 
 ## Implementation

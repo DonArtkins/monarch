@@ -28,64 +28,64 @@ The following components are working and must be preserved:
 ## Upscale Progress
 
 ### NAV & GLOBAL REFINEMENTS
-- [ ] **SPEC 11** — Story-based navigation labels + active section highlight
-- [ ] **SPEC 12** — Custom shadow energy cursor with ring + trail
-- [ ] **SPEC 13** — Gate-crack SVG preloader (2.4s, skippable)
-- [ ] **SPEC 14** — Film grain/noise texture global overlay
-- [ ] **SPEC 15** — Typography upgrade (Space Mono labels, clamp sizing)
-- [ ] **SPEC 16** — Color system expansion + depth layer tokens
+- [ ] **SPEC 12** — Story-based navigation labels + active section highlight
+- [ ] **SPEC 13** — Custom shadow energy cursor with ring + trail
+- [ ] **SPEC 14** — Gate-crack SVG preloader (2.4s, skippable)
+- [ ] **SPEC 15** — Film grain/noise texture global overlay
+- [ ] **SPEC 16** — Typography upgrade (Space Mono labels, clamp sizing)
+- [ ] **SPEC 17** — Color system expansion + depth layer tokens
 
 ### HERO SECTION
-- [ ] **SPEC 17** — Hero 5-clip video structure (hexagonal containers)
-- [ ] **SPEC 18** — Hero hexagonal particle system (ice-eye blue upgrade)
+- [ ] **SPEC 18** — Hero 5-clip video structure (hexagonal containers)
+- [ ] **SPEC 19** — Hero hexagonal particle system (ice-eye blue upgrade)
 
 ### ORIGIN SECTION
-- [ ] **SPEC 19** — Portal scroll expansion (Double Dungeon image)
-- [ ] **SPEC 20** — Origin copy block ("Before The System" panels)
+- [ ] **SPEC 20** — Portal scroll expansion (Double Dungeon image)
+- [ ] **SPEC 21** — Origin copy block ("Before The System" panels)
 
 ### THE SYSTEM SECTION (BENTO)
-- [ ] **SPEC 21** — Bento Card 01: THE SYSTEM (rotating status windows)
-- [ ] **SPEC 22** — Bento Card 02: ARISE (Shadow Monarch transformation)
-- [ ] **SPEC 23** — Bento Card 03: SHADOW ARMY (Igris battle)
-- [ ] **SPEC 24** — Bento Card 04: DUNGEONS (S-rank interior)
-- [ ] **SPEC 25** — Bento Card 05: ARISE CTA card upgrade
-- [ ] **SPEC 26** — Bento Card 06: THE GATES (gate opening video)
-- [ ] **SPEC 27** — Bento glass shimmer + tilt effect upgrade
+- [ ] **SPEC 22** — Bento Card 01: THE SYSTEM (rotating status windows)
+- [ ] **SPEC 23** — Bento Card 02: ARISE (Shadow Monarch transformation)
+- [ ] **SPEC 24** — Bento Card 03: SHADOW ARMY (Igris battle)
+- [ ] **SPEC 25** — Bento Card 04: DUNGEONS (S-rank interior)
+- [ ] **SPEC 26** — Bento Card 05: ARISE CTA card upgrade
+- [ ] **SPEC 27** — Bento Card 06: THE GATES (gate opening video)
+- [ ] **SPEC 28** — Bento glass shimmer + tilt effect upgrade
 
 ### THE GATES SECTION
-- [ ] **SPEC 28** — Red Gate frame-by-frame hover section (40 frames)
+- [ ] **SPEC 29** — Red Gate frame-by-frame hover section (40 frames)
 
 ### TRANSITION
-- [ ] **SPEC 29** — Dark ↔ Light realm shift transition
+- [ ] **SPEC 30** — Dark ↔ Light realm shift transition
 
 ### THE RANKS SECTION (NEW)
-- [ ] **SPEC 30** — Hunter Ranks E–S visual progression cards
+- [ ] **SPEC 31** — Hunter Ranks E–S visual progression cards
 
 ### SHADOW EXTRACTION SECTION (NEW)
-- [ ] **SPEC 31** — Shadow Extraction story cards (Igris, Beru, Baran, Dragon)
+- [ ] **SPEC 32** — Shadow Extraction story cards (Igris, Beru, Baran, Dragon)
 
 ### THE MONARCHS SECTION (NEW)
-- [ ] **SPEC 32** — Architect + Temple Statues + Father panels
+- [ ] **SPEC 33** — Architect + Temple Statues + Father panels
 
 ### WEAPONS SECTION (NEW)
-- [ ] **SPEC 33** — Weapons of the Shadow Monarch (out-of-frame effect)
+- [ ] **SPEC 34** — Weapons of the Shadow Monarch (out-of-frame effect)
 
 ### SHADOW ARMY CTA
-- [ ] **SPEC 34** — Shadow Army CTA upgrade (2-column, video right)
+- [ ] **SPEC 35** — Shadow Army CTA upgrade (2-column, video right)
 
 ### BEYOND SECTION (NEW)
-- [ ] **SPEC 35** — Beyond Season 2 story teaser
+- [ ] **SPEC 36** — Beyond Season 2 story teaser
 
 ### FOOTER
-- [ ] **SPEC 36** — Footer refinement (watermark, strip, social links)
+- [ ] **SPEC 37** — Footer refinement (watermark, strip, social links)
 
 ### ARISE SCENE (NEW)
-- [ ] **SPEC 37** — Failed vs. Reimagined Arise scene (split screen)
+- [ ] **SPEC 38** — Failed vs. Reimagined Arise scene (split screen)
 
 ### AUDIO + PERFORMANCE
-- [ ] **SPEC 38** — Ambient audio toggle refinement
-- [ ] **SPEC 39** — Second-person narrative copy rewrite
-- [ ] **SPEC 40** — Performance, lazy loading, mobile optimization
+- [ ] **SPEC 39** — Ambient audio toggle refinement
+- [ ] **SPEC 40** — Second-person narrative copy rewrite
+- [ ] **SPEC 41** — Performance, lazy loading, mobile optimization
 
 ## Assets Needed (Generate via Google Flow / Veo)
 

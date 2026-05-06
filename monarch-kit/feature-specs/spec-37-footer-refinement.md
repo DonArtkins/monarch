@@ -1,10 +1,10 @@
-# SPEC 36 — Footer Refinement
+# SPEC 37 — Footer Refinement
 
-**Branch:** `feat/36-footer-refinement`  
+**Branch:** `feat/37-footer-refinement`  
 **Component:** `components/Footer.tsx` (MODIFY)
 
 ## What
-Upgrade the existing two-column footer to a full three-column cinematic layout. Adds a center image column showcasing the assembled Shadow Army, a bottom Korean text strip, story-driven quick nav links matching SPEC 11, a fine noise overlay, and an updated Korean watermark. The footer becomes the closing chapter of Jin-Woo's story — not a generic website footer.
+Upgrade the existing two-column footer to a full three-column cinematic layout. Adds a center image column showcasing the assembled Shadow Army, a bottom Korean text strip, story-driven quick nav links matching SPEC 12, a fine noise overlay, and an updated Korean watermark. The footer becomes the closing chapter of Jin-Woo's story — not a generic website footer.
 
 ## Current State
 `components/Footer.tsx` currently:
@@ -17,9 +17,9 @@ Upgrade the existing two-column footer to a full three-column cinematic layout. 
 - No center image column, no noise overlay, no bottom strip, no quick nav links
 
 ## Dependencies
-- SPEC 11 (Nav Refinement) — Column 3 quick links must match the exact story labels and `href` anchors: ORIGIN `#about`, THE SYSTEM `#features`, SHADOW ARMY `#shadow-army`, DUNGEONS `#gates`, MONARCHS `#monarchs`
-- SPEC 15 (Typography) — Bottom strip and nav labels use `system-label` utility / Space Mono
-- SPEC 16 (Color System) — `--void`, `--silver`, `--ice-eye`, `--white`, `--border`, `--shadow-purple` tokens
+- SPEC 12 (Nav Refinement) — Column 3 quick links must match the exact story labels and `href` anchors: ORIGIN `#about`, THE SYSTEM `#features`, SHADOW ARMY `#shadow-army`, DUNGEONS `#gates`, MONARCHS `#monarchs`
+- SPEC 16 (Typography) — Bottom strip and nav labels use `system-label` utility / Space Mono
+- SPEC 17 (Color System) — `--void`, `--silver`, `--ice-eye`, `--white`, `--border`, `--shadow-purple` tokens
 
 ## ⚠️ Preservation Rules
 - All four social icon links (`FaDiscord`, `FaXTwitter`, `FaYoutube`, `FaMedium`) must be preserved with their `aria-label` attributes

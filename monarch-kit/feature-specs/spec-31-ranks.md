@@ -1,6 +1,6 @@
-# SPEC 30 — Hunter Ranks: E Through S Visual Progression Cards
+# SPEC 31 — Hunter Ranks: E Through S Visual Progression Cards
 
-**Branch:** `feat/30-ranks`  
+**Branch:** `feat/31-ranks`  
 **Component:** `components/Ranks.tsx` (NEW)
 
 ## What
@@ -10,9 +10,9 @@ A new section placed after the `RealmTransition` and before `ShadowExtraction`. 
 No Ranks section exists. The Features section's `BentoTilt` and `BentoCard` components are the closest architectural reference — this section reuses the tilt pattern but applies it to portrait-ratio rank cards.
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label`, Space Mono for rank labels
-- SPEC 16 (Color System) — `--rank-e` through `--rank-monarch`, `--shadow-dark`, `--abyss`
-- SPEC 27 (Bento tilt upgrade) — the enhanced `boxShadow` tilt pattern is referenced
+- SPEC 16 (Typography) — `system-label`, Space Mono for rank labels
+- SPEC 17 (Color System) — `--rank-e` through `--rank-monarch`, `--shadow-dark`, `--abyss`
+- SPEC 28 (Bento tilt upgrade) — the enhanced `boxShadow` tilt pattern is referenced
 
 ## Assets
 

@@ -1,6 +1,6 @@
-# SPEC 11 — Story-Based Navigation Refinement
+# SPEC 12 — Story-Based Navigation Refinement
 
-**Branch:** `feat/11-nav-refinement`  
+**Branch:** `feat/12-nav-refinement`  
 **Component:** `components/NavBar.tsx`
 
 ## What

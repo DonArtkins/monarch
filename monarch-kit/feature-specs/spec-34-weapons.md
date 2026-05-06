@@ -1,6 +1,6 @@
-# SPEC 33 — Weapons of the Shadow Monarch
+# SPEC 34 — Weapons of the Shadow Monarch
 
-**Branch:** `feat/33-weapons`  
+**Branch:** `feat/34-weapons`  
 **Component:** `components/Weapons.tsx` (NEW)
 
 ## What
@@ -10,9 +10,9 @@ A new section placed AFTER `Monarchs` and BEFORE the existing `Story` section. S
 No Weapons section exists. The "outside-the-frame" overflow effect is new to this project — achieved by allowing an absolutely positioned element to overflow its container via `overflow: visible` + negative margin/transform, while the card itself still clips the background. The `BentoTilt` mouse interaction in `Features.tsx` is the reference for the tilt behavior.
 
 ## Dependencies
-- SPEC 15 (Typography) — `system-label`, Space Mono font
-- SPEC 16 (Color System) — `--monarch-gold`, `--ice-eye`, `--abyss`, `--deep`, `--silver` tokens
-- SPEC 32 (Monarchs) — placed directly before
+- SPEC 16 (Typography) — `system-label`, Space Mono font
+- SPEC 17 (Color System) — `--monarch-gold`, `--ice-eye`, `--abyss`, `--deep`, `--silver` tokens
+- SPEC 33 (Monarchs) — placed directly before
 
 ## ⚠️ Preservation Rules
 - Do NOT modify existing `Story.tsx` — this section is inserted before it
