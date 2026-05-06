@@ -171,13 +171,14 @@ body {
 
 @utility nav-hover-btn {
   position: relative;
-  margin-left: 2.5rem;
-  font-family: "general", sans-serif;
-  font-size: 0.75rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.6875rem;
   line-height: 1rem;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
   color: var(--monarch-text);
   cursor: pointer;
+  transition: color var(--monarch-duration-fast) ease;
 
   &::after {
     content: "";
@@ -186,7 +187,7 @@ body {
     left: 0;
     height: 2px;
     width: 100%;
-    background-color: var(--monarch-purple);
+    background-color: var(--monarch-blue);
     transform-origin: bottom right;
     transform: scaleX(0);
     transition: transform var(--monarch-duration-base) var(--monarch-ease);
@@ -430,6 +431,20 @@ body {
 .special-font b {
   font-family: "zentry", sans-serif;
   font-feature-settings: "ss01" on;
+}
+
+/* Korean decorative watermark — reusable across all sections */
+.korean-watermark {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  font-size: 25vw;
+  opacity: 0.04;
+  font-family: "zentry", sans-serif;
+  font-weight: 900;
+  color: var(--monarch-text);
+  line-height: 1;
+  white-space: nowrap;
 }
 
 /* Indicator Line Animation */

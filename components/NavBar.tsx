@@ -2,27 +2,39 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
-import { Menu, X } from "lucide-react";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Link from "next/link";
-import Image from "next/image";
 
-const navItems = ["Dungeons", "Shadows", "Chronicle", "About", "Arise"];
+const navItemsLeft = [
+  { label: "Origin", href: "#about" },
+  { label: "The System", href: "#features" },
+  { label: "Shadow Army", href: "#shadow-army" },
+];
+
+const navItemsRight = [
+  { label: "Dungeons", href: "#gates" },
+  { label: "Monarchs", href: "#monarchs" },
+];
+
+const navItems = [...navItemsLeft, ...navItemsRight];
 
 const NavBar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavVisible, setIsNavVisible] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const navContainerRef = useRef<HTMLDivElement>(null);
   const audioElementRef = useRef<HTMLAudioElement>(null);
+  const iconRef = useRef<SVGSVGElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
 
   const { y: currentScrollY } = useWindowScroll();
 
+  // Nav show/hide on scroll direction
   useEffect(() => {
     if (currentScrollY === 0) {
       setIsNavVisible(true);
@@ -38,6 +50,7 @@ const NavBar = () => {
     setLastScrollY(currentScrollY);
   }, [currentScrollY, lastScrollY]);
 
+  // Nav visibility GSAP animation
   useGSAP(() => {
     gsap.to(navContainerRef.current, {
       y: isNavVisible ? 0 : -100,
@@ -46,26 +59,67 @@ const NavBar = () => {
     });
   }, { dependencies: [isNavVisible] });
 
-  useGSAP(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-      gsap.to(".mobile-menu", {
-        x: 0,
-        opacity: 1,
-        duration: 0.4,
-        ease: "power4.out",
-      });
-    } else {
-      document.body.style.overflow = "auto";
-      gsap.to(".mobile-menu", {
-        x: "100%",
-        opacity: 0,
-        duration: 0.4,
-        ease: "power4.in",
-      });
-    }
-  }, { dependencies: [isMenuOpen] });
+  // Active section tracking via IntersectionObserver
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id], div[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
+  // GSAP hamburger ↔ X morph timeline
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        paused: true,
+        defaults: { duration: 0.35, ease: "power3.inOut" },
+      });
+
+      // Collapse top + bottom bars toward middle, fade middle bar
+      tl.to(".hb-top", { attr: { y1: 12, y2: 12 } }, 0)
+        .to(".hb-bottom", { attr: { y1: 12, y2: 12 } }, 0)
+        .to(".hb-mid", { opacity: 0, duration: 0.15 }, 0)
+        // Rotate into X shape
+        .to(".hb-top", { rotate: 45, transformOrigin: "center" }, 0.2)
+        .to(".hb-bottom", { rotate: -45, transformOrigin: "center" }, 0.2);
+
+      tlRef.current = tl;
+    },
+    { scope: iconRef }
+  );
+
+  // Drive hamburger animation based on menuOpen state
+  useEffect(() => {
+    const tl = tlRef.current;
+    if (!tl) return;
+    menuOpen ? tl.play() : tl.reverse();
+  }, [menuOpen]);
+
+  // Body scroll lock when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  // Smooth scroll handler
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Audio toggle
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
     setIsIndicatorActive((prev) => !prev);
@@ -86,44 +140,140 @@ const NavBar = () => {
         className="fixed inset-x-0 top-4 z-50 h-16 border-none sm:inset-x-6"
         style={{ willChange: "transform, opacity" }}
       >
-      <header className="absolute top-1/2 w-full -translate-y-1/2">
-        <nav className="flex size-full items-center justify-between p-4">
-          <div className="flex items-center gap-7">
-            <Image src="/images/logo.svg" alt="Monarch" width={120} height={30} className="w-28" />
+        <header className="absolute top-1/2 w-full -translate-y-1/2">
+          <nav className="relative flex size-full items-center justify-between p-4">
 
-            <Button
-              id="arise-button"
-              title="Arise"
-              rightIcon={<TiLocationArrow />}
-              containerClass="bg-monarch-purple text-monarch-text md:flex hidden items-center justify-center gap-1"
-            />
-          </div>
+            {/* === MOBILE LAYOUT (below md) === */}
+            {/* Hamburger button — left */}
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              className="relative flex h-10 w-10 items-center justify-center md:hidden"
+            >
+              <svg
+                ref={iconRef}
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                className="text-monarch-text"
+              >
+                <line className="hb-bar hb-top" x1="4" y1="7" x2="20" y2="7" />
+                <line className="hb-bar hb-mid" x1="4" y1="12" x2="20" y2="12" />
+                <line className="hb-bar hb-bottom" x1="4" y1="17" x2="20" y2="17" />
+              </svg>
+            </button>
 
-          <div className="flex h-full items-center">
-            <div className="hidden md:block">
-              {navItems.map((item) => (
-                <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn"
-                >
-                  {item}
-                </Link>
-              ))}
+            {/* Mobile center logo — absolutely centered */}
+            <a
+              href="#hero"
+              onClick={(e) => handleNavClick(e, "#hero")}
+              className="pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden"
+              aria-label="Monarch home"
+            >
+              <img src="/images/logo.svg" alt="Monarch" className="h-7 w-auto" />
+            </a>
+
+            {/* Mobile ARISE CTA — right */}
+            <div className="md:hidden">
+              <Button
+                id="mobile-arise-cta"
+                title="Arise"
+                rightIcon={<TiLocationArrow />}
+                containerClass="bg-transparent border border-monarch-blue text-monarch-blue hover:bg-monarch-blue hover:text-monarch-void transition-all duration-300 flex items-center justify-center gap-1 !px-4 !py-2 text-xs"
+              />
             </div>
 
+            {/* === DESKTOP LAYOUT (md+) === */}
+            {/* Left nav group */}
+            <ul className="hidden items-center gap-8 md:flex">
+              {navItemsLeft.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`nav-hover-btn ${
+                      activeSection === item.href.slice(1) ? "!text-monarch-blue" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Desktop center logo — absolutely centered */}
+            <a
+              href="#hero"
+              onClick={(e) => handleNavClick(e, "#hero")}
+              className="pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block"
+              aria-label="Monarch home"
+            >
+              <img src="/logo/logo.svg" alt="Monarch" className="h-40 w-auto" />
+            </a>
+
+            {/* Right nav group + ARISE CTA + Audio */}
+            <div className="hidden items-center gap-8 md:flex">
+              <ul className="flex items-center gap-8">
+                {navItemsRight.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`nav-hover-btn ${
+                        activeSection === item.href.slice(1) ? "!text-monarch-blue" : ""
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <Button
+                id="arise-button"
+                title="Arise"
+                rightIcon={<TiLocationArrow />}
+                containerClass="bg-transparent border border-monarch-blue text-monarch-blue hover:bg-monarch-blue hover:text-monarch-void transition-all duration-300 flex items-center justify-center gap-1"
+              />
+
+              <button
+                className="flex items-center space-x-0.5"
+                onClick={toggleAudioIndicator}
+                aria-label={isAudioPlaying ? "Pause background music" : "Play background music"}
+                aria-pressed={isAudioPlaying}
+              >
+                <audio
+                  ref={audioElementRef}
+                  src="/audio/bgm.mp3"
+                  className="hidden"
+                  loop
+                />
+                {[1, 2, 3, 4].map((bar) => (
+                  <div
+                    key={bar}
+                    className={`indicator-line ${
+                      isIndicatorActive ? "active" : ""
+                    }`}
+                    style={{ animationDelay: `${bar * 0.1}s` }}
+                  />
+                ))}
+              </button>
+            </div>
+
+            {/* Mobile audio toggle — always visible on mobile */}
             <button
-              className="ml-10 flex items-center space-x-0.5"
+              className="absolute right-20 top-1/2 -translate-y-1/2 flex items-center space-x-0.5 md:hidden"
               onClick={toggleAudioIndicator}
               aria-label={isAudioPlaying ? "Pause background music" : "Play background music"}
               aria-pressed={isAudioPlaying}
             >
-              <audio
-                ref={audioElementRef}
-                src="/audio/bgm.mp3"
-                className="hidden"
-                loop
-              />
               {[1, 2, 3, 4].map((bar) => (
                 <div
                   key={bar}
@@ -134,43 +284,48 @@ const NavBar = () => {
                 />
               ))}
             </button>
-
-            <button
-              className="ml-6 block md:hidden text-monarch-text"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </nav>
-      </header>
-    </div>
-
-    {/* Mobile Menu Overlay - Moved outside transformed container */}
-    <div className="mobile-menu fixed inset-0 z-60 flex flex-col bg-monarch-void/95 backdrop-blur-xl md:hidden translate-x-full opacity-0">
-      <div className="flex flex-col items-center justify-center h-full gap-8">
-        {navItems.map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            className="text-4xl font-zentry uppercase text-monarch-text hover:text-monarch-purple transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {item}
-          </a>
-        ))}
-        <Button
-          id="mobile-arise-button"
-          title="Arise"
-          rightIcon={<TiLocationArrow />}
-          containerClass="bg-monarch-purple text-monarch-text flex items-center justify-center gap-1 mt-4 px-10 py-4 text-xl"
-          onClick={() => setIsMenuOpen(false)}
-        />
+          </nav>
+        </header>
       </div>
-    </div>
 
+      {/* Mobile Menu Overlay */}
+      <div
+        id="mobile-menu"
+        className={`fixed inset-0 z-40 flex flex-col bg-monarch-void/95 backdrop-blur-sm md:hidden transition-opacity duration-300 ${
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <ul className="flex h-full flex-col items-center justify-center gap-8">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                onClick={(e) => {
+                  handleNavClick(e, item.href);
+                  setMenuOpen(false);
+                }}
+                className={`text-2xl uppercase tracking-[0.2em] transition-colors duration-300 ${
+                  activeSection === item.href.slice(1)
+                    ? "text-monarch-blue"
+                    : "text-monarch-text hover:text-monarch-blue"
+                }`}
+                style={{ fontFamily: "'Space Mono', monospace" }}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <Button
+              id="mobile-menu-arise"
+              title="Arise"
+              rightIcon={<TiLocationArrow />}
+              containerClass="bg-transparent border border-monarch-blue text-monarch-blue hover:bg-monarch-blue hover:text-monarch-void transition-all duration-300 flex items-center justify-center gap-1 mt-4 px-10 py-4 text-xl"
+              onClick={() => setMenuOpen(false)}
+            />
+          </li>
+        </ul>
+      </div>
     </>
   );
 };

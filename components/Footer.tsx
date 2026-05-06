@@ -12,11 +12,17 @@ const links = [
 const Footer = () => {
   return (
     <footer className="relative w-screen bg-monarch-void py-16 text-monarch-text overflow-hidden border-t border-monarch-blue/10">
-      {/* Background Watermark */}
-      <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 pointer-events-none select-none opacity-[0.03]">
-        <h1 className="special-font text-[25vw] font-black uppercase leading-none text-monarch-text whitespace-nowrap">
-          Monarch
-        </h1>
+      {/* Korean watermark — decorative only */}
+      <div
+        className="korean-watermark"
+        aria-hidden="true"
+        style={{
+          bottom: "-5%",
+          left: "50%",
+          transform: "translateX(-50%) rotate(-20deg)",
+        }}
+      >
+        초월
       </div>
 
       <div className="container mx-auto px-5 md:px-10 relative z-10">

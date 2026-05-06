@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**Baseline Assessment Complete → Ready for SPEC 11**
+**SPEC 12 Complete → Ready for SPEC 13**
 
 ## Baseline State (Pre-Upscale)
 
@@ -28,7 +28,7 @@ The following components are working and must be preserved:
 ## Upscale Progress
 
 ### NAV & GLOBAL REFINEMENTS
-- [ ] **SPEC 12** — Story-based navigation labels + active section highlight
+- [x] **SPEC 12** — Story-based navigation labels + active section highlight ✅ (2026-05-06)
 - [ ] **SPEC 13** — Custom shadow energy cursor with ring + trail
 - [ ] **SPEC 14** — Gate-crack SVG preloader (2.4s, skippable)
 - [ ] **SPEC 15** — Film grain/noise texture global overlay
@@ -130,4 +130,17 @@ The following assets are referenced in specs but may not exist yet. Use placehol
 
 - **Session Start**: Upscale plan imported from `upscale-plan/feature-specs/monarch_feature_specs.md`
 - **Baseline**: All 11 existing components verified working
-- **Next Action**: Implement SPEC 11 — Story-based navigation labels
+- **2026-05-06 — SPEC 12 Complete**:
+  - NavBar rewritten with story-driven labels (Origin, The System, Shadow Army | Dungeons, Monarchs)
+  - Centered-logo layout (absolute positioning, independent of sibling widths)
+  - IntersectionObserver active section tracking with blue glow
+  - GSAP hamburger SVG morph animation (no icon swap, GPU-friendly)
+  - Mobile menu overlay with body scroll lock
+  - ARISE CTA with glowing blue border
+  - Space Mono Google Font added to layout.tsx
+  - nav-hover-btn updated to Space Mono + tracking 0.15em + blue underline
+  - Korean watermark 일어나라 (ARISE) added to Hero.tsx
+  - Korean watermark 초월 (TRANSCEND) added to Footer.tsx (replaced English "Monarch")
+  - `.korean-watermark` reusable CSS class added to globals.css
+  - `npm run build` passes — zero TypeScript errors, zero ESLint errors
+- **Next Action**: Implement SPEC 13 — Custom shadow cursor
