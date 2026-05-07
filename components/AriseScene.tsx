@@ -56,6 +56,7 @@ const AriseScene = () => {
           start: "top 40%",
           end: "bottom 40%",
           scrub: 1.2,
+          fastScrollEnd: true,
         },
       });
 
@@ -71,6 +72,7 @@ const AriseScene = () => {
             start: "top 40%",
             end: "bottom 40%",
             scrub: 1.2,
+            fastScrollEnd: true,
           },
         }
       );
@@ -88,6 +90,7 @@ const AriseScene = () => {
             start: "top 40%",
             end: "bottom 40%",
             scrub: 1,
+            fastScrollEnd: true,
           },
         }
       );
@@ -104,6 +107,7 @@ const AriseScene = () => {
             start: "top 40%",
             end: "bottom 40%",
             scrub: 1,
+            fastScrollEnd: true,
           },
         }
       );

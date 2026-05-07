@@ -1,5 +1,6 @@
 "use client";
 import dynamic from 'next/dynamic';
+import LazySection from '../components/LazySection';
 
 const Hero = dynamic(() => import("../components/Hero"), { ssr: false });
 const About = dynamic(() => import("../components/About"), { ssr: false });
@@ -23,20 +24,48 @@ export default function Page() {
     <main id="main-content" className="relative min-h-screen w-screen overflow-x-hidden">
       <NavBar />
       <Hero />
-      <About />
-      <Features />
-      <Gates />
-      <RealmTransition />
-      <Ranks />
-      <ShadowExtraction />
-      <Monarchs />
-      <Weapons />
-      <Story />
-      <AriseScene />
-      <Beyond />
-      <ShadowArmyCTA />
-      <Contact />
-      <Footer />
+      <LazySection className="min-h-screen">
+        <About />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <Features />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <Gates />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <RealmTransition />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <Ranks />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <ShadowExtraction />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <Monarchs />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <Weapons />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <Story />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <AriseScene />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <Beyond />
+      </LazySection>
+      <LazySection className="min-h-screen">
+        <ShadowArmyCTA />
+      </LazySection>
+      <LazySection className="min-h-[400px]">
+        <Contact />
+      </LazySection>
+      <LazySection className="min-h-[400px]">
+        <Footer />
+      </LazySection>
     </main>
   );
 }

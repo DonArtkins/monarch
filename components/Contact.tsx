@@ -15,6 +15,7 @@ const ImageClipBox = ({ src, clipClass, alt }: ImageClipBoxProps) => (
       fill
       className="object-cover"
       alt={alt}
+      sizes="(max-width: 768px) 100vw, 50vw"
     />
   </div>
 );
@@ -43,6 +44,7 @@ const Contact = () => {
               fill
               className="object-cover"
               alt="Shadow Monarch in battle"
+              sizes="(max-width: 768px) 100vw, 50vw"
               style={{
                 maskImage: "radial-gradient(circle, black 30%, transparent 80%)",
                 WebkitMaskImage: "radial-gradient(circle, black 30%, transparent 80%)",
