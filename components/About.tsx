@@ -188,8 +188,8 @@ return (
                 maxWidth: "36ch",
               }}
             >
-              Every raid, every dungeon — they called you the weakest. Sung
-              Jin-Woo survived on borrowed time, a footnote in a world of gods.
+              Every raid, every dungeon — they called you the weakest. You
+              survived on borrowed time, a footnote in a world of gods.
               The healers healed everyone else first.
             </p>
             <div
