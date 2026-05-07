@@ -22,8 +22,8 @@ const ImageClipBox = ({ src, clipClass, alt }: ImageClipBoxProps) => (
 
 const Contact = () => {
   return (
-    <div id="contact" className="py-20 min-h-96 w-screen px-10 bg-monarch-void">
-      <div className="relative rounded-lg bg-shadow-dark py-24 text-monarch-text sm:overflow-hidden border border-white/10 shadow-lg">
+    <div id="contact" className="py-20 min-h-96 w-screen px-10 bg-monarch-ice-white">
+      <div className="relative rounded-lg bg-monarch-void py-24 text-color-monarch-text sm:overflow-hidden border border-monarch-ice-border shadow-lg">
         <div className="absolute -left-20 top-0 z-20 hidden h-full w-72 overflow-hidden sm:block lg:left-10 lg:w-96">
           <ImageClipBox
             src="/images/beru.jpeg"
@@ -54,14 +54,14 @@ const Contact = () => {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(circle, transparent 50%, var(--shadow-dark) 100%)",
+                  "radial-gradient(circle, transparent 50%, var(--monarch-void) 100%)",
               }}
             />
           </div>
         </div>
 
         <div className="flex flex-col items-center text-center relative z-10">
-          <p style={{ fontFamily: "var(--font-mono, 'Space Mono', monospace)", fontSize: "0.625rem", textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--monarch-text-dim)" }}>
+          <p style={{ fontFamily: "var(--font-mono, 'Space Mono', monospace)", fontSize: "0.625rem", textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--monarch-text)" }}>
             YOUR COMMAND AWAITS
           </p>
           <h2 className="special-font mt-10 w-full font-zentry text-5xl leading-[0.9] md:text-[96px] text-monarch-text">
@@ -70,7 +70,7 @@ const Contact = () => {
 
           <Button 
             title="Command Your Army" 
-            containerClass="mt-10 cursor-pointer bg-monarch-text text-monarch-void hover:bg-monarch-text-dim transition-colors" 
+            containerClass="mt-10 cursor-pointer bg-monarch-ice-bg text-monarch-ice-text hover:bg-monarch-ice-border transition-colors" 
           />
         </div>
       </div>
