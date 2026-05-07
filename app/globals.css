@@ -343,6 +343,7 @@ body {
   transform-origin: center;
   overflow: hidden;
   border-radius: 1.5rem;
+  box-shadow: 0 0 60px rgba(96, 165, 250, 0.08), 0 0 120px rgba(109, 40, 217, 0.05);
 
   @media (min-width: 768px) {
     width: 30vw;
