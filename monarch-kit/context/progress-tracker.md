@@ -40,7 +40,7 @@ The following components are working and must be preserved:
 - [x] **SPEC 19** — Hero hexagonal particle system (ice-eye blue upgrade) ✅ (2026-05-07)
 
 ### ORIGIN SECTION
-- [ ] **SPEC 20** — Portal scroll expansion (Double Dungeon image)
+- [x] **SPEC 20** — Portal scroll expansion (Double Dungeon image) ✅ (2026-05-07)
 - [ ] **SPEC 21** — Origin copy block ("Before The System" panels)
 
 ### THE SYSTEM SECTION (BENTO)
@@ -185,4 +185,11 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Hero copy updated to second-person narrative voice ("You are the weakest hunter...")
   - All clips use `VideoPlayer` for IntersectionObserver performance
   - `npm run build` passes — zero TypeScript errors
-- **Next Action**: Implement SPEC 19 — Hero hexagonal particle system
+- **2026-05-07 — SPEC 20 Complete**:
+  - About section upgraded to ORIGIN arc (Cartenon Temple)
+  - AnimatedTitle and subtext updated to second-person narrative
+  - Added cinematic vignette and HUD label (DANGER LEVEL: CATASTROPHIC)
+  - HUD label reveals during portal expansion (GSAP scrub)
+  - Ambient portal glow added to globals.css
+  - `npm run build` passes
+- **Next Action**: Implement SPEC 21 — Origin copy block
