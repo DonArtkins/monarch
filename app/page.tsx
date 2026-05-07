@@ -8,6 +8,7 @@ const Features = dynamic(() => import("../components/Features"), { ssr: false })
 const Story = dynamic(() => import('../components/Story'), { ssr: false });
 const Contact = dynamic(() => import('../components/Contact'), { ssr: false });
 const Footer = dynamic(() => import('../components/Footer'), { ssr: false });
+const Gates = dynamic(() => import("../components/Gates"), { ssr: false });
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <Hero />
       <About />
       <Features />
+      <Gates />
       <Story />
       <Contact />
       <Footer />
