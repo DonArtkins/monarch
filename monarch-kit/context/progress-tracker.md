@@ -31,7 +31,7 @@ The following components are working and must be preserved:
 - [x] **SPEC 12** — Story-based navigation labels + active section highlight ✅ (2026-05-06)
 - [x] **SPEC 13** — Custom shadow energy cursor with ring + trail ✅ (2026-05-07)
 - [x] **SPEC 14** — Gate-crack SVG preloader (2.4s, skippable) ✅ (2026-05-07)
-- [ ] **SPEC 15** — Film grain/noise texture global overlay
+- [x] **SPEC 15** — Film grain/noise texture global overlay ✅ (2026-05-07)
 - [ ] **SPEC 16** — Typography upgrade (Space Mono labels, clamp sizing)
 - [ ] **SPEC 17** — Color system expansion + depth layer tokens
 
@@ -158,4 +158,10 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Integrated into root `layout.tsx` to gate all routes
   - Skip button available after 1.2s
   - `npm run build` passes — zero TypeScript errors
-- **Next Action**: Implement SPEC 15 — Film grain overlay
+- **2026-05-07 — SPEC 15 Complete**:
+  - Global film grain overlay implemented via CSS `::after` on `body`
+  - SVG `feTurbulence` fractal noise filter (baseFrequency 0.75, 4 octaves)
+  - 8fps organic grain animation using `steps(1)` CSS keyframes
+  - `mix-blend-mode: overlay` with 0.045 opacity for subtle cinematic texture
+  - Zero JS/React overhead approach for maximum performance
+- **Next Action**: Implement SPEC 16 — Typography system upgrade
