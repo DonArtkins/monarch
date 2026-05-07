@@ -53,13 +53,13 @@ const Story = () => {
   return (
     <section id="story" ref={containerRef} className="min-h-dvh w-screen bg-monarch-void text-monarch-text">
       <div className="flex size-full flex-col items-center py-10 pb-24">
-        <p className="font-general text-sm uppercase text-monarch-text-dim md:text-[10px]">
-          The Sovereign&apos;s Chronicle
+        <p style={{ fontFamily: "var(--font-mono, 'Space Mono', monospace)", fontSize: "0.625rem", textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--monarch-text-muted)" }}>
+          YOUR CHRONICLE · SOVEREIGN&apos;S PATH
         </p>
 
         <div className="relative size-full isolate">
           <AnimatedTitle
-            title="The st<b>o</b>ry of <br /> a Shadow M<b>o</b>narch"
+            title="Your st<b>o</b>ry. <br /> Your sh<b>a</b>dows."
             containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10 text-white"
           />
 
@@ -87,14 +87,14 @@ const Story = () => {
         <div className="-mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end">
           <div className="flex h-full w-fit flex-col items-center md:items-start">
             <p className="mt-3 max-w-sm text-center font-circular text-monarch-text-dim md:text-start">
-              From the weakest E-rank hunter to the sovereign of shadows.
-              Discover the path of the Shadow Monarch and shape your fate
-              amidst infinite dungeons.
+              You started at the bottom. Every hunter looked through you. 
+              Then you descended into the Double Dungeon — and came back as 
+              something this world had never seen.
             </p>
 
             <Button
               id="dungeon-btn"
-              title="Enter the Dungeon"
+              title="Enter Your Story"
               containerClass="mt-5 bg-monarch-text text-monarch-void"
             />
           </div>

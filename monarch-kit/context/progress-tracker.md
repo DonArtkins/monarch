@@ -86,8 +86,8 @@ The following components are working and must be preserved:
 - [x] **SPEC 38** — Failed vs. Reimagined Arise scene (split screen) ✅ (2026-05-07)
 
 ### AUDIO + PERFORMANCE
-- [ ] **SPEC 39** — Ambient audio toggle refinement
-- [ ] **SPEC 40** — Second-person narrative copy rewrite
+- [x] **SPEC 39** — Ambient audio toggle refinement ✅ (2026-05-07)
+- [x] **SPEC 40** — Second-person narrative copy rewrite ✅ (2026-05-07)
 - [ ] **SPEC 41** — Performance, lazy loading, mobile optimization
 
 ## Assets Needed (Generate via Google Flow / Veo)
@@ -228,4 +228,15 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Verified site-wide narrative rhythm (Light/Dark realm shifts).
   - `npm run build` passes — zero errors.
 
-- **Next Action**: Implement SPEC 39 — Ambient Audio Toggle Refinement.
+- **2026-05-07 — SPEC 39 Complete**:
+  - Refined audio toggle in `NavBar.tsx` with GSAP volume fade (fade in 1.8s, fade out 0.8s).
+  - Updated indicator colors to `--ice-eye` in `globals.css`.
+  - Added Space Mono HUD tooltip (AMBIENT ON/OFF) visible on hover for desktop.
+  - Added staggered GSAP entrance animation for indicator bars.
+- **2026-05-07 — SPEC 40 Complete**:
+  - Rewrote body copy across `About.tsx`, `Features.tsx`, `Story.tsx`, `Contact.tsx`, `Footer.tsx` to consistent second-person narrative voice.
+  - Removed third-person references to Jin-Woo from visible body copy.
+  - Replaced generic placeholders with lore-accurate text.
+  - Verified stability with successful `npm run build`.
+
+- **Next Action**: Implement SPEC 41 — Performance, lazy loading, mobile optimization.

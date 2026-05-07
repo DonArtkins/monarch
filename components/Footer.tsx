@@ -117,7 +117,8 @@ const Footer = () => {
                 maxWidth: "28ch",
               }}
             >
-              From the weakest hunter to the sovereign of shadows. Conquer the system and claim your eternal throne.
+              You were the weakest. You became the sovereign. The shadow army
+              answers only to you. Arise.
             </p>
 
             {/* Social icons */}
