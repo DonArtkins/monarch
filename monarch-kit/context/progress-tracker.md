@@ -88,7 +88,7 @@ The following components are working and must be preserved:
 ### AUDIO + PERFORMANCE
 - [x] **SPEC 39** — Ambient audio toggle refinement ✅ (2026-05-07)
 - [x] **SPEC 40** — Second-person narrative copy rewrite ✅ (2026-05-07)
-- [ ] **SPEC 41** — Performance, lazy loading, mobile optimization
+- [x] **SPEC 41** — Performance, lazy loading, mobile optimization ✅ (2026-05-07)
 
 ## Assets Needed (Generate via Google Flow / Veo)
 
@@ -240,4 +240,13 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Replaced generic placeholders with lore-accurate text.
   - Verified stability with successful `npm run build`.
 
-- **Next Action**: Implement SPEC 41 — Performance, lazy loading, mobile optimization.
+- **2026-05-07 — SPEC 41 Complete**:
+  - Implemented `LazySection` wrapper using `IntersectionObserver` to defer rendering of below-the-fold components, drastically reducing initial TTI payload.
+  - Added `preload="none"` to non-critical videos and `preload="auto"` with `playsInline` to Hero videos.
+  - Optimized images in `About.tsx` and `Contact.tsx` with explicit `sizes` attributes for mobile viewports.
+  - Applied `force3D: true` to GSAP `quickTo` calculations in `Features.tsx` to offload to GPU.
+  - Added `fastScrollEnd: true` to heavy `ScrollTrigger` instances in `AriseScene.tsx`.
+  - Tuned CSS `clamp()` functions in `globals.css` to prevent typography overflow on 375px screens.
+  - Validated zero errors via `npm run build`.
+
+- **Next Action**: All Upscale specs (11–41) are successfully implemented. Awaiting final user review.

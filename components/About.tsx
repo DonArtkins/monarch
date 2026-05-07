@@ -112,6 +112,7 @@ return (
           fill
           className="object-cover object-center"
           priority
+          sizes="100vw"
         />
 
         {/* Cinematic vignette overlay */}

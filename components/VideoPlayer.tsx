@@ -8,6 +8,7 @@ interface VideoPlayerProps {
   loop?: boolean;
   muted?: boolean;
   autoPlay?: boolean;
+  preload?: "none" | "metadata" | "auto";
 }
 
 const VideoPlayer = ({
@@ -16,6 +17,7 @@ const VideoPlayer = ({
   loop = true,
   muted = true,
   autoPlay = false,
+  preload = "none",
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isInView, setIsInView] = useState(false);
@@ -59,7 +61,7 @@ const VideoPlayer = ({
       loop={loop}
       muted={muted}
       playsInline
-      preload="metadata"
+      preload={preload}
     />
   );
 };

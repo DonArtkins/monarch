@@ -26,10 +26,12 @@ const BentoTilt = ({ children, className = "" }: BentoTiltProps) => {
     const xTo = gsap.quickTo(itemRef.current, "rotationY", {
       duration: 0.7,
       ease: "power3.out", // Updated to power3 for cinematic feel
+      force3D: true,
     });
     const yTo = gsap.quickTo(itemRef.current, "rotationX", {
       duration: 0.7,
       ease: "power3.out",
+      force3D: true,
     });
 
     const handleMouseMove = (e: MouseEvent) => {
