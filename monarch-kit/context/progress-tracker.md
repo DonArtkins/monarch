@@ -36,7 +36,7 @@ The following components are working and must be preserved:
 - [x] **SPEC 17** — Color system expansion + depth layer tokens ✅ (2026-05-07)
 
 ### HERO SECTION
-- [ ] **SPEC 18** — Hero 5-clip video structure (hexagonal containers)
+- [x] **SPEC 18** — Hero 5-clip video structure (hexagonal containers) ✅ (2026-05-07)
 - [ ] **SPEC 19** — Hero hexagonal particle system (ice-eye blue upgrade)
 
 ### ORIGIN SECTION
@@ -178,4 +178,11 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Implemented `@utility` classes for section backgrounds and card glow effects
   - All new tokens available as Tailwind classes via `@theme`
   - `npm run build` passes — zero regressions on existing sections
-- **Next Action**: Implement SPEC 18 — Hero 5-clip video structure
+- **2026-05-07 — SPEC 18 Complete**:
+  - Hero section expanded to 5-clip cinematic structure
+  - 4 decorative clip containers added with custom clip-paths and GSAP entrance animations
+  - `Loader` extracted to a standalone component for site-wide consistency
+  - Hero copy updated to second-person narrative voice ("You are the weakest hunter...")
+  - All clips use `VideoPlayer` for IntersectionObserver performance
+  - `npm run build` passes — zero TypeScript errors
+- **Next Action**: Implement SPEC 19 — Hero hexagonal particle system
