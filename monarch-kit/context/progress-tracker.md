@@ -151,10 +151,11 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Integrated into layout.tsx
   - MutationObserver ensures dynamic content is also tracked
   - `npm run build` passes — zero TypeScript errors
-- **2026-05-07 — SPEC 14 Redesign Complete**:
-  - Pivoted from geometric lines to atmospheric energy vortex
-  - Layered `conic-gradient` swirls with heavy blurs for a cinematic "Gate" feel
-  - Red-to-blue color transition synced with `ARISE` text impact
-  - Optimized for performance with `will-change` and CSS-driven animations
+- **2026-05-07 — SPEC 14 Complete**:
+  - `Preloader` component implemented with GSAP SVG crack sequence
+  - `ARISE` text impact and clip-path dissolve reveal
+  - `PreloaderGate` client wrapper manages initial site-wide visibility
+  - Integrated into root `layout.tsx` to gate all routes
+  - Skip button available after 1.2s
   - `npm run build` passes — zero TypeScript errors
 - **Next Action**: Implement SPEC 15 — Film grain overlay
