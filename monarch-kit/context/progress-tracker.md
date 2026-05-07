@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**SPEC 29 Complete → Ready for SPEC 30**
+**SPEC 38 Complete → Ready for SPEC 39**
 
 ## Baseline State (Pre-Upscale)
 
@@ -35,15 +35,15 @@ The following components are working and must be preserved:
 - [x] **SPEC 16** — Typography upgrade (Space Mono labels, clamp sizing) ✅ (2026-05-07)
 - [x] **SPEC 17** — Color system expansion + depth layer tokens ✅ (2026-05-07)
 
-### HERO SECTION
+### HERO SECTION — [LIGHT REALM]
 - [x] **SPEC 18** — Hero 5-clip video structure (hexagonal containers) ✅ (2026-05-07)
 - [x] **SPEC 19** — Hero hexagonal particle system (ice-eye blue upgrade) ✅ (2026-05-07)
 
-### ORIGIN SECTION
+### ORIGIN SECTION — [LIGHT REALM]
 - [x] **SPEC 20** — Portal scroll expansion (Double Dungeon image) ✅ (2026-05-07)
 - [x] **SPEC 21** — Origin copy block ("Before The System" panels) ✅ (2026-05-07)
 
-### THE SYSTEM SECTION (BENTO)
+### THE SYSTEM SECTION (BENTO) — [DARK VOID]
 - [x] **SPEC 22** — Bento Card 01: THE SYSTEM (rotating status windows) ✅ (2026-05-07)
 - [x] **SPEC 23** — Bento Card 02: ARISE (Shadow Monarch transformation) ✅ (2026-05-07)
 - [x] **SPEC 24** — Bento Card 03: SHADOW ARMY (Igris battle) ✅ (2026-05-07)
@@ -52,35 +52,38 @@ The following components are working and must be preserved:
 - [x] **SPEC 27** — Bento Card 06: THE GATES (gate opening video) ✅ (2026-05-07)
 - [x] **SPEC 28** — Bento glass shimmer + tilt effect upgrade ✅ (2026-05-07)
 
-### THE GATES SECTION
+### THE GATES SECTION — [LIGHT REALM]
 - [x] **SPEC 29** — Red Gate frame-by-frame hover section (40 frames) ✅ (2026-05-07)
 
 ### TRANSITION
-- [ ] **SPEC 30** — Dark ↔ Light realm shift transition
+- [x] **SPEC 30** — Dark ↔ Light realm shift transition ✅ (2026-05-07)
 
-### THE RANKS SECTION (NEW)
-- [ ] **SPEC 31** — Hunter Ranks E–S visual progression cards
+### THE RANKS SECTION (NEW) — [LIGHT REALM]
+- [x] **SPEC 31** — Hunter Ranks E–S visual progression cards ✅ (2026-05-07)
 
-### SHADOW EXTRACTION SECTION (NEW)
-- [ ] **SPEC 32** — Shadow Extraction story cards (Igris, Beru, Baran, Dragon)
+### SHADOW EXTRACTION SECTION (NEW) — [DARK VOID]
+- [x] **SPEC 32** — Shadow Extraction story cards (Igris, Beru, Baran, Dragon) ✅ (2026-05-07)
 
-### THE MONARCHS SECTION (NEW)
-- [ ] **SPEC 33** — Architect + Temple Statues + Father panels
+### THE MONARCHS SECTION (NEW) — [DARK VOID]
+- [x] **SPEC 33** — Architect + Temple Statues + Father panels ✅ (2026-05-07)
 
-### WEAPONS SECTION (NEW)
-- [ ] **SPEC 34** — Weapons of the Shadow Monarch (out-of-frame effect)
+### WEAPONS SECTION (NEW) — [DARK VOID]
+- [x] **SPEC 34** — Weapons of the Shadow Monarch (out-of-frame effect) ✅ (2026-05-07)
 
-### SHADOW ARMY CTA
-- [ ] **SPEC 35** — Shadow Army CTA upgrade (2-column, video right)
+### SHADOW ARMY CTA — [DARK VOID]
+- [x] **SPEC 35** — Shadow Army CTA upgrade (2-column, video right) ✅ (2026-05-07)
 
-### BEYOND SECTION (NEW)
-- [ ] **SPEC 36** — Beyond Season 2 story teaser
+### BEYOND SECTION (NEW) — [DARK VOID]
+- [x] **SPEC 36** — Beyond Season 2 story teaser ✅ (2026-05-07)
 
-### FOOTER
-- [ ] **SPEC 37** — Footer refinement (watermark, strip, social links)
+### CONTACT SECTION — [LIGHT REALM]
+- [x] **Theme Transition** — Section background and text updated to Light Realm palette ✅ (2026-05-07)
 
-### ARISE SCENE (NEW)
-- [ ] **SPEC 38** — Failed vs. Reimagined Arise scene (split screen)
+### FOOTER — [DARK VOID]
+- [x] **SPEC 37** — Footer refinement (watermark, strip, social links) ✅ (2026-05-07)
+
+### ARISE SCENE (NEW) — [DARK VOID]
+- [x] **SPEC 38** — Failed vs. Reimagined Arise scene (split screen) ✅ (2026-05-07)
 
 ### AUDIO + PERFORMANCE
 - [ ] **SPEC 39** — Ambient audio toggle refinement
@@ -199,4 +202,30 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Added Korean watermark 기원 (Origin) at 0.03 opacity
   - Verified mobile stacking and zero horizontal overflow
   - `npm run build` passes
-- **Next Action**: Implement SPEC 22 — Bento Card 01: THE SYSTEM
+- **2026-05-07 — SPEC 22-28 Complete**:
+  - Bento Grid layout fully implemented with custom card components
+  - Cards 01-06 updated with cinematic videos and status window overlays
+  - BentoTilt component refined with GSAP quickTo and perspective-3d
+  - Mobile grid stacking verified
+- **2026-05-07 — SPEC 29 Complete**:
+  - Gates section implemented with Red Gate frame-by-frame hover (Placeholder)
+  - Layout matches story card style with system labels and watermarks
+- **2026-05-07 — SPEC 30 & Theme Rhythm Integration**:
+  - Established Light/Dark narrative rhythm across the entire site
+  - [LIGHT]: Hero, About, Gates, Ranks, Contact
+  - [DARK]: Features, Shadow Extraction, Monarchs, Weapons, AriseScene, Beyond, Footer
+  - Added CSS tokens for Light Realm to globals.css
+  - Updated Hero, About, Gates, and Contact to adhere to the Light theme
+- **2026-05-07 — SPEC 31-38 Complete**:
+  - Implemented the Ranks section (Light Realm) with horizontal scroll-snap.
+  - Built Shadow Extraction section (Dark Void) with 2x2 grid and mouse-hover energy.
+  - Created Monarchs section (Dark Void) with 3D tilt portrait panels.
+  - Implemented Weapons section (Dark Void) featuring out-of-frame "3D" sword effect.
+  - Upgraded Shadow Army CTA (Dark Void) with two-column video/copy layout and stats.
+  - Built Beyond story teaser (Dark Void) with alternating sequential panels.
+  - Refined Footer (Dark Void) with three-column cinematic layout and noise overlay.
+  - Implemented Arise Scene (Dark Void) with GSAP clip-path wipe and timeline split.
+  - Verified site-wide narrative rhythm (Light/Dark realm shifts).
+  - `npm run build` passes — zero errors.
+
+- **Next Action**: Implement SPEC 39 — Ambient Audio Toggle Refinement.

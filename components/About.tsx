@@ -77,10 +77,10 @@ useGSAP(
 );
 
 return (
-  <div id="about" className="min-h-screen w-screen">
+  <div id="about" className="min-h-screen w-screen bg-monarch-ice-white">
     <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
       <h2
-        className="text-monarch-text-dim"
+        className="text-monarch-ice-text-dim"
         style={{
           fontFamily: "var(--font-mono, monospace)",
           fontSize: "0.625rem",
@@ -93,10 +93,10 @@ return (
 
       <AnimatedTitle
         title="Bef<b>o</b>re the <br/> Syst<b>e</b>m Woke"
-        containerClass="mt-5 text-monarch-text text-center"
+        containerClass="mt-5 text-monarch-ice-text text-center"
       />
 
-      <div className="about-subtext text-monarch-text-dim">
+      <div className="about-subtext text-monarch-ice-text-dim">
         <p>Every raid, every dungeon — they called you the weakest.</p>
         <p>Then you died. And came back different.</p>
       </div>
@@ -149,7 +149,7 @@ return (
     <div
       id="origin-panels"
       className="relative z-10 w-screen py-24 px-5 md:px-10"
-      style={{ backgroundColor: "var(--deep, #0A0A1A)" }}
+      style={{ backgroundColor: "var(--monarch-ice-white, #F0F4FF)" }}
     >
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-start justify-between">
@@ -162,7 +162,7 @@ return (
                 fontSize: "0.625rem",
                 textTransform: "uppercase",
                 letterSpacing: "0.2em",
-                color: "var(--monarch-text-muted)",
+                color: "var(--monarch-ice-text-dim)",
               }}
             >
               E-RANK · HUNTER ID #4715
@@ -174,7 +174,7 @@ return (
                 fontSize: "clamp(2rem, 4vw, 3.5rem)",
                 fontWeight: 900,
                 textTransform: "uppercase",
-                color: "var(--white, #F0F4FF)",
+                color: "var(--monarch-ice-text, #030014)",
                 lineHeight: 0.95,
               }}
             >
@@ -184,7 +184,7 @@ return (
               className="font-circular leading-relaxed"
               style={{
                 fontSize: "1rem",
-                color: "var(--silver, #C0C8D8)",
+                color: "var(--monarch-ice-text-dim, #404060)",
                 maxWidth: "36ch",
               }}
             >
@@ -194,7 +194,7 @@ return (
             </p>
             <div
               className="mt-6 h-px w-16"
-              style={{ backgroundColor: "var(--monarch-text-muted)" }}
+              style={{ backgroundColor: "var(--monarch-ice-border)" }}
               aria-hidden="true"
             />
           </div>
@@ -220,7 +220,7 @@ return (
                 fontSize: "clamp(2rem, 4vw, 3.5rem)",
                 fontWeight: 900,
                 textTransform: "uppercase",
-                color: "var(--white, #F0F4FF)",
+                color: "var(--monarch-ice-text, #030014)",
                 lineHeight: 0.95,
               }}
             >
@@ -230,7 +230,7 @@ return (
               className="font-circular leading-relaxed"
               style={{
                 fontSize: "1rem",
-                color: "var(--silver, #C0C8D8)",
+                color: "var(--monarch-ice-text-dim, #404060)",
                 maxWidth: "36ch",
               }}
             >
@@ -261,8 +261,8 @@ return (
             fontFamily: "var(--font-zentry, sans-serif)",
             fontSize: "20vw",
             fontWeight: 900,
-            color: "var(--monarch-text)",
-            opacity: 0.03,
+            color: "var(--monarch-ice-text)",
+            opacity: 0.05,
             lineHeight: 1,
             display: "block",
             transform: "translateX(15%) translateY(30%) rotate(-15deg)",

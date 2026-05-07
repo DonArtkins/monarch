@@ -4,20 +4,37 @@
 
 Monarch uses a **dark void aesthetic** inspired by Solo Leveling's dungeon world. The UI should feel like a premium game cinematic — dense, purposeful, atmospheric. Every color, font, and animation is intentional.
 
-The visual language has two modes:
-1. **Story sections** — full-bleed video/image, overlaid text, minimal UI chrome.
-2. **System sections** — dark cards, HUD-style labels in Space Mono, structured information.
+The visual language alternates between two realms:
+1. **Dark Void** — `#030014` background, neon accents, shadow energy. Used for "The System" and "Shadow Army" sections.
+2. **Light Realm** — `#F0F4FF` (Ice White) background, dark typography, cyan/purple accents. Used for "Hero", "Origin", "Contact", and "Ranks".
+
+### Thematic Rhythm:
+- **Hero → Portal Scroll (Origin)**: LIGHT
+- **Features (Bento)**: DARK
+- **Gates → Ranks**: LIGHT
+- **Story (Shadow Extraction)**: DARK
+- **Contact**: LIGHT
+- **Footer**: DARK
 
 ## Color System
 
 All colors defined as CSS custom properties in `globals.css`. Never hardcode hex in components.
 
-### Primary Palette
+### Primary Palette (Dark Void)
 ```css
 --monarch-void: #030014;        /* true darkness, page bg */
 --monarch-abyss: #0a0a1a;       /* nav bg, floating cards */
 --monarch-surface: #111128;     /* elevated surfaces */
 --monarch-surface-light: #1a1a3e; /* hover state surfaces */
+```
+
+### Light Realm Palette
+```css
+--monarch-ice-white: #F0F4FF;   /* page bg for light sections */
+--monarch-ice-bg: #E0E8FF;      /* card bg for light sections */
+--monarch-ice-text: #030014;    /* primary text in light sections */
+--monarch-ice-text-dim: #404060;/* secondary labels in light sections */
+--monarch-ice-border: rgba(3, 0, 20, 0.08);
 ```
 
 ### Accent Colors

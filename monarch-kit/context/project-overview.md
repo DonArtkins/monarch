@@ -42,18 +42,18 @@ After upscale, the page flows as:
 
 ```
 1. NavBar (story-driven labels)
-2. Hero (5 video clips, hexagonal particles)
-3. About/Origin (portal scroll — Double Dungeon image)
-4. Features/System (bento grid — 6 cards)
-5. [NEW] Gates Section (frame-by-frame hover, rank cards)
-6. [NEW] Ranks Section (E → Shadow Monarch timeline)
-7. [NEW] Shadow Extraction Section (story cards)
-8. [NEW] Monarchs Section (The Architect, statues, father)
-9. [NEW] Weapons Section (Kamish, Demon King sword, Igris)
-10. Story (existing — upgraded with frame hover)
-11. [NEW] Beyond Season 2 Section (teaser)
-12. Contact → ARISE CTA (upgraded)
-13. Footer (upgraded with watermark)
+2. Hero (5 video clips, hexagonal particles) — [LIGHT REALM]
+3. About/Origin (portal scroll) — [LIGHT REALM]
+4. Features/System (bento grid) — [DARK VOID]
+5. [NEW] Gates Section (frame-by-frame hover) — [LIGHT REALM]
+6. [NEW] Ranks Section (E → Monarch timeline) — [LIGHT REALM]
+7. [NEW] Shadow Extraction Section (story cards) — [DARK VOID]
+8. [NEW] Monarchs Section (The Architect, statues) — [DARK VOID]
+9. [NEW] Weapons Section (Kamish, Igris) — [DARK VOID]
+10. Story (upgraded with frame hover) — [DARK VOID]
+11. [NEW] Beyond Season 2 Section (teaser) — [DARK VOID]
+12. Contact → ARISE CTA (upgraded) — [LIGHT REALM]
+13. Footer (upgraded with watermark) — [DARK VOID]
 ```
 
 ## Upscale Goals
