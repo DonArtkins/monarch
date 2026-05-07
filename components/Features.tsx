@@ -149,16 +149,16 @@ const Features = () => {
     <section className="bg-monarch-void pb-24 sm:pb-52">
       <div className="container mx-auto px-3 md:px-10">
         <div className="px-5 py-20 sm:py-32">
-          <p className="system-label text-monarch-blue">
-            SHADOW REALM · DUNGEON CLASSIFICATION
+          <p style={{ fontFamily: "var(--font-mono, 'Space Mono', monospace)", fontSize: "0.625rem", textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--ice-eye, #60A5FA)" }}>
+            THE SYSTEM · QUEST LOG ACTIVE
           </p>
           <AnimatedTitle
-            title="Into the Sh<b>a</b>dow <br /> Re<b>a</b>lm"
+            title="The Syst<b>e</b>m <br /> Ch<b>o</b>se You"
             containerClass="mt-5 !text-monarch-text text-left"
           />
           <p className="max-w-md font-circular text-base text-monarch-text-dim opacity-50 mt-5">
-            From the weakest hunter to the sovereign of shadows. Every gate,
-            every battle, every shadow extracted — the system chose only one.
+            A quest appeared that only you could see. A stat window that rewrote
+            every rule. The system didn&apos;t choose the strongest. It chose you.
           </p>
         </div>
 
@@ -205,7 +205,7 @@ const Features = () => {
                   Ar<b>i</b>se
                 </>
               }
-              description="You are Sung Jin-Woo. The only living Shadow Monarch. Every shadow you command bends to your will — forever."
+              description="You are the only living Shadow Monarch. Every shadow you command bends to your will — forever."
               labelColor="text-ice-eye"
             />
           </BentoTilt>

@@ -59,13 +59,15 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col items-center text-center relative z-10">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-monarch-ice-text-dim">Join the Shadow Army</p>
+          <p style={{ fontFamily: "var(--font-mono, 'Space Mono', monospace)", fontSize: "0.625rem", textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--monarch-ice-text-dim)" }}>
+            YOUR COMMAND AWAITS
+          </p>
           <h2 className="special-font mt-10 w-full font-zentry text-5xl leading-[0.9] md:text-[96px] text-monarch-ice-text">
-            Let&apos;s b<b>u</b>ild the <br /> new era of <br /> sh<b>a</b>dow w<b>a</b>rfare
+            You b<b>u</b>ilt the <br /> sh<b>a</b>dow <br /> arm<b>y</b>. Ar<b>i</b>se.
           </h2>
 
           <Button 
-            title="Awaken Now" 
+            title="Command Your Army" 
             containerClass="mt-10 cursor-pointer bg-monarch-ice-text text-monarch-ice-white hover:bg-monarch-ice-text-dim transition-colors" 
           />
         </div>
