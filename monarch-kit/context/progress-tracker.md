@@ -30,7 +30,7 @@ The following components are working and must be preserved:
 ### NAV & GLOBAL REFINEMENTS
 - [x] **SPEC 12** — Story-based navigation labels + active section highlight ✅ (2026-05-06)
 - [x] **SPEC 13** — Custom shadow energy cursor with ring + trail ✅ (2026-05-07)
-- [ ] **SPEC 14** — Gate-crack SVG preloader (2.4s, skippable)
+- [x] **SPEC 14** — Gate-crack SVG preloader (2.4s, skippable) ✅ (2026-05-07)
 - [ ] **SPEC 15** — Film grain/noise texture global overlay
 - [ ] **SPEC 16** — Typography upgrade (Space Mono labels, clamp sizing)
 - [ ] **SPEC 17** — Color system expansion + depth layer tokens
@@ -151,4 +151,11 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Integrated into layout.tsx
   - MutationObserver ensures dynamic content is also tracked
   - `npm run build` passes — zero TypeScript errors
-- **Next Action**: Implement SPEC 14 — Gate-crack preloader
+- **2026-05-07 — SPEC 14 Complete**:
+  - `Preloader` component implemented with GSAP SVG crack sequence
+  - `ARISE` text impact and clip-path dissolve reveal
+  - `PreloaderGate` client wrapper manages initial site-wide visibility
+  - Integrated into root `layout.tsx` to gate all routes
+  - Skip button available after 1.2s
+  - `npm run build` passes — zero TypeScript errors
+- **Next Action**: Implement SPEC 15 — Film grain overlay
