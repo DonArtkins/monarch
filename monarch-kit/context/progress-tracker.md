@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**SPEC 28 Complete → Ready for SPEC 29**
+**SPEC 29 Complete → Ready for SPEC 30**
 
 ## Baseline State (Pre-Upscale)
 
@@ -53,7 +53,7 @@ The following components are working and must be preserved:
 - [x] **SPEC 28** — Bento glass shimmer + tilt effect upgrade ✅ (2026-05-07)
 
 ### THE GATES SECTION
-- [ ] **SPEC 29** — Red Gate frame-by-frame hover section (40 frames)
+- [x] **SPEC 29** — Red Gate frame-by-frame hover section (40 frames) ✅ (2026-05-07)
 
 ### TRANSITION
 - [ ] **SPEC 30** — Dark ↔ Light realm shift transition
