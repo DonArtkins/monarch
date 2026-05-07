@@ -176,8 +176,7 @@ const Gates = () => {
     <section
       id="gates"
       ref={containerRef}
-      className="relative min-h-dvh w-screen overflow-hidden"
-      style={{ backgroundColor: "var(--abyss, #020208)" }}
+      className="relative min-h-dvh w-screen overflow-hidden bg-monarch-ice-white"
     >
       {/* Korean watermark — DUNGEON (던전) */}
       <div
@@ -190,8 +189,8 @@ const Gates = () => {
             fontFamily: "var(--font-zentry, sans-serif)",
             fontSize: "22vw",
             fontWeight: 900,
-            color: "var(--gate-red, #FF2B2B)",
-            opacity: 0.04,
+            color: "var(--monarch-ice-text, #030014)",
+            opacity: 0.05,
             lineHeight: 1,
             display: "block",
             transform: "rotate(15deg) translateX(20%)",
@@ -219,14 +218,14 @@ const Gates = () => {
           </p>
           <AnimatedTitle
             title="Enter the G<b>a</b>te"
-            containerClass="text-monarch-text text-left !px-0"
+            containerClass="text-monarch-ice-text text-left !px-0"
           />
           <p
             className="mt-4 max-w-md font-circular leading-relaxed"
             style={{
               fontSize: "1rem",
-              color: "var(--silver, #C0C8D8)",
-              opacity: 0.7,
+              color: "var(--monarch-ice-text-dim, #404060)",
+              opacity: 0.8,
             }}
           >
             Cyan. Yellow. Red. Black. Each gate a new abyss. You treated every
@@ -426,9 +425,9 @@ const Gates = () => {
               <p
                 style={{
                   fontSize: "0.75rem",
-                  color: "var(--silver, #C0C8D8)",
+                  color: "var(--monarch-ice-text-dim, #404060)",
                   lineHeight: 1.5,
-                  opacity: 0.65,
+                  opacity: 0.8,
                   fontFamily: "var(--font-circular, sans-serif)",
                 }}
               >

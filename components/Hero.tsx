@@ -200,12 +200,12 @@ const Hero = () => {
   const getVideoSrc = (index: number) => `/videos/hero-${index}.mp4`;
 
   return (
-    <div ref={heroRef} className="relative h-dvh w-screen overflow-x-hidden">
+    <div ref={heroRef} className="relative h-dvh w-screen overflow-x-hidden bg-monarch-ice-white">
       {isLoading && <Loader />}
 
       <div
         id="video-frame"
-        className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-monarch-abyss"
+        className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-monarch-ice-white"
         style={{ willChange: "clip-path, border-radius" }}
       >
         <div>
@@ -247,23 +247,16 @@ const Hero = () => {
         {/* Hex particle overlay — decorative */}
         <HexParticles />
 
-        <h1
-          className="special-font hero-heading absolute bottom-5 right-5 z-40 text-monarch-purple"
-          style={{ willChange: "transform, opacity" }}
-        >
-          A<b>w</b>aken
-        </h1>
-
         <div className="absolute left-0 top-0 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
             <h1
-              className="special-font hero-heading text-monarch-text"
+              className="special-font hero-heading text-monarch-ice-text"
               style={{ willChange: "transform, opacity" }}
             >
               Mon<b>a</b>rch
             </h1>
 
-            <p className="mb-5 max-w-sm font-robert-regular text-monarch-text-dim text-sm sm:text-base">
+            <p className="mb-5 max-w-sm font-robert-regular text-monarch-ice-text-dim text-sm sm:text-base">
               You are the weakest hunter. <br /> Until the system chose you.
             </p>
 
@@ -271,7 +264,7 @@ const Hero = () => {
               id="enter-system"
               title="Arise"
               leftIcon={<TiLocationArrow />}
-              containerClass="bg-monarch-blue text-monarch-void flex-center gap-1"
+              containerClass="bg-monarch-ice-text text-monarch-ice-white flex-center gap-1"
             />
           </div>
         </div>
@@ -318,7 +311,7 @@ const Hero = () => {
         일어나라
       </div>
 
-      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-monarch-text">
+      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-monarch-ice-text">
         A<b>w</b>aken
       </h1>
     </div>

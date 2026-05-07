@@ -1,37 +1,16 @@
-# SPEC 31 — Hunter Ranks: E Through S Visual Progression Cards
+"use client";
 
-**Branch:** `feat/31-ranks`  
-**Component:** `components/Ranks.tsx` (NEW)
+import { useRef } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimatedTitle from "./AnimatedTitle";
 
-## What
-A new section placed after the `RealmTransition` and before `ShadowExtraction`. Shows the hunter rank progression from E (weakest) to S (Shadow Monarch) through 6 visually distinct cards. Each card is color-coded to its rank's gate color, features an image placeholder, rank badge, a one-line story beat from Jin-Woo's journey at that rank, and a subtle energy glow on hover. Cards animate in staggered from the right on scroll. On mobile, they scroll horizontally with snap.
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
-## Current State
-No Ranks section exists. The Features section's `BentoTilt` and `BentoCard` components are the closest architectural reference — this section reuses the tilt pattern but applies it to portrait-ratio rank cards.
-
-## Dependencies
-- SPEC 16 (Typography) — `system-label`, Space Mono for rank labels
-- SPEC 17 (Color System) — `--rank-e` through `--rank-monarch`, `--shadow-dark`, `--abyss`
-- SPEC 28 (Bento tilt upgrade) — the enhanced `boxShadow` tilt pattern is referenced
-
-## Assets
-
-| Card | Image Path | Placeholder |
-|---|---|---|
-| E-Rank | `/public/images/RANKS_IMG_01.webp` | `/public/images/kamish.jpeg` |
-| D-Rank | `/public/images/RANKS_IMG_02.webp` | `/public/images/about-bg.jpeg` |
-| C-Rank | `/public/images/RANKS_IMG_03.webp` | `/public/images/beru.jpeg` |
-| B-Rank | `/public/images/RANKS_IMG_04.webp` | `/public/images/kamish.jpeg` |
-| A-Rank | `/public/images/RANKS_IMG_05.webp` | `/public/images/footer-bg.jpeg` |
-| S-Rank | `/public/images/RANKS_IMG_06.webp` | `/public/images/system-ui.jpeg` |
-
-Add `{/* TODO: Replace with /images/RANKS_IMG_0X.webp when generated */}` comments.
-
-## Implementation
-
-### Rank Data
-
-```typescript
 interface RankData {
   rank: "E" | "D" | "C" | "B" | "A" | "S";
   title: string;
@@ -45,6 +24,7 @@ interface RankData {
 }
 
 const RANKS: RankData[] = [
+  {
     rank: "E",
     title: "THE WEAKEST",
     color: "var(--rank-e, #9CA3AF)",
@@ -111,25 +91,6 @@ const RANKS: RankData[] = [
     systemNote: "SHADOW ARMY: ∞ · CLASS: MONARCH",
   },
 ];
-```
-
-### Component: `components/Ranks.tsx`
-
-```typescript
-"use client";
-
-import { useRef } from "react";
-import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import AnimatedTitle from "./AnimatedTitle";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-// RANKS data and RankData interface defined above (paste above component)
 
 const RankCard = ({
   data,
@@ -416,40 +377,3 @@ const Ranks = () => {
 };
 
 export default Ranks;
-```
-
-### Integration in `app/page.tsx`
-
-```typescript
-const Ranks = dynamic(() => import("../components/Ranks"), { ssr: false });
-
-// Placement in story order:
-<Gates />
-<RealmTransition />
-<Ranks />
-<ShadowExtraction />
-```
-
-## Acceptance Criteria
-- [ ] `Ranks` section renders after `RealmTransition` and before `ShadowExtraction`
-- [ ] All 6 rank cards visible: E, D, C, B, A, S — each with correct rank color
-- [ ] Rank badge background color matches the gate rank color for each card
-- [ ] Story line copy follows second-person voice ("You…")
-- [ ] Cards animate in from the right with stagger on scroll (GSAP ScrollTrigger)
-- [ ] Card hover: lifts (`y: -8`) with rank-colored `box-shadow` glow
-- [ ] S-rank card uses `--rank-monarch` (`#60A5FA`) ice-eye blue — not red
-- [ ] Korean watermark `등급` visible at `opacity: 0.03`, `aria-hidden="true"`, no overflow
-- [ ] Section has `id="ranks"` for nav scroll target
-- [ ] `RankCard` component uses `contextSafe` for GSAP hover interactions
-- [ ] `will-change: transform` set on `mouseenter`, removed `onComplete` of `mouseleave` animation
-- [ ] Image placeholders have descriptive `alt` text
-- [ ] All `loading="lazy"` on below-fold images (only index 0 and 1 are `eager`)
-- [ ] `npm run build` passes — zero TypeScript errors
-
-## Mobile Requirements
-- [ ] Cards: `scroll-snap-type: x mandatory`, `min-w-[72vw]`, `flex-shrink-0` — horizontal scroll
-- [ ] Desktop: `md:grid-cols-6` — all 6 cards visible in a single row
-- [ ] Card hover interactions: mouse events only — no touch hover state
-- [ ] No horizontal overflow at 375px
-- [ ] Korean watermark container has `overflow: hidden`
-- [ ] Image area height: `clamp(180px, 30vh, 280px)` — adapts to viewport

@@ -105,6 +105,13 @@ html {
   /* E-rank gate — cyan */
   --gate-cyan: #06B6D4;
 
+  /* ── LIGHT REALM TOKENS ───────────────────────────────── */
+  --monarch-ice-white: #f0f4ff;
+  --monarch-ice-bg: #e0e8ff;
+  --monarch-ice-text: #030014;
+  --monarch-ice-text-dim: #404060;
+  --monarch-ice-border: rgba(3, 0, 20, 0.08);
+
   /* ── NEW TEXT TOKENS ──────────────────────────────────── */
   /* Body text — slightly blue-tinted white */
   --silver: #C0C8D8;
@@ -222,7 +229,13 @@ html {
 
   /* Text */
   --color-silver: #C0C8D8;
-  --color-white-pure: #F0F4FF;
+  --color-white: #F0F4FF;
+
+  /* Light Realm */
+  --color-monarch-ice-white: #f0f4ff;
+  --color-monarch-ice-bg: #e0e8ff;
+  --color-monarch-ice-text: #030014;
+  --color-monarch-ice-text-dim: #404060;
 
   /* Rank colors */
   --color-rank-e: #9CA3AF;
