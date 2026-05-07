@@ -29,6 +29,7 @@ const NavBar = () => {
 
   const navContainerRef = useRef<HTMLDivElement>(null);
   const audioElementRef = useRef<HTMLAudioElement>(null);
+  const volumeProxyRef = useRef({ vol: 0 });
   const iconRef = useRef<SVGSVGElement>(null);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -58,6 +59,18 @@ const NavBar = () => {
       duration: 0.2,
     });
   }, { dependencies: [isNavVisible] });
+
+  // Audio bars entrance animation
+  useGSAP(() => {
+    gsap.from(".indicator-line", {
+      scaleY: 0,
+      transformOrigin: "bottom center",
+      duration: 0.4,
+      stagger: 0.08,
+      ease: "power2.out",
+      delay: 0.6,
+    });
+  });
 
   // Active section tracking via IntersectionObserver
   useEffect(() => {
@@ -125,13 +138,37 @@ const NavBar = () => {
     setIsIndicatorActive((prev) => !prev);
   };
 
-  useEffect(() => {
+  // Audio volume fade-in/out with GSAP
+  useGSAP(() => {
+    const audio = audioElementRef.current;
+    if (!audio) return;
+
     if (isAudioPlaying) {
-      audioElementRef.current?.play();
+      audio.volume = 0;
+      audio.play().catch((e) => console.warn("Audio play:", e));
+
+      gsap.to(volumeProxyRef.current, {
+        vol: 0.45,
+        duration: 1.8,
+        ease: "power2.out",
+        onUpdate: () => {
+          if (audio) audio.volume = volumeProxyRef.current.vol;
+        },
+      });
     } else {
-      audioElementRef.current?.pause();
+      gsap.to(volumeProxyRef.current, {
+        vol: 0,
+        duration: 0.8,
+        ease: "power2.in",
+        onUpdate: () => {
+          if (audio) audio.volume = volumeProxyRef.current.vol;
+        },
+        onComplete: () => {
+          audio?.pause();
+        },
+      });
     }
-  }, [isAudioPlaying]);
+  }, { dependencies: [isAudioPlaying] });
 
   return (
     <>
@@ -243,44 +280,69 @@ const NavBar = () => {
                 containerClass="bg-transparent border border-monarch-blue text-monarch-blue hover:bg-monarch-blue hover:text-monarch-void transition-all duration-300 flex items-center justify-center gap-1"
               />
 
-              <button
-                className="flex items-center space-x-0.5"
-                onClick={toggleAudioIndicator}
-                aria-label={isAudioPlaying ? "Pause background music" : "Play background music"}
-                aria-pressed={isAudioPlaying}
-              >
-                <audio
-                  ref={audioElementRef}
-                  src="/audio/bgm.mp3"
-                  className="hidden"
-                  loop
-                />
-                {[1, 2, 3, 4].map((bar) => (
-                  <div
-                    key={bar}
-                    className={`indicator-line ${
-                      isIndicatorActive ? "active" : ""
-                    }`}
-                    style={{ animationDelay: `${bar * 0.1}s` }}
+              {/* Audio toggle — HUD style */}
+              <div className="relative ml-10 group/audio">
+                <button
+                  className="flex items-center space-x-0.5 py-2"
+                  onClick={toggleAudioIndicator}
+                  aria-label={isAudioPlaying ? "Pause ambient audio" : "Play ambient audio"}
+                  aria-pressed={isAudioPlaying}
+                >
+                  <audio
+                    ref={audioElementRef}
+                    src="/audio/bgm.mp3"
+                    className="hidden"
+                    loop
                   />
-                ))}
-              </button>
+                  {[1, 2, 3, 4].map((bar) => (
+                    <div
+                      key={bar}
+                      className={`indicator-line ${isIndicatorActive ? "active" : ""}`}
+                      style={{
+                        animationDelay: `${bar * 0.1}s`,
+                        ["--animation-order" as any]: bar,
+                      }}
+                    />
+                  ))}
+                </button>
+
+                {/* HUD tooltip */}
+                <div
+                  className="absolute -bottom-7 left-1/2 -translate-x-1/2 opacity-0 group-hover/audio:opacity-100 transition-opacity duration-200 pointer-events-none hidden md:block"
+                  aria-hidden="true"
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono, 'Space Mono', monospace)",
+                      fontSize: "0.4rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.15em",
+                      color: "var(--ice-eye, #60A5FA)",
+                      whiteSpace: "nowrap",
+                      opacity: 0.7,
+                    }}
+                  >
+                    {isAudioPlaying ? "AMBIENT · ON" : "AMBIENT · OFF"}
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Mobile audio toggle — always visible on mobile */}
             <button
-              className="absolute right-20 top-1/2 -translate-y-1/2 flex items-center space-x-0.5 md:hidden"
+              className="absolute right-20 top-1/2 -translate-y-1/2 flex items-center space-x-0.5 py-2 md:hidden"
               onClick={toggleAudioIndicator}
-              aria-label={isAudioPlaying ? "Pause background music" : "Play background music"}
+              aria-label={isAudioPlaying ? "Pause ambient audio" : "Play ambient audio"}
               aria-pressed={isAudioPlaying}
             >
               {[1, 2, 3, 4].map((bar) => (
                 <div
                   key={bar}
-                  className={`indicator-line ${
-                    isIndicatorActive ? "active" : ""
-                  }`}
-                  style={{ animationDelay: `${bar * 0.1}s` }}
+                  className={`indicator-line ${isIndicatorActive ? "active" : ""}`}
+                  style={{
+                    animationDelay: `${bar * 0.1}s`,
+                    ["--animation-order" as any]: bar,
+                  }}
                 />
               ))}
             </button>
