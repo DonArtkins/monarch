@@ -25,11 +25,11 @@ const BentoTilt = ({ children, className = "" }: BentoTiltProps) => {
 
     const xTo = gsap.quickTo(itemRef.current, "rotationY", {
       duration: 0.7,
-      ease: "power2.out",
+      ease: "power3.out", // Updated to power3 for cinematic feel
     });
     const yTo = gsap.quickTo(itemRef.current, "rotationX", {
       duration: 0.7,
-      ease: "power2.out",
+      ease: "power3.out",
     });
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -41,27 +41,56 @@ const BentoTilt = ({ children, className = "" }: BentoTiltProps) => {
       const relativeX = (e.clientX - left) / width;
       const relativeY = (e.clientY - top) / height;
 
-      const tiltX = (relativeY - 0.5) * 20;
-      const tiltY = (relativeX - 0.5) * -20;
+      const tiltX = (relativeY - 0.5) * 16; // Subtler tilt (16 instead of 20)
+      const tiltY = (relativeX - 0.5) * -16;
 
       yTo(tiltX);
       xTo(tiltY);
+
+      // Dynamic ice-eye border shimmer following tilt direction
+      const shimmerX = relativeX * 100;
+      const shimmerY = relativeY * 100;
+      itemRef.current.style.setProperty(
+        "--shimmer-pos",
+        `${shimmerX}% ${shimmerY}%`
+      );
+    };
+
+    const handleMouseEnter = () => {
+      if (!itemRef.current) return;
+      itemRef.current.style.willChange = "transform";
+      gsap.to(itemRef.current, {
+        boxShadow: "0 0 0 1px rgba(96, 165, 250, 0.25), 0 20px 40px rgba(0, 0, 0, 0.4)",
+        duration: 0.3,
+        ease: "power2.out",
+      });
     };
 
     const handleMouseLeave = () => {
+      if (!itemRef.current) return;
       yTo(0);
       xTo(0);
+      gsap.to(itemRef.current, {
+        boxShadow: "none",
+        duration: 0.4,
+        ease: "power2.out",
+        onComplete: () => {
+          if (itemRef.current) itemRef.current.style.willChange = "auto";
+        },
+      });
     };
 
     const element = itemRef.current;
     if (element) {
       element.addEventListener("mousemove", handleMouseMove as any);
+      element.addEventListener("mouseenter", handleMouseEnter);
       element.addEventListener("mouseleave", handleMouseLeave);
     }
 
     return () => {
       if (element) {
         element.removeEventListener("mousemove", handleMouseMove as any);
+        element.removeEventListener("mouseenter", handleMouseEnter);
         element.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
@@ -70,7 +99,10 @@ const BentoTilt = ({ children, className = "" }: BentoTiltProps) => {
   return (
     <div
       ref={itemRef}
-      className={`${className} will-change-transform`}
+      className={`${className} transition-shadow duration-300`}
+      style={{
+        transformOrigin: "center center",
+      }}
     >
       {children}
     </div>
@@ -130,102 +162,169 @@ const Features = () => {
           </p>
         </div>
 
-        {/* SPEC 11 — THE SYSTEM — Hero full-width card */}
+        {/* SPEC 22 — THE SYSTEM — Full-width hero card */}
         <BentoTilt className="border-hsla relative mb-7 h-64 w-full overflow-hidden rounded-md sm:h-80 md:h-[65vh]">
           <BentoCard
             src="/videos/father.mp4"
-            label="THE SYSTEM · SPEC 11"
+            label="THE SYSTEM · CLASS E → SHADOW MONARCH"
             title={
               <>
-                The Sy<b>s</b>tem
+                The Syst<b>e</b>m
               </>
             }
-            description="Daily quests. Stat allocation. Skill extraction. The system that broke the rules of this world."
-            labelColor="text-monarch-blue"
+            description="A quest appeared that only you could see. Daily missions. Stat windows. Skill extraction. The rules of this world broke for you alone."
+            labelColor="text-ice-eye"
           />
         </BentoTilt>
 
-        {/* Bento 2x2 grid — SPEC 12, 13, 14, and CTA */}
+        {/* Bento 2x2 grid — SPEC 23, 24, 25, 26, 27 */}
         <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-2 md:grid-rows-3" style={{ minHeight: "auto" }}>
 
-          {/* SPEC 13 — IGRIS — tall narrow card (row-span-2 on desktop) */}
+          {/* SPEC 24 — IGRIS — tall narrow card (row-span-2 on desktop) */}
           <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:row-span-2 md:h-auto">
             <BentoCard
               src="/videos/shadow-army.mp4"
-              label="IGRIS · SHADOW KNIGHT GENERAL"
+              label="IGRIS · SHADOW KNIGHT GENERAL · FIRST EXTRACTED"
               title={
                 <>
                   Igr<b>i</b>s
                 </>
               }
-              description="First extracted. Most loyal. Most deadly."
+              description="The Red Knight who refused to kneel — until you made him rise as shadow. First extracted. Most loyal. Most deadly."
               labelColor="text-monarch-text-dim"
             />
           </BentoTilt>
 
-          {/* SPEC 12 — ARISE — Shadow Monarch card */}
+          {/* SPEC 23 — ARISE — Shadow Monarch card */}
           <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:h-auto">
             <BentoCard
               src="/videos/story-arise.mp4"
-              label="SHADOW MONARCH"
+              label="SHADOW MONARCH · THE TITLE NONE HELD"
               title={
                 <>
                   Ar<b>i</b>se
                 </>
               }
-              description="The title no living hunter had ever held. Sovereign of all shadow."
-              labelColor="text-monarch-blue"
+              description="You are Sung Jin-Woo. The only living Shadow Monarch. Every shadow you command bends to your will — forever."
+              labelColor="text-ice-eye"
             />
           </BentoTilt>
 
-          {/* SPEC 14 — DUNGEONS — wide card */}
+          {/* SPEC 25 — DUNGEONS — wide card */}
           <BentoTilt className="bento-tilt_1 h-48 sm:h-64 md:h-auto">
             <BentoCard
               src="/videos/legion.mp4"
-              label="S-RANK DUNGEON"
+              label="S-RANK DUNGEON · ENTER AT YOUR OWN RISK"
               title={
                 <>
                   Dun<b>g</b>eons
                 </>
               }
-              description="Every gate hides a world. Every world wants you dead."
-              labelColor="text-red-400"
+              description="Every gate hides a world that wants you dead. You've entered them all. And you've always walked back out."
+              labelColor="text-gate-red"
             />
           </BentoTilt>
 
-          {/* CTA — More coming soon */}
+          {/* SPEC 26 — CTA card — JOIN THE LEGION */}
           <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-auto">
-            <div className="flex size-full flex-col justify-between bg-monarch-purple p-5 group cursor-pointer relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-monarch-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div
+              className="flex size-full flex-col justify-between p-5 group cursor-pointer relative overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, var(--shadow-purple, #6D28D9) 0%, var(--monarch-energy, #2B4FFF) 100%)",
+              }}
+            >
+              {/* Animated shadow energy overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: "radial-gradient(ellipse at 50% 120%, rgba(96, 165, 250, 0.15) 0%, transparent 60%)",
+                  opacity: 0,
+                  transition: "opacity 0.5s ease",
+                }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0 group-hover:[&>div]:opacity-100 pointer-events-none"
+                aria-hidden="true"
+              >
+                <div
+                  className="w-full h-full opacity-0 transition-opacity duration-500"
+                  style={{
+                    background: "radial-gradient(ellipse at 50% 120%, rgba(96, 165, 250, 0.2) 0%, transparent 60%)",
+                  }}
+                />
+              </div>
 
-              <p className="system-label text-monarch-text/60 relative z-10">
-                THE JOURNEY CONTINUES
+              {/* Blue eye watermark */}
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
+                aria-hidden="true"
+                style={{ opacity: 0.06, fontSize: "6rem" }}
+              >
+                👁
+              </div>
+
+              <p
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "0.625rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.2em",
+                  color: "rgba(240, 244, 255, 0.6)",
+                }}
+                className="relative z-10"
+              >
+                THE LEGION GROWS
               </p>
 
               <div className="relative z-10">
-                <h1 className="bento-title special-font max-w-64 text-monarch-text">
-                  M<b>o</b>re co<b>m</b>ing s<b>o</b>on
+                <h1
+                  className="special-font max-w-64"
+                  style={{
+                    fontFamily: "var(--font-zentry, sans-serif)",
+                    fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+                    fontWeight: 900,
+                    textTransform: "uppercase",
+                    color: "var(--white, #F0F4FF)",
+                    lineHeight: 0.95,
+                  }}
+                >
+                  J<b>o</b>in the <br /> Legi<b>o</b>n
                 </h1>
-                <TiLocationArrow className="mt-4 scale-[3] text-monarch-text group-hover:rotate-45 transition-transform duration-500" />
+                <div className="mt-4 flex items-center gap-3">
+                  <TiLocationArrow
+                    className="scale-[2] text-ice-eye group-hover:rotate-45 transition-transform duration-500"
+                    aria-hidden="true"
+                  />
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono, monospace)",
+                      fontSize: "0.625rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.15em",
+                      color: "rgba(240, 244, 255, 0.5)",
+                    }}
+                  >
+                    ARISE NOW
+                  </span>
+                </div>
               </div>
             </div>
           </BentoTilt>
 
-          {/* Shadow Army video — decorative */}
+          {/* SPEC 27 — THE GATES — teaser card */}
           <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-auto">
-            <div className="relative size-full">
-              <VideoPlayer
-                src="/videos/legion.mp4"
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 z-10">
-                <p className="system-label text-monarch-blue">
-                  SHADOW ARMY · LEGION
-                </p>
-                <p className="mt-1 text-xs text-monarch-text-dim">Thousands strong. All obedient.</p>
-              </div>
-            </div>
+            <BentoCard
+              src="/videos/legion.mp4"
+              label="THE GATES · E THROUGH S · RED TO BLACK"
+              title={
+                <>
+                  The G<b>a</b>tes
+                </>
+              }
+              description="Cyan. Yellow. Red. Black. Each gate a new abyss. Each one an invitation."
+              labelColor="text-gate-cyan"
+            />
           </BentoTilt>
         </div>
       </div>
