@@ -44,6 +44,63 @@ const DECORATIVE_CLIPS = [
   },
 ];
 
+// Hex particle configuration — defined outside component to avoid re-render
+const HEX_PRIMARIES = [
+  { size: 8, left: "10%", delay: "0s", duration: "12s", opacity: 0.15 },
+  { size: 6, left: "25%", delay: "2s", duration: "9s", opacity: 0.12 },
+  { size: 10, left: "40%", delay: "4s", duration: "14s", opacity: 0.1 },
+  { size: 5, left: "55%", delay: "1s", duration: "10s", opacity: 0.18 },
+  { size: 8, left: "70%", delay: "3s", duration: "11s", opacity: 0.13 },
+  { size: 12, left: "85%", delay: "5s", duration: "16s", opacity: 0.08 },
+];
+
+const HEX_SECONDARIES = [
+  { size: 4, left: "15%", delay: "1.5s", duration: "18s", opacity: 0.08 },
+  { size: 6, left: "35%", delay: "3.5s", duration: "22s", opacity: 0.06 },
+  { size: 5, left: "60%", delay: "0.5s", duration: "20s", opacity: 0.07 },
+  { size: 3, left: "78%", delay: "6s", duration: "15s", opacity: 0.09 },
+];
+
+const HexParticles = () => (
+  <div
+    className="absolute inset-0 z-30 overflow-hidden pointer-events-none"
+    aria-hidden="true"
+  >
+    {/* Primary ice-eye blue hexagons — float upward */}
+    {HEX_PRIMARIES.map((hex, i) => (
+      <div
+        key={`hex-p-${i}`}
+        className="hex-particle hex-primary"
+        style={{
+          width: `${hex.size}px`,
+          height: `${hex.size}px`,
+          left: hex.left,
+          bottom: "-20px",
+          animationDelay: hex.delay,
+          animationDuration: hex.duration,
+          opacity: hex.opacity,
+        }}
+      />
+    ))}
+    {/* Secondary shadow-purple hexagons — smaller, slower, different timing */}
+    {HEX_SECONDARIES.map((hex, i) => (
+      <div
+        key={`hex-s-${i}`}
+        className="hex-particle hex-secondary"
+        style={{
+          width: `${hex.size}px`,
+          height: `${hex.size}px`,
+          left: hex.left,
+          bottom: "-20px",
+          animationDelay: hex.delay,
+          animationDuration: hex.duration,
+          opacity: hex.opacity,
+        }}
+      />
+    ))}
+  </div>
+);
+
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
@@ -186,6 +243,9 @@ const Hero = () => {
             onLoadedData={handleVideoLoad}
           />
         </div>
+
+        {/* Hex particle overlay — decorative */}
+        <HexParticles />
 
         <h1
           className="special-font hero-heading absolute bottom-5 right-5 z-40 text-monarch-purple"
