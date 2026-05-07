@@ -96,10 +96,7 @@ const BentoCard = ({ src, label, title, description, labelColor = "text-monarch-
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
       <div className="relative z-10 flex size-full flex-col justify-between p-4 sm:p-5 text-monarch-text">
-        <p
-          className={`font-mono text-[10px] uppercase tracking-[0.2em] ${labelColor}`}
-          style={{ fontFamily: "monospace" }}
-        >
+        <p className={`system-label ${labelColor}`}>
           {label}
         </p>
         <div>
@@ -120,7 +117,7 @@ const Features = () => {
     <section className="bg-monarch-void pb-24 sm:pb-52">
       <div className="container mx-auto px-3 md:px-10">
         <div className="px-5 py-20 sm:py-32">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-monarch-blue" style={{ fontFamily: "monospace" }}>
+          <p className="system-label text-monarch-blue">
             SHADOW REALM · DUNGEON CLASSIFICATION
           </p>
           <AnimatedTitle
@@ -201,7 +198,7 @@ const Features = () => {
             <div className="flex size-full flex-col justify-between bg-monarch-purple p-5 group cursor-pointer relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-monarch-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-monarch-text/60 relative z-10" style={{ fontFamily: "monospace" }}>
+              <p className="system-label text-monarch-text/60 relative z-10">
                 THE JOURNEY CONTINUES
               </p>
 
@@ -223,7 +220,7 @@ const Features = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-4 left-4 z-10">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-monarch-blue" style={{ fontFamily: "monospace" }}>
+                <p className="system-label text-monarch-blue">
                   SHADOW ARMY · LEGION
                 </p>
                 <p className="mt-1 text-xs text-monarch-text-dim">Thousands strong. All obedient.</p>

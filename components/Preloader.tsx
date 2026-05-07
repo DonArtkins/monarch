@@ -230,7 +230,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
 
       {/* Skip button */}
       <button
-        className="preloader-skip"
+        className="preloader-skip system-label"
         onClick={handleSkip}
         style={{
           position: "absolute",
@@ -240,10 +240,6 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
           background: "transparent",
           border: "1px solid var(--monarch-border)",
           color: "var(--monarch-text-dim)",
-          fontFamily: "Space Mono, monospace",
-          fontSize: "0.625rem",
-          letterSpacing: "0.2em",
-          textTransform: "uppercase",
           padding: "0.5rem 1rem",
           cursor: "pointer",
           transition: "border-color 0.2s",
