@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**SPEC 13 Complete → Ready for SPEC 14**
+**SPEC 28 Complete → Ready for SPEC 29**
 
 ## Baseline State (Pre-Upscale)
 
@@ -44,13 +44,13 @@ The following components are working and must be preserved:
 - [x] **SPEC 21** — Origin copy block ("Before The System" panels) ✅ (2026-05-07)
 
 ### THE SYSTEM SECTION (BENTO)
-- [ ] **SPEC 22** — Bento Card 01: THE SYSTEM (rotating status windows)
-- [ ] **SPEC 23** — Bento Card 02: ARISE (Shadow Monarch transformation)
-- [ ] **SPEC 24** — Bento Card 03: SHADOW ARMY (Igris battle)
-- [ ] **SPEC 25** — Bento Card 04: DUNGEONS (S-rank interior)
-- [ ] **SPEC 26** — Bento Card 05: ARISE CTA card upgrade
-- [ ] **SPEC 27** — Bento Card 06: THE GATES (gate opening video)
-- [ ] **SPEC 28** — Bento glass shimmer + tilt effect upgrade
+- [x] **SPEC 22** — Bento Card 01: THE SYSTEM (rotating status windows) ✅ (2026-05-07)
+- [x] **SPEC 23** — Bento Card 02: ARISE (Shadow Monarch transformation) ✅ (2026-05-07)
+- [x] **SPEC 24** — Bento Card 03: SHADOW ARMY (Igris battle) ✅ (2026-05-07)
+- [x] **SPEC 25** — Bento Card 04: DUNGEONS (S-rank interior) ✅ (2026-05-07)
+- [x] **SPEC 26** — Bento Card 05: ARISE CTA card upgrade ✅ (2026-05-07)
+- [x] **SPEC 27** — Bento Card 06: THE GATES (gate opening video) ✅ (2026-05-07)
+- [x] **SPEC 28** — Bento glass shimmer + tilt effect upgrade ✅ (2026-05-07)
 
 ### THE GATES SECTION
 - [ ] **SPEC 29** — Red Gate frame-by-frame hover section (40 frames)
