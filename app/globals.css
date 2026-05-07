@@ -128,6 +128,7 @@ html {
   --font-circular: "circular-web", ui-sans-serif, system-ui, sans-serif;
   --font-robert-medium: "robert-medium", ui-sans-serif, system-ui, sans-serif;
   --font-robert-regular: "robert-regular", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
   --color-monarch-void: #030014;
   --color-monarch-abyss: #0a0a1a;
@@ -171,8 +172,9 @@ body {
 
 @utility nav-hover-btn {
   position: relative;
+  margin-left: 2.5rem;
   font-family: "Space Mono", monospace;
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   line-height: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -227,21 +229,9 @@ body {
   text-transform: uppercase;
   font-family: "zentry", sans-serif;
   font-weight: 900;
-  font-size: 3rem;
-  line-height: 1;
-
-  @media (min-width: 640px) {
-    right: 2.5rem;
-    font-size: 4.5rem;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 8rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 12rem;
-  }
+  font-size: clamp(3rem, 10vw, 12rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
 }
 
 @utility about-subtext {
@@ -282,18 +272,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  font-size: 4.5rem;
-  line-height: 1;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 0.95;
   text-transform: uppercase;
   color: var(--monarch-text);
+  letter-spacing: -0.01em;
 
   @media (min-width: 640px) {
     padding-left: 8rem;
     padding-right: 8rem;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 6rem;
   }
 }
 
@@ -434,17 +421,36 @@ body {
 }
 
 /* Korean decorative watermark — reusable across all sections */
-.korean-watermark {
+@utility korean-watermark {
   position: absolute;
   pointer-events: none;
   user-select: none;
-  font-size: 25vw;
-  opacity: 0.04;
   font-family: "zentry", sans-serif;
   font-weight: 900;
-  color: var(--monarch-text);
+  font-size: 25vw;
   line-height: 1;
+  color: var(--monarch-text);
+  opacity: 0.04;
+  text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* System HUD labels — Space Mono */
+@utility system-label {
+  font-family: "Space Mono", monospace;
+  font-size: 0.625rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+}
+
+@utility system-label-lg {
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 /* Indicator Line Animation */

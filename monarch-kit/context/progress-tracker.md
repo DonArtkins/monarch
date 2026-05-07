@@ -32,7 +32,7 @@ The following components are working and must be preserved:
 - [x] **SPEC 13** — Custom shadow energy cursor with ring + trail ✅ (2026-05-07)
 - [x] **SPEC 14** — Gate-crack SVG preloader (2.4s, skippable) ✅ (2026-05-07)
 - [x] **SPEC 15** — Film grain/noise texture global overlay ✅ (2026-05-07)
-- [ ] **SPEC 16** — Typography upgrade (Space Mono labels, clamp sizing)
+- [x] **SPEC 16** — Typography upgrade (Space Mono labels, clamp sizing) ✅ (2026-05-07)
 - [ ] **SPEC 17** — Color system expansion + depth layer tokens
 
 ### HERO SECTION
@@ -164,4 +164,11 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - 8fps organic grain animation using `steps(1)` CSS keyframes
   - `mix-blend-mode: overlay` with 0.045 opacity for subtle cinematic texture
   - Zero JS/React overhead approach for maximum performance
-- **Next Action**: Implement SPEC 16 — Typography system upgrade
+- **2026-05-07 — SPEC 16 Complete**:
+  - Space Mono added via Google Fonts for system/HUD labels
+  - Hero heading and section titles upgraded to fluid `clamp` sizing
+  - `system-label` and `system-label-lg` utilities implemented in `globals.css`
+  - `korean-watermark` upgraded to a reusable `@utility`
+  - All components updated to use new utilities (removed inline monospace styles)
+  - `npm run build` passes — zero TypeScript errors
+- **Next Action**: Implement SPEC 17 — Color system expansion

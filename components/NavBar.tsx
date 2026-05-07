@@ -304,12 +304,11 @@ const NavBar = () => {
                   handleNavClick(e, item.href);
                   setMenuOpen(false);
                 }}
-                className={`text-2xl uppercase tracking-[0.2em] transition-colors duration-300 ${
+                className={`font-mono text-2xl uppercase tracking-[0.2em] transition-colors duration-300 ${
                   activeSection === item.href.slice(1)
                     ? "text-monarch-blue"
                     : "text-monarch-text hover:text-monarch-blue"
                 }`}
-                style={{ fontFamily: "'Space Mono', monospace" }}
               >
                 {item.label}
               </a>
