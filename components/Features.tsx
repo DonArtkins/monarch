@@ -178,10 +178,10 @@ const Features = () => {
         </BentoTilt>
 
         {/* Bento 2x2 grid — SPEC 23, 24, 25, 26, 27 */}
-        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-2 md:grid-rows-3" style={{ minHeight: "auto" }}>
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-2 md:grid-rows-3 md:h-[135vh]">
 
           {/* SPEC 24 — IGRIS — tall narrow card (row-span-2 on desktop) */}
-          <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:row-span-2 md:h-auto">
+          <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:row-span-2 md:col-span-1 md:h-auto">
             <BentoCard
               src="/videos/shadow-army.mp4"
               label="IGRIS · SHADOW KNIGHT GENERAL · FIRST EXTRACTED"
@@ -196,7 +196,7 @@ const Features = () => {
           </BentoTilt>
 
           {/* SPEC 23 — ARISE — Shadow Monarch card */}
-          <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:h-auto">
+          <BentoTilt className="bento-tilt_1 h-64 sm:h-80 md:col-span-1 md:row-span-1 md:h-auto">
             <BentoCard
               src="/videos/story-arise.mp4"
               label="SHADOW MONARCH · THE TITLE NONE HELD"
@@ -211,7 +211,7 @@ const Features = () => {
           </BentoTilt>
 
           {/* SPEC 25 — DUNGEONS — wide card */}
-          <BentoTilt className="bento-tilt_1 h-48 sm:h-64 md:h-auto">
+          <BentoTilt className="bento-tilt_1 h-48 sm:h-64 md:col-span-1 md:row-span-1 md:h-auto">
             <BentoCard
               src="/videos/legion.mp4"
               label="S-RANK DUNGEON · ENTER AT YOUR OWN RISK"
@@ -226,7 +226,7 @@ const Features = () => {
           </BentoTilt>
 
           {/* SPEC 26 — CTA card — JOIN THE LEGION */}
-          <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-auto">
+          <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:col-span-1 md:row-span-1 md:h-auto">
             <div
               className="flex size-full flex-col justify-between p-5 group cursor-pointer relative overflow-hidden"
               style={{
@@ -313,7 +313,7 @@ const Features = () => {
           </BentoTilt>
 
           {/* SPEC 27 — THE GATES — teaser card */}
-          <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:h-auto">
+          <BentoTilt className="bento-tilt_2 h-48 sm:h-64 md:col-span-1 md:row-span-1 md:h-auto">
             <BentoCard
               src="/videos/legion.mp4"
               label="THE GATES · E THROUGH S · RED TO BLACK"
