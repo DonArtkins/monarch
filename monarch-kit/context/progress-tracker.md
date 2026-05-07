@@ -87,7 +87,7 @@ The following components are working and must be preserved:
 
 ### AUDIO + PERFORMANCE
 - [x] **SPEC 39** — Ambient audio toggle refinement ✅ (2026-05-07)
-- [ ] **SPEC 40** — Second-person narrative copy rewrite
+- [x] **SPEC 40** — Second-person narrative copy rewrite ✅ (2026-05-07)
 - [ ] **SPEC 41** — Performance, lazy loading, mobile optimization
 
 ## Assets Needed (Generate via Google Flow / Veo)
@@ -234,4 +234,10 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Added Space Mono HUD tooltip (AMBIENT ON/OFF) visible on hover for desktop.
   - Added staggered GSAP entrance animation for indicator bars.
 
-- **Next Action**: Implement SPEC 40 — Second-person narrative copy rewrite.
+- **2026-05-07 — SPEC 40 Complete**:
+  - Rewrote body copy across `About.tsx`, `Features.tsx`, `Story.tsx`, `Contact.tsx`, `Footer.tsx` to consistent second-person narrative voice.
+  - Removed third-person references to Jin-Woo from visible body copy.
+  - Replaced generic placeholders with lore-accurate text.
+  - Verified stability with successful `npm run build`.
+
+- **Next Action**: Implement SPEC 41 — Performance, lazy loading, mobile optimization.
