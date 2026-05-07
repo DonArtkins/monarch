@@ -33,7 +33,7 @@ The following components are working and must be preserved:
 - [x] **SPEC 14** — Gate-crack SVG preloader (2.4s, skippable) ✅ (2026-05-07)
 - [x] **SPEC 15** — Film grain/noise texture global overlay ✅ (2026-05-07)
 - [x] **SPEC 16** — Typography upgrade (Space Mono labels, clamp sizing) ✅ (2026-05-07)
-- [ ] **SPEC 17** — Color system expansion + depth layer tokens
+- [x] **SPEC 17** — Color system expansion + depth layer tokens ✅ (2026-05-07)
 
 ### HERO SECTION
 - [ ] **SPEC 18** — Hero 5-clip video structure (hexagonal containers)
@@ -171,4 +171,11 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - `korean-watermark` upgraded to a reusable `@utility`
   - All components updated to use new utilities (removed inline monospace styles)
   - `npm run build` passes — zero TypeScript errors
-- **Next Action**: Implement SPEC 17 — Color system expansion
+- **2026-05-07 — SPEC 17 Complete**:
+  - Expanded color system with 13 new depth-layered tokens (`--void`, `--abyss`, `--deep`, `--shadow-dark`, `--royal`)
+  - Added accent tokens for gate ranks and energy effects (`--ice-eye`, `--gate-red`, etc.)
+  - Added motion tokens for cinematic easing and durations
+  - Implemented `@utility` classes for section backgrounds and card glow effects
+  - All new tokens available as Tailwind classes via `@theme`
+  - `npm run build` passes — zero regressions on existing sections
+- **Next Action**: Implement SPEC 18 — Hero 5-clip video structure

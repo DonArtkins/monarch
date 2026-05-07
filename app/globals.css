@@ -46,7 +46,7 @@ html {
 }
 
 :root {
-  /* Core Palette */
+  /* ── EXISTING TOKENS (DO NOT CHANGE) ──────────────────── */
   --monarch-void: #030014;
   --monarch-abyss: #0a0a1a;
   --monarch-surface: #111128;
@@ -78,6 +78,58 @@ html {
 
   /* Spacing */
   --monarch-nav-height: 4rem;
+
+  /* ── NEW DEPTH LAYER TOKENS ───────────────────────────── */
+  /* True darkness — preloader, absolute black sections */
+  --void: #000000;
+  /* Darkest page background */
+  --abyss: #020208;
+  /* Primary section backgrounds */
+  --deep: #0A0A1A;
+  /* Card backgrounds, overlays */
+  --shadow-dark: #0D0F2A;
+  /* Accent panels, accent borders */
+  --royal: #1E0A4A;
+
+  /* ── NEW ACCENT TOKENS ────────────────────────────────── */
+  /* Primary gate/monarch energy blue */
+  --monarch-energy: #2B4FFF;
+  /* Jin-Woo's eye, cursor, CTAs — ice blue */
+  --ice-eye: #60A5FA;
+  /* Shadow extraction energy — deep purple */
+  --shadow-purple: #6D28D9;
+  /* S-rank gate danger red */
+  --gate-red: #FF2B2B;
+  /* A-rank gate — amber */
+  --gate-yellow: #F5A623;
+  /* E-rank gate — cyan */
+  --gate-cyan: #06B6D4;
+
+  /* ── NEW TEXT TOKENS ──────────────────────────────────── */
+  /* Body text — slightly blue-tinted white */
+  --silver: #C0C8D8;
+  /* Headlines — near white */
+  --white: #F0F4FF;
+  /* Glass card border */
+  --border: rgba(96, 165, 250, 0.15);
+
+  /* ── RANK COLOR TOKENS ────────────────────────────────── */
+  --rank-e: #9CA3AF;
+  --rank-d: #22C55E;
+  --rank-c: #3B82F6;
+  --rank-b: #8B5CF6;
+  --rank-a: #F59E0B;
+  --rank-s: #EF4444;
+  --rank-monarch: #60A5FA;
+
+  /* ── MOTION TOKENS ────────────────────────────────────── */
+  --ease-monarch: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-cinematic: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.4s;
+  --duration-slow: 0.8s;
+  --duration-cinematic: 1.2s;
 }
 
 /* Font Faces */
@@ -151,6 +203,35 @@ html {
 
   --color-secondary-100: #5a1fd4;
   --color-secondary-300: #00D4FF;
+
+  /* ── NEW @theme entries ────────────────────────────────── */
+  /* Depth layers */
+  --color-void: #000000;
+  --color-abyss: #020208;
+  --color-deep: #0A0A1A;
+  --color-shadow-dark: #0D0F2A;
+  --color-royal: #1E0A4A;
+
+  /* Accents */
+  --color-ice-eye: #60A5FA;
+  --color-shadow-purple: #6D28D9;
+  --color-gate-red: #FF2B2B;
+  --color-gate-yellow: #F5A623;
+  --color-gate-cyan: #06B6D4;
+  --color-monarch-energy: #2B4FFF;
+
+  /* Text */
+  --color-silver: #C0C8D8;
+  --color-white-pure: #F0F4FF;
+
+  /* Rank colors */
+  --color-rank-e: #9CA3AF;
+  --color-rank-d: #22C55E;
+  --color-rank-c: #3B82F6;
+  --color-rank-b: #8B5CF6;
+  --color-rank-a: #F59E0B;
+  --color-rank-s: #EF4444;
+  --color-rank-monarch: #60A5FA;
 }
 
 /* Global Body */
@@ -451,6 +532,48 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+}
+
+/* ── NEW DEPTH & GLOW UTILITIES ───────────────────────── */
+@utility section-void {
+  background-color: var(--void);
+}
+
+@utility section-abyss {
+  background-color: var(--abyss);
+}
+
+@utility section-deep {
+  background-color: var(--deep);
+}
+
+@utility section-shadow {
+  background-color: var(--shadow-dark);
+}
+
+@utility card-border-ice {
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.08) inset;
+  transition: border-color var(--duration-base) var(--ease-monarch),
+              box-shadow var(--duration-base) var(--ease-monarch);
+
+  &:hover {
+    border-color: rgba(96, 165, 250, 0.3);
+    box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.15) inset,
+                0 0 20px rgba(96, 165, 250, 0.08);
+  }
+}
+
+@utility glow-s-rank {
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.2), 0 0 60px rgba(239, 68, 68, 0.1);
+}
+
+@utility glow-monarch {
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.25), 0 0 60px rgba(96, 165, 250, 0.12);
+}
+
+@utility glow-shadow {
+  box-shadow: 0 0 30px rgba(109, 40, 217, 0.2), 0 0 60px rgba(109, 40, 217, 0.1);
 }
 
 /* Indicator Line Animation */
