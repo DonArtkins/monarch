@@ -41,7 +41,7 @@ The following components are working and must be preserved:
 
 ### ORIGIN SECTION
 - [x] **SPEC 20** — Portal scroll expansion (Double Dungeon image) ✅ (2026-05-07)
-- [ ] **SPEC 21** — Origin copy block ("Before The System" panels)
+- [x] **SPEC 21** — Origin copy block ("Before The System" panels) ✅ (2026-05-07)
 
 ### THE SYSTEM SECTION (BENTO)
 - [ ] **SPEC 22** — Bento Card 01: THE SYSTEM (rotating status windows)
@@ -192,4 +192,11 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - HUD label reveals during portal expansion (GSAP scrub)
   - Ambient portal glow added to globals.css
   - `npm run build` passes
-- **Next Action**: Implement SPEC 21 — Origin copy block
+- **2026-05-07 — SPEC 21 Complete**:
+  - Added floating story panels below the portal in the About section
+  - Implemented second-person narrative for pre-system arc
+  - Panels slide in from left/right using GSAP ScrollTrigger
+  - Added Korean watermark 기원 (Origin) at 0.03 opacity
+  - Verified mobile stacking and zero horizontal overflow
+  - `npm run build` passes
+- **Next Action**: Implement SPEC 22 — Bento Card 01: THE SYSTEM
