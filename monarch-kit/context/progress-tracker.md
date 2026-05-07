@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**SPEC 12 Complete → Ready for SPEC 13**
+**SPEC 13 Complete → Ready for SPEC 14**
 
 ## Baseline State (Pre-Upscale)
 
@@ -29,7 +29,7 @@ The following components are working and must be preserved:
 
 ### NAV & GLOBAL REFINEMENTS
 - [x] **SPEC 12** — Story-based navigation labels + active section highlight ✅ (2026-05-06)
-- [ ] **SPEC 13** — Custom shadow energy cursor with ring + trail
+- [x] **SPEC 13** — Custom shadow energy cursor with ring + trail ✅ (2026-05-07)
 - [ ] **SPEC 14** — Gate-crack SVG preloader (2.4s, skippable)
 - [ ] **SPEC 15** — Film grain/noise texture global overlay
 - [ ] **SPEC 16** — Typography upgrade (Space Mono labels, clamp sizing)
@@ -143,4 +143,12 @@ The following assets are referenced in specs but may not exist yet. Use placehol
   - Korean watermark 초월 (TRANSCEND) added to Footer.tsx (replaced English "Monarch")
   - `.korean-watermark` reusable CSS class added to globals.css
   - `npm run build` passes — zero TypeScript errors, zero ESLint errors
-- **Next Action**: Implement SPEC 13 — Custom shadow cursor
+- **2026-05-07 — SPEC 13 Complete**:
+  - CustomShadowCursor component implemented with dot + ring
+  - 0.15 lerp damping for weighted ring lag
+  - Hover states for links (scale up) and videos (border color change)
+  - CursorWrapper implemented for desktop-only (pointer: fine) check
+  - Integrated into layout.tsx
+  - MutationObserver ensures dynamic content is also tracked
+  - `npm run build` passes — zero TypeScript errors
+- **Next Action**: Implement SPEC 14 — Gate-crack preloader

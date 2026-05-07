@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
 import './globals.css';
+import CursorWrapper from '@/components/CursorWrapper';
 
 export const metadata: Metadata = {
   title: 'MONARCH — Arise',
@@ -23,6 +24,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body suppressHydrationWarning className="bg-monarch-void text-monarch-text antialiased">
+        <CursorWrapper />
         {children}
       </body>
     </html>
