@@ -37,7 +37,7 @@ The following components are working and must be preserved:
 
 ### HERO SECTION
 - [x] **SPEC 18** — Hero 5-clip video structure (hexagonal containers) ✅ (2026-05-07)
-- [ ] **SPEC 19** — Hero hexagonal particle system (ice-eye blue upgrade)
+- [x] **SPEC 19** — Hero hexagonal particle system (ice-eye blue upgrade) ✅ (2026-05-07)
 
 ### ORIGIN SECTION
 - [ ] **SPEC 20** — Portal scroll expansion (Double Dungeon image)
