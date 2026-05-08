@@ -9,3 +9,6 @@ coverage/
 # Skills
 .agents/
 skills-lock.json
+
+# Kilo AI
+.kilo/
