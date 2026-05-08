@@ -174,7 +174,7 @@ const NavBar = () => {
     <>
       <div
         ref={navContainerRef}
-        className="fixed inset-x-0 top-4 z-50 h-16 border-none sm:inset-x-6"
+        className="fixed inset-x-6 top-4 z-50 h-16 border-none"
         style={{ willChange: "transform, opacity" }}
       >
         <header className="absolute top-1/2 w-full -translate-y-1/2">
@@ -216,24 +216,35 @@ const NavBar = () => {
             >
               {/* Background Glow */}
               <div 
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 pointer-events-none -z-10 opacity-70"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 pointer-events-none -z-10 opacity-70"
                 style={{
                   background: "radial-gradient(circle, rgba(200, 230, 255, 0.6) 0%, transparent 70%)",
-                  filter: "blur(6px)"
+                  filter: "blur(10px)"
                 }}
               />
-              <img src="/images/logo/logo.svg" alt="Monarch" className="h-7 w-auto" />
+              <img src="/images/logo/logo.svg" alt="Monarch" className="h-40 w-auto" />
             </a>
 
-            {/* Mobile ARISE CTA — right */}
-            <div className="md:hidden">
-              <Button
-                id="mobile-arise-cta"
-                title="Arise"
-                rightIcon={<TiLocationArrow />}
-                containerClass="bg-transparent border border-monarch-blue text-monarch-blue hover:bg-monarch-blue hover:text-monarch-void transition-all duration-300 flex items-center justify-center gap-1 !px-4 !py-2 text-xs"
-              />
-            </div>
+            {/* Mobile Audio Toggle — right aligned */}
+            <button
+              className="relative flex items-center space-x-1 py-2 md:hidden z-50"
+              onClick={toggleAudioIndicator}
+              aria-label={isAudioPlaying ? "Pause ambient audio" : "Play ambient audio"}
+              aria-pressed={isAudioPlaying}
+            >
+              {[1, 2, 3, 4].map((bar) => (
+                <div
+                  key={bar}
+                  className={`indicator-line ${isIndicatorActive ? "active" : ""}`}
+                  style={{
+                    animationDelay: `${bar * 0.1}s`,
+                    ["--animation-order" as any]: bar,
+                    height: "12px",
+                    width: "2px",
+                  }}
+                />
+              ))}
+            </button>
 
             {/* === DESKTOP LAYOUT (md+) === */}
             {/* Left nav group */}
@@ -317,6 +328,8 @@ const NavBar = () => {
                       style={{
                         animationDelay: `${bar * 0.1}s`,
                         ["--animation-order" as any]: bar,
+                        height: "12px",
+                        width: "2px",
                       }}
                     />
                   ))}
@@ -344,33 +357,15 @@ const NavBar = () => {
               </div>
             </div>
 
-            {/* Mobile audio toggle — always visible on mobile */}
-            <button
-              className="absolute right-20 top-1/2 -translate-y-1/2 flex items-center space-x-0.5 py-2 md:hidden"
-              onClick={toggleAudioIndicator}
-              aria-label={isAudioPlaying ? "Pause ambient audio" : "Play ambient audio"}
-              aria-pressed={isAudioPlaying}
-            >
-              {[1, 2, 3, 4].map((bar) => (
-                <div
-                  key={bar}
-                  className={`indicator-line ${isIndicatorActive ? "active" : ""}`}
-                  style={{
-                    animationDelay: `${bar * 0.1}s`,
-                    ["--animation-order" as any]: bar,
-                  }}
-                />
-              ))}
-            </button>
+
           </nav>
         </header>
       </div>
-
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay — Floating Card Style */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-40 flex flex-col bg-monarch-void/95 backdrop-blur-sm md:hidden transition-opacity duration-300 ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-x-6 top-24 bottom-6 z-40 flex flex-col floating-nav md:hidden transition-all duration-500 ease-monarch ${
+          menuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-10 pointer-events-none"
         }`}
       >
         <ul className="flex h-full flex-col items-center justify-center gap-8">
