@@ -214,7 +214,15 @@ const NavBar = () => {
               className="pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden"
               aria-label="Monarch home"
             >
-              <img src="/images/logo.svg" alt="Monarch" className="h-7 w-auto" />
+              {/* Background Glow */}
+              <div 
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 pointer-events-none -z-10 opacity-70"
+                style={{
+                  background: "radial-gradient(circle, rgba(200, 230, 255, 0.6) 0%, transparent 70%)",
+                  filter: "blur(6px)"
+                }}
+              />
+              <img src="/images/logo/logo.svg" alt="Monarch" className="h-7 w-auto" />
             </a>
 
             {/* Mobile ARISE CTA — right */}
@@ -236,7 +244,7 @@ const NavBar = () => {
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`nav-hover-btn ${
-                      activeSection === item.href.slice(1) ? "!text-monarch-blue" : ""
+                      activeSection === item.href.slice(1) ? "text-monarch-blue!" : ""
                     }`}
                   >
                     {item.label}
@@ -252,7 +260,15 @@ const NavBar = () => {
               className="pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block"
               aria-label="Monarch home"
             >
-              <img src="/logo/logo.svg" alt="Monarch" className="h-40 w-auto" />
+              {/* Background Glow */}
+              <div 
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 pointer-events-none -z-10"
+                style={{
+                  background: "radial-gradient(circle, rgba(200, 230, 255, 0.3) 0%, transparent 75%)",
+                  filter: "blur(12px)"
+                }}
+              />
+              <img src="/images/logo/logo.svg" alt="Monarch" className="h-40 w-auto" />
             </a>
 
             {/* Right nav group + ARISE CTA + Audio */}
@@ -264,7 +280,7 @@ const NavBar = () => {
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={`nav-hover-btn ${
-                        activeSection === item.href.slice(1) ? "!text-monarch-blue" : ""
+                        activeSection === item.href.slice(1) ? "text-monarch-blue!" : ""
                       }`}
                     >
                       {item.label}
