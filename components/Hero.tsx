@@ -291,7 +291,7 @@ const Hero = () => {
                 className="size-full object-cover object-center scale-110"
               />
               {/* Label overlay */}
-              <div className="absolute bottom-0 left-0 right-0 px-2 py-1 bg-gradient-to-t from-black/80 to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 px-2 py-1 bg-linear-to-t from-black/80 to-transparent">
                 <p
                   className="text-[8px] uppercase tracking-[0.2em] text-monarch-text-dim"
                   style={{ fontFamily: "var(--font-mono, monospace)" }}
