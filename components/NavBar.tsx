@@ -62,15 +62,19 @@ const NavBar = () => {
 
   // Audio bars entrance animation
   useGSAP(() => {
-    gsap.from(".indicator-line", {
-      scaleY: 0,
-      transformOrigin: "bottom center",
-      duration: 0.4,
-      stagger: 0.08,
-      ease: "power2.out",
-      delay: 0.6,
-    });
-  });
+    gsap.fromTo(
+      ".indicator-line",
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        transformOrigin: "bottom center",
+        duration: 0.4,
+        stagger: 0.08,
+        ease: "power2.out",
+        delay: 0.6,
+      }
+    );
+  }, { dependencies: [] });
 
   // Active section tracking via IntersectionObserver
   useEffect(() => {
@@ -107,7 +111,7 @@ const NavBar = () => {
 
       tlRef.current = tl;
     },
-    { scope: iconRef }
+    { scope: iconRef, dependencies: [] }
   );
 
   // Drive hamburger animation based on menuOpen state
@@ -335,25 +339,7 @@ const NavBar = () => {
                   ))}
                 </button>
 
-                {/* HUD tooltip */}
-                <div
-                  className="absolute -bottom-7 left-1/2 -translate-x-1/2 opacity-0 group-hover/audio:opacity-100 transition-opacity duration-200 pointer-events-none hidden md:block"
-                  aria-hidden="true"
-                >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-mono, 'Space Mono', monospace)",
-                      fontSize: "0.4rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.15em",
-                      color: "var(--ice-eye, #60A5FA)",
-                      whiteSpace: "nowrap",
-                      opacity: 0.7,
-                    }}
-                  >
-                    {isAudioPlaying ? "AMBIENT · ON" : "AMBIENT · OFF"}
-                  </p>
-                </div>
+
               </div>
             </div>
 

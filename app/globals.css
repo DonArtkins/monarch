@@ -592,14 +592,14 @@ body {
   height: 0.75rem;
   width: 2px;
   border-radius: 9999px;
-  background-color: var(--ice-eye, #60A5FA);
+  background-color: var(--monarch-ice-white, #f0f4ff);
   transition: all var(--monarch-duration-fast) ease-in-out;
 }
 
 .indicator-line.active {
   animation: indicator-line 0.5s ease infinite;
   animation-delay: calc(var(--animation-order) * 0.1s);
-  box-shadow: 0 0 8px var(--ice-eye, #60A5FA);
+  box-shadow: 0 0 8px var(--monarch-ice-white, #f0f4ff);
 }
 
 @keyframes indicator-line {
